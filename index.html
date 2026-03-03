@@ -152,3 +152,22 @@
 
 </body>
 </html>
+<script>
+const form = document.getElementById("reportForm");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwIprdyQbHiIQqLqzLdYF7D9Qjg51pq935NbuYKhb7li1H_xXdyHBABOH4deub85CXQ/exec";
+
+  await fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  });
+
+  alert("Report Submitted Securely ✅");
+  form.reset();
+});
+</script>
