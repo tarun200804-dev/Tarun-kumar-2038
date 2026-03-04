@@ -2,289 +2,243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness | THE TARUN KUMAR STUDIO</title>
+<title>Citizen Awareness Campaigns | The Reality Show</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-/* ===== GLOBAL ===== */
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background:#0b0b0f;
-    color:#f1f1f1;
-    scroll-behavior:smooth;
+    background:#0b0b0b;
+    color:white;
     overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter: blur(6px);
+    background:black;
+    padding:15px 50px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    z-index:1000;
-    border-bottom:1px solid #aa0000;
+    border-bottom:2px solid red;
 }
 
 .logo{
-    color:#ff1a1a;
-    font-weight:600;
+    color:red;
+    font-weight:bold;
+    font-size:20px;
     letter-spacing:2px;
 }
 
 nav a{
-    color:#ccc;
+    color:white;
+    margin-left:20px;
     text-decoration:none;
-    margin-left:25px;
     transition:0.3s;
 }
-
 nav a:hover{
-    color:#ff1a1a;
+    color:red;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
     height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
-    url("https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Constitution_of_India.jpg");
     background-size:cover;
     background-position:center;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding-top:80px;
+    animation:fadeIn 2s ease-in-out;
 }
 
 .hero h1{
-    font-size:64px;
-    font-weight:700;
+    font-size:55px;
+    color:red;
+    text-shadow:0 0 20px red;
+    animation:glow 3s infinite alternate;
+}
+
+.hero h2{
+    font-size:22px;
+    color:white;
     letter-spacing:3px;
-    margin:0;
-    animation:fadeUp 1.5s ease forwards;
 }
 
-.hero p{
-    max-width:800px;
-    margin-top:20px;
-    color:#ccc;
-    animation:fadeUp 2s ease forwards;
+@keyframes glow{
+    from{ text-shadow:0 0 10px red;}
+    to{ text-shadow:0 0 30px red;}
 }
 
-.author{
-    margin-top:25px;
-    font-size:20px;
-    color:#ff1a1a;
-    letter-spacing:1px;
-    animation:fadeUp 2.5s ease forwards;
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-/* ===== SECTION ===== */
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:80px 20px;
-    opacity:0;
-    transform:translateY(40px);
-    animation:fadeUp 1.2s ease forwards;
+/* NARRATION PANEL */
+.narration-panel{
+    background:#111;
+    padding:30px;
+    text-align:center;
+    border-top:2px solid red;
+    border-bottom:2px solid red;
 }
 
-@keyframes fadeUp{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.narration-panel button{
+    background:red;
+    border:none;
+    padding:10px 20px;
+    color:white;
+    cursor:pointer;
+    margin:5px;
 }
 
-h2{
-    color:#ff1a1a;
-    margin-bottom:20px;
-    border-left:4px solid #ff1a1a;
+.audio-wave{
+    height:20px;
+    width:100px;
+    margin:10px auto;
+    background:linear-gradient(90deg, red 10%, black 50%, red 90%);
+    animation:wave 1s infinite linear;
+}
+
+@keyframes wave{
+    0%{background-position:0%;}
+    100%{background-position:100%;}
+}
+
+/* SECTIONS */
+.section{
+    padding:70px 10%;
+    animation:fadeUp 1.5s ease-in-out;
+}
+
+.section h2{
+    color:red;
+    border-left:5px solid red;
     padding-left:10px;
 }
 
-details{
-    background:#14141a;
-    margin:20px 0;
-    padding:20px;
-    border-radius:8px;
-    border:1px solid #222;
-    transition:0.4s;
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-details:hover{
-    border:1px solid #aa0000;
-}
-
-summary{
-    font-size:18px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-p{
-    line-height:1.7;
-    color:#ddd;
-}
-
-/* ===== BUTTON ===== */
-button{
-    background:#aa0000;
-    color:white;
+button.article-btn{
+    background:red;
     border:none;
-    padding:10px 20px;
-    margin-top:15px;
-    border-radius:4px;
+    padding:8px 15px;
+    color:white;
     cursor:pointer;
-    transition:0.3s;
+    margin-top:15px;
 }
 
-button:hover{
-    background:#ff1a1a;
-}
-
-/* ===== SPEAKING HIGHLIGHT ===== */
-.speaking{
-    background:#330000;
-    padding:8px;
-    border-radius:6px;
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
+    background:black;
     text-align:center;
-    padding:30px;
-    background:#0b0b0f;
-    border-top:1px solid #aa0000;
-    color:#888;
+    padding:20px;
+    border-top:2px solid red;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">THE TARUN KUMAR STUDIO</div>
-    <nav>
-        <a href="#">Rights</a>
-        <a href="#">Duties</a>
-        <a href="#">Anti-Corruption</a>
-    </nav>
+<div class="logo">THE TARUN KUMAR STUDIO</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html#initiative">Initiative</a>
+<a href="index.html#timeline">Timeline</a>
+<a href="index.html#contact">Secure Report</a>
+</nav>
 </header>
 
-<div class="hero">
-    <h1>CITIZEN AWARENESS</h1>
-    <p>Understanding constitutional power, civic responsibility and anti-corruption safeguards.</p>
-    <div class="author">An Initiative by TARUN KUMAR</div>
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>TARUN KUMAR</h1>
+<h2>CITIZEN AWARENESS CAMPAIGN</h2>
 </div>
+</section>
 
-<section>
+<!-- NARRATION -->
+<section class="narration-panel">
+<h2>🎙 Constitutional AI Narration</h2>
+<div class="audio-wave"></div>
+<button onclick="stopVoice()">Stop Narration</button>
+<p id="speechText"></p>
+</section>
 
-<h2>Fundamental Rights</h2>
-
-<details onclick="speak('a14')">
-<summary>Article 14 – Right to Equality</summary>
-<p id="a14">
-Article 14 guarantees equality before the law and equal protection of the laws within the territory of India. 
-It ensures that no citizen is treated unfairly on arbitrary grounds. 
-The principle of rule of law ensures that governance remains transparent and accountable. 
-This Article prevents discrimination and strengthens democratic justice.
-</p>
-</details>
-
-<details onclick="speak('a19')">
-<summary>Article 19 – Right to Freedom</summary>
-<p id="a19">
-Article 19 grants freedom of speech, movement, assembly, association and profession. 
-These freedoms empower citizens to question, participate and contribute to democracy. 
-Reasonable restrictions protect sovereignty and public order.
-</p>
-</details>
-
-<h2>Fundamental Duties</h2>
-
+<!-- FUNDAMENTAL RIGHTS -->
+<section class="section">
+<h2>Fundamental Rights (Articles 12–35)</h2>
 <p>
-Fundamental Duties under Article 51A remind citizens that rights must be balanced with responsibilities. 
-Citizens must respect the Constitution, protect national unity, preserve cultural heritage, protect environment and promote harmony. 
-Duties strengthen democratic discipline and moral accountability.
+The Constitution of India guarantees six major Fundamental Rights to every citizen. 
+These rights protect individual freedom and ensure equality before law. 
+They include Right to Equality, Freedom, Protection from Exploitation, Freedom of Religion, 
+Cultural & Educational Rights, and Constitutional Remedies.
 </p>
+<button class="article-btn" onclick="speakRights()">Hear Detailed Explanation</button>
+</section>
 
-<h2>Anti-Corruption Laws</h2>
-
-<details onclick="speak('pca')">
-<summary>Prevention of Corruption Act, 1988</summary>
-<p id="pca">
-The Prevention of Corruption Act criminalizes bribery and abuse of official power. 
-Public servants accepting illegal gratification face prosecution. 
-The Act was strengthened in 2018 to enhance accountability and transparency in governance.
+<!-- FUNDAMENTAL DUTIES -->
+<section class="section">
+<h2>Fundamental Duties (Article 51A)</h2>
+<p>
+Fundamental Duties remind every citizen that rights come with responsibilities. 
+They include respecting the Constitution, national flag and anthem, 
+promoting harmony, protecting environment, safeguarding public property, 
+and striving towards excellence in all spheres.
 </p>
-</details>
+<button class="article-btn" onclick="speakDuties()">Hear Detailed Explanation</button>
+</section>
 
-<details onclick="speak('lokpal')">
-<summary>Lokpal and Lokayuktas Act, 2013</summary>
-<p id="lokpal">
-This Act established independent anti-corruption authorities to investigate complaints against ministers and public officials. 
-It strengthens institutional accountability and protects democratic integrity.
+<!-- ANTI CORRUPTION -->
+<section class="section">
+<h2>Anti-Corruption Laws in India</h2>
+<p>
+India has strong legal mechanisms to fight corruption including 
+Prevention of Corruption Act 1988, Lokpal and Lokayuktas Act 2013, 
+Right to Information Act 2005, and Whistle Blowers Protection Act 2014.
 </p>
-</details>
-
-<details onclick="speak('rti')">
-<summary>Right to Information Act, 2005</summary>
-<p id="rti">
-The RTI Act empowers citizens to request information from public authorities. 
-It enhances transparency and reduces corruption by enabling public oversight.
-</p>
-</details>
-
-<button onclick="stopSpeech()">Stop Narration</button>
-
+<button class="article-btn" onclick="speakCorruption()">Hear Detailed Explanation</button>
 </section>
 
 <footer>
-© THE TARUN KUMAR STUDIO | Citizen Awareness Initiative
+© THE REALITY SHOW | Developed & Provided Free by <span style="color:red;">TARUN KUMAR</span>
 </footer>
 
 <script>
+function stopVoice(){
+    speechSynthesis.cancel();
+}
 
-let speech;
-
-function speak(id){
-    window.speechSynthesis.cancel();
-
-    let el = document.getElementById(id);
-    let text = el.innerText;
-
-    speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-IN";
-    speech.rate = 1;
+function speakText(text){
+    speechSynthesis.cancel();
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.9;
     speech.pitch = 1;
-
-    el.classList.add("speaking");
-
-    speech.onend = function(){
-        el.classList.remove("speaking");
-    };
-
-    window.speechSynthesis.speak(speech);
+    speech.lang = "en-IN";
+    speechSynthesis.speak(speech);
+    document.getElementById("speechText").innerText = text;
 }
 
-function stopSpeech(){
-    window.speechSynthesis.cancel();
-    document.querySelectorAll(".speaking").forEach(el=>{
-        el.classList.remove("speaking");
-    });
+function speakRights(){
+    speakText("Fundamental Rights are the backbone of Indian democracy. Article 14 guarantees equality before law. Article 19 protects freedom of speech and expression. Article 21 ensures right to life and personal liberty. Article 32 allows citizens to approach Supreme Court for justice. These rights empower citizens against arbitrary state action.");
 }
 
+function speakDuties(){
+    speakText("Fundamental Duties under Article 51A encourage citizens to respect the Constitution, protect national unity, preserve cultural heritage, safeguard the environment, and promote harmony. These duties strengthen democracy and ensure responsible citizenship.");
+}
+
+function speakCorruption(){
+    speakText("India combats corruption through Prevention of Corruption Act 1988 which punishes bribery. The Lokpal and Lokayuktas Act 2013 establishes anti-corruption ombudsman. The Right to Information Act 2005 empowers citizens to demand transparency. These laws promote accountability in governance.");
+}
 </script>
 
 </body>
