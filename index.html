@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
-    <meta name="author" content="Tarun Kumar">
-    <title>The Reality Show - Tarun Kumar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
+<meta name="author" content="Tarun Kumar">
+<title>The Reality Show - Tarun Kumar</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tk.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tk.css">
+
+<style>
+/* ONLY globe positioning added – theme unchanged */
+.hero{
+    position: relative;
+    overflow: hidden;
+}
+
+#globe-container{
+    position: absolute;
+    width: 750px;
+    height: 750px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+}
+</style>
+
 </head>
 <body>
 
@@ -25,6 +51,10 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+
+    <!-- 3D Globe -->
+    <div id="globe-container"></div>
+
     <div class="hero-content">
         <h1>THE <span>REALITY SHOW</span></h1>
         <p>
@@ -65,7 +95,6 @@
     <h2 class="section-title">The National Initiative</h2>
 
     <div class="card-container">
-
         <a href="political-transparency.html" class="card-link">
             <div class="card">
                 <h3>Political Transparency</h3>
@@ -93,7 +122,6 @@
                 <p>Educating communities on rights and governance.</p>
             </div>
         </a>
-
     </div>
 </section>
 
@@ -131,8 +159,7 @@
     <form id="reportForm">
         <input type="text" name="name" placeholder="Full Name (Optional)">
         <input type="email" name="email" placeholder="Secure Email (Optional)">
-        <textarea name="message" rows="6"
-        placeholder="Describe the issue or provide evidence..."></textarea>
+        <textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
         <button type="submit">Submit Securely</button>
     </form>
 </section>
@@ -143,12 +170,56 @@
     Promoting lawful investigative reporting and transparency.
 </footer>
 
+<!-- ===== 3D GLOBE SCRIPT ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <script>
+const container = document.getElementById("globe-container");
 
-/* ======================
-   COUNTER ANIMATION
-====================== */
+if(container){
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+45,
+container.clientWidth / container.clientHeight,
+0.1,
+1000
+);
 
+const renderer = new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
+
+const geometry = new THREE.SphereGeometry(5,64,64);
+
+const texture = new THREE.TextureLoader().load(
+"https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg"
+);
+
+const material = new THREE.MeshStandardMaterial({map:texture});
+const globe = new THREE.Mesh(geometry, material);
+scene.add(globe);
+
+const light = new THREE.PointLight(0xffffff,1);
+light.position.set(10,10,10);
+scene.add(light);
+
+const ambient = new THREE.AmbientLight(0xffffff,0.3);
+scene.add(ambient);
+
+camera.position.z = 10;
+
+function animate(){
+requestAnimationFrame(animate);
+globe.rotation.y += 0.002;
+renderer.render(scene,camera);
+}
+animate();
+}
+</script>
+
+<!-- ===== YOUR ORIGINAL SCRIPT (UNCHANGED) ===== -->
+<script>
+/* COUNTER ANIMATION */
 const counters = document.querySelectorAll('.counter');
 let counterStarted = false;
 
@@ -157,7 +228,6 @@ function startCounters() {
         const updateCount = () => {
             const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-
             const speed = 200;
             const increment = target / speed;
 
@@ -184,33 +254,28 @@ window.addEventListener('scroll', () => {
     }
 });
 
-
-/* ======================
-   FORM SUBMISSION
-====================== */
-
+/* FORM SUBMISSION */
 const form = document.getElementById("reportForm");
 
 form.addEventListener("submit", async function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = new FormData(form);
-  const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+    const formData = new FormData(form);
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
 
-  try {
-      await fetch(scriptURL, {
-        method: "POST",
-        body: formData
-      });
+    try {
+        await fetch(scriptURL, {
+            method: "POST",
+            body: formData
+        });
 
-      alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
-      form.reset();
+        alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
+        form.reset();
 
-  } catch (error) {
-      alert("Submission failed. Please try again.");
-  }
+    } catch (error) {
+        alert("Submission failed. Please try again.");
+    }
 });
-
 </script>
 
 </body>
