@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness | The Reality Show</title>
+<title>Citizen Awareness | Constitutional Education</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,34 +10,11 @@
 /* ---------- GLOBAL ---------- */
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background:#000;
-    color:white;
+    color:#fff;
     line-height:1.9;
-}
-
-h1,h2{
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
-
-span{
-    color:#ff0000;
-}
-
-.section{
-    padding:70px 12%;
-    animation:fadeIn 1.5s ease-in-out;
-}
-
-.section h2{
-    color:red;
-    margin-bottom:20px;
-}
-
-.section p{
-    font-size:17px;
-    margin-bottom:20px;
+    scroll-behavior:smooth;
 }
 
 /* ---------- HEADER ---------- */
@@ -60,16 +37,18 @@ nav a{
     color:white;
     text-decoration:none;
     margin-left:20px;
+    transition:0.3s;
 }
 
 nav a:hover{
     color:red;
 }
 
-/* ---------- HERO WITH FADED CONSTITUTION ---------- */
+/* ---------- HERO ---------- */
 .hero{
-    height:90vh;
-    background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
+    height:95vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.92)),
     url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Constitution_of_India.jpg');
     background-size:cover;
     background-position:center;
@@ -80,32 +59,65 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:60px;
+    font-size:65px;
+    text-transform:uppercase;
+    color:red;
+    animation:glow 2s infinite alternate;
 }
 
 .hero p{
-    font-size:20px;
-    max-width:800px;
+    max-width:900px;
     margin:auto;
+    font-size:20px;
     margin-top:20px;
 }
 
-/* ---------- IMAGE STYLE ---------- */
+/* ---------- SHINING TEXT EFFECT ---------- */
+@keyframes glow{
+    from { text-shadow: 0 0 10px red; }
+    to { text-shadow: 0 0 25px crimson, 0 0 40px red; }
+}
+
+/* ---------- SECTIONS ---------- */
+.section{
+    padding:80px 12%;
+    animation:fadeIn 1.5s ease-in-out;
+}
+
+.section h2{
+    color:red;
+    font-size:32px;
+    margin-bottom:25px;
+    text-shadow:0 0 10px red;
+}
+
+.section p{
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+/* ---------- IMAGE ---------- */
 .image-box{
     text-align:center;
-    margin:40px 0;
+    margin:50px 0;
 }
 
 .image-box img{
     width:100%;
-    max-width:900px;
+    max-width:1000px;
     border:3px solid red;
-    border-radius:8px;
+    border-radius:10px;
+    transition:0.5s;
 }
 
-/* ---------- ANIMATION ---------- */
+.image-box img:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 30px red;
+}
+
+/* ---------- FADE ---------- */
 @keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
+    from{opacity:0; transform:translateY(40px);}
     to{opacity:1; transform:translateY(0);}
 }
 
@@ -113,7 +125,7 @@ nav a:hover{
 footer{
     background:#111;
     text-align:center;
-    padding:25px;
+    padding:30px;
     border-top:2px solid red;
 }
 
@@ -129,48 +141,68 @@ footer{
 </nav>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
 <div>
-<h1>CITIZEN <span>AWARENESS</span></h1>
+<h1>CITIZEN AWARENESS</h1>
 <p>
-An informed citizen is the backbone of democracy. 
-The Constitution of India guarantees rights, imposes duties, 
-and establishes safeguards to ensure justice, liberty, equality and fraternity.
+The Constitution of India is not just a legal document — it is the foundation of democracy, justice, liberty, equality and fraternity.
+Every citizen must understand their rights, duties and constitutional protections to safeguard the nation’s integrity.
 </p>
 </div>
 </section>
 
-<!-- FUNDAMENTAL RIGHTS -->
+<!-- INTRODUCTION -->
 <section class="section">
-<h2>Fundamental Rights (Part III | Articles 12–35)</h2>
+<h2>Introduction to the Constitution of India</h2>
 
 <p>
-Fundamental Rights protect individuals from arbitrary state actions and ensure dignity and freedom. These rights are enforceable in courts.
+The Constitution of India was adopted on 26 November 1949 and came into effect on 26 January 1950.
+It is the longest written Constitution in the world. It defines the structure of the government,
+distribution of powers, fundamental rights, directive principles, and duties of citizens.
 </p>
 
-<p><b>1. Right to Equality (Articles 14–18)</b><br>
-Ensures equality before law and prohibits discrimination on grounds of religion, race, caste, sex or place of birth. Abolishes untouchability and titles.
+<p>
+The Constitution establishes India as a Sovereign, Socialist, Secular, Democratic Republic.
+It guarantees justice — social, economic and political; liberty of thought and expression;
+equality of status and opportunity; and promotes fraternity assuring dignity and unity.
 </p>
 
-<p><b>2. Right to Freedom (Articles 19–22)</b><br>
-Includes freedom of speech and expression, assembly, association, movement, residence and profession. Protects life and personal liberty under Article 21.
+<div class="image-box">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Indian_Constitution.jpg/1280px-Indian_Constitution.jpg" alt="Indian Constitution">
+</div>
+
+</section>
+
+<!-- FUNDAMENTAL RIGHTS -->
+<section class="section">
+<h2>Fundamental Rights (Part III, Articles 12–35)</h2>
+
+<p><strong>Right to Equality (Articles 14–18):</strong>
+Ensures equality before law and prohibits discrimination on grounds of religion, race, caste, sex or place of birth.
+Abolishes untouchability (Article 17) and titles (Article 18).
 </p>
 
-<p><b>3. Right Against Exploitation (Articles 23–24)</b><br>
-Prohibits human trafficking, forced labour and child labour in hazardous employment.
+<p><strong>Right to Freedom (Articles 19–22):</strong>
+Includes freedom of speech and expression, peaceful assembly, association, movement,
+residence and profession. Article 21 protects life and personal liberty.
 </p>
 
-<p><b>4. Freedom of Religion (Articles 25–28)</b><br>
-Guarantees freedom of conscience and free profession, practice and propagation of religion.
+<p><strong>Right Against Exploitation (Articles 23–24):</strong>
+Prohibits human trafficking, forced labour and child labour.
 </p>
 
-<p><b>5. Cultural & Educational Rights (Articles 29–30)</b><br>
-Protects minority rights to conserve language, script and culture and establish educational institutions.
+<p><strong>Freedom of Religion (Articles 25–28):</strong>
+Guarantees freedom of conscience and religion.
 </p>
 
-<p><b>6. Right to Constitutional Remedies (Article 32)</b><br>
-Allows citizens to approach the Supreme Court for enforcement of rights through writs like Habeas Corpus, Mandamus, Certiorari, Prohibition and Quo Warranto.
+<p><strong>Cultural and Educational Rights (Articles 29–30):</strong>
+Protects minority rights to preserve culture and establish institutions.
+</p>
+
+<p><strong>Right to Constitutional Remedies (Article 32):</strong>
+Allows citizens to approach Supreme Court through writs like Habeas Corpus, Mandamus,
+Certiorari, Prohibition and Quo Warranto.
 </p>
 
 <div class="image-box">
@@ -179,45 +211,38 @@ Allows citizens to approach the Supreme Court for enforcement of rights through 
 
 </section>
 
+<!-- DIRECTIVE PRINCIPLES -->
+<section class="section">
+<h2>Directive Principles of State Policy (Part IV)</h2>
+
+<p>
+Directive Principles guide the government in making laws for social and economic welfare.
+Though not enforceable in courts, they aim to create a welfare state.
+These include equal pay for equal work, free legal aid, protection of environment,
+promotion of education and public health.
+</p>
+</section>
+
 <!-- FUNDAMENTAL DUTIES -->
 <section class="section">
 <h2>Fundamental Duties (Article 51A)</h2>
 
 <p>
-Added by the 42nd Constitutional Amendment (1976), Fundamental Duties remind citizens that rights come with responsibilities.
-</p>
-
-<p>
-These include respecting the Constitution, national flag and anthem; cherishing freedom struggle ideals; protecting sovereignty and unity of India; promoting harmony; safeguarding public property; protecting the environment; developing scientific temper; and striving for excellence.
-</p>
-
-<p>
-Democracy survives only when citizens actively uphold constitutional values and participate responsibly in governance.
+Added by the 42nd Amendment (1976), these duties include respecting the Constitution,
+promoting harmony, protecting environment, safeguarding public property,
+developing scientific temper and striving for excellence.
 </p>
 </section>
 
 <!-- ANTI CORRUPTION -->
 <section class="section">
-<h2>Anti-Corruption Laws & Safeguards</h2>
-
-<p><b>Prevention of Corruption Act, 1988</b><br>
-Defines offences related to bribery and misuse of public office. Strengthens accountability of public servants.
-</p>
-
-<p><b>Right to Information Act, 2005</b><br>
-Empowers citizens to seek information from public authorities, ensuring transparency and reducing corruption.
-</p>
-
-<p><b>Lokpal and Lokayuktas Act, 2013</b><br>
-Establishes independent bodies to investigate corruption allegations against public officials.
-</p>
-
-<p><b>Whistle Blowers Protection Act, 2014</b><br>
-Provides protection to individuals exposing corruption.
-</p>
+<h2>Anti-Corruption Laws in India</h2>
 
 <p>
-Anti-corruption laws are tools for citizens to demand accountability and ensure ethical governance.
+The Prevention of Corruption Act, 1988 penalizes bribery and misuse of power.
+The Right to Information Act, 2005 empowers citizens to demand transparency.
+The Lokpal and Lokayuktas Act, 2013 establishes independent anti-corruption bodies.
+The Whistle Blowers Protection Act, 2014 protects those exposing corruption.
 </p>
 
 <div class="image-box">
@@ -226,14 +251,15 @@ Anti-corruption laws are tools for citizens to demand accountability and ensure 
 
 </section>
 
-<!-- PARTICIPATION -->
+<!-- ROLE -->
 <section class="section">
 <h2>Role of an Aware Citizen</h2>
 
 <p>
-An aware citizen votes responsibly, questions injustice, respects diversity, protects public resources, and promotes constitutional morality. Awareness transforms democracy from a system of governance into a system of collective responsibility.
+An aware citizen participates in elections, respects diversity,
+questions injustice lawfully, protects national unity and promotes constitutional values.
+Democracy survives not merely by voting, but by active civic responsibility.
 </p>
-
 </section>
 
 <footer>
