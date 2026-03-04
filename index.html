@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Reality Show - A platform dedicated to uncovering corruption and promoting transparency in government.">
+    <meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
     <meta name="author" content="Tarun Kumar">
     <title>The Reality Show - Tarun Kumar</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tk.css">
 </head>
@@ -14,7 +15,7 @@
 <header>
     <div class="logo">THE TARUN KUMAR STUDIO</div>
     <nav>
-        <a href="#home">Home</a>
+        <a href="index.html">Home</a>
         <a href="#about">About</a>
         <a href="#initiative">Initiative</a>
         <a href="#timeline">Timeline</a>
@@ -27,9 +28,8 @@
     <div class="hero-content">
         <h1>THE <span>REALITY SHOW</span></h1>
         <p>
-            The Reality Show, developed by Tarun Kumar, is a platform dedicated to uncovering corruption, 
-            abuse of authority, and systemic failures within political frameworks. We are committed to 
-            transparency, accountability, and investigative journalism.
+            A platform committed to investigative transparency, evidence-based reporting,
+            and responsible public disclosure.
         </p>
         <a href="#initiative" class="btn">Enter Investigation</a>
     </div>
@@ -39,12 +39,9 @@
 <section id="about">
     <h2 class="section-title">About Tarun Kumar</h2>
     <p>
-        The Reality Show is a pioneering platform where an 18-year-old dedicated activist is working to 
-        reveal the true reality of our nation's systems at the grassroots level. As a responsible citizen 
-        of this country, Tarun Kumar believes it is his duty to serve the greater good of our nation. 
-        He seeks support from citizens, organizations, and stakeholders to amplify this important initiative. 
-        Every small step brings us closer to systemic change. <strong>"Satya Meva Jayate" (Truth Prevails) 
-        and "Jai Hind" (Glory to India)</strong> remain the guiding principles of this movement.
+        The Reality Show is an independent initiative focused on civic awareness,
+        ethical investigation, and accountability in governance.
+        Guided by the principles of truth, law, and public responsibility.
     </p>
 
     <div class="stats">
@@ -68,29 +65,35 @@
     <h2 class="section-title">The National Initiative</h2>
 
     <div class="card-container">
-        <div class="card">
-            <h3>Political Transparency</h3>
-            <p>One-on-one conversations with politicians and government officials to discuss accountability, 
-            policies, and their impact on citizens. Direct dialogue for informed governance.</p>
-        </div>
 
-        <div class="card">
-            <h3>Whistleblower Shield</h3>
-            <p>Comprehensive protection and confidential investigation into government and private sector 
-            misconduct, corruption, and systemic failures affecting the public.</p>
-        </div>
+        <a href="political-transparency.html" class="card-link">
+            <div class="card">
+                <h3>Political Transparency</h3>
+                <p>Direct dialogue and accountability discussions.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <h3>Evidence-Based Reporting</h3>
-            <p>Rigorous verification and documentation of all claims before publication or broadcast. 
-            Every investigation is backed by credible evidence and expert analysis.</p>
-        </div>
+        <a href="whistleblower.html" class="card-link">
+            <div class="card">
+                <h3>Whistleblower Shield</h3>
+                <p>Confidential investigation of misconduct.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <h3>Citizen Awareness Campaigns</h3>
-            <p>Educating citizens about governance systems, constitutional rights, and civic accountability. 
-            Empowering communities to demand transparency and justice.</p>
-        </div>
+        <a href="evidence-reporting.html" class="card-link">
+            <div class="card">
+                <h3>Evidence-Based Reporting</h3>
+                <p>Verified documentation and analysis.</p>
+            </div>
+        </a>
+
+        <a href="citizen-awareness.html" class="card-link">
+            <div class="card">
+                <h3>Citizen Awareness Campaigns</h3>
+                <p>Educating communities on rights and governance.</p>
+            </div>
+        </a>
+
     </div>
 </section>
 
@@ -100,27 +103,23 @@
 
     <div class="timeline">
         <div class="timeline-item">
-            <h4>Phase 1 – Data Collection & Field Research</h4>
-            <p>Gathering authentic accounts from citizens experiencing systemic failures and broken promises. 
-            Field investigations to understand ground-level realities and public grievances.</p>
+            <h4>Phase 1 – Data Collection</h4>
+            <p>Authentic accounts and verified documentation.</p>
         </div>
 
         <div class="timeline-item">
             <h4>Phase 2 – Verification & Legal Review</h4>
-            <p>Cross-checking all evidence with independent analysts, legal experts, and subject matter specialists. 
-            Ensuring accuracy and legal compliance of all findings.</p>
+            <p>Cross-checking evidence with experts.</p>
         </div>
 
         <div class="timeline-item">
             <h4>Phase 3 – Documentary Reconstruction</h4>
-            <p>Creating comprehensive case narratives, establishing timelines, and structuring documented episodes. 
-            Building compelling stories backed by factual evidence.</p>
+            <p>Structuring findings with clarity.</p>
         </div>
 
         <div class="timeline-item">
-            <h4>Phase 4 – Public Disclosure & Impact</h4>
-            <p>Broadcasting and publishing findings responsibly with documented proof and public interest focus. 
-            Driving systemic change through informed public discourse.</p>
+            <h4>Phase 4 – Public Disclosure</h4>
+            <p>Responsible publishing in public interest.</p>
         </div>
     </div>
 </section>
@@ -128,27 +127,22 @@
 <!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Secure & Confidential Report</h2>
-    <p>Submit verified information securely. Your identity and information confidentiality are our highest priority. 
-    All submissions are carefully reviewed and handled with utmost discretion.</p>
 
-    <form>
-        <input type="text" placeholder="Full Name (Optional)" aria-label="Your full name">
-        <input type="email" placeholder="Secure Email (Optional)" aria-label="Your email address">
-        <textarea rows="6" placeholder="Describe the issue, evidence, or misconduct. Provide as much detail as possible..." 
-        aria-label="Description of the issue or evidence"></textarea>
+    <form id="reportForm">
+        <input type="text" name="name" placeholder="Full Name (Optional)">
+        <input type="email" name="email" placeholder="Secure Email (Optional)">
+        <textarea name="message" rows="6"
+        placeholder="Describe the issue or provide evidence..."></textarea>
         <button type="submit">Submit Securely</button>
     </form>
 </section>
 
 <footer>
-    © THE REALITY SHOW | Developed by Tarun Kumar  
+    © THE REALITY SHOW | Developed by Tarun Kumar
     <br>
-    This platform promotes transparency, accountability, and lawful investigative reporting.
-    <br>
-    <p style="font-size: 0.9em; margin-top: 10px;">
-        "Satya Meva Jayate" - Truth Alone Triumphs | "Jai Hind" - Glory to India
-    </p>
+    Promoting lawful investigative reporting and transparency.
 </footer>
+
 <script>
 const form = document.getElementById("reportForm");
 
@@ -157,17 +151,22 @@ form.addEventListener("submit", async function(e) {
 
   const formData = new FormData(form);
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwyuOEJtRczU0dxqE5IaS-jSJodkyp6-V9V-0jOcHtiArlUl5ZP94-Ayoun6ZyxIq_n/exec";
+  const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
 
-  await fetch(scriptURL, {
-    method: "POST",
-    body: formData
-  });
+  try {
+      await fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      });
 
-  alert("Report Submitted Securely ✅");
-  form.reset();
+      alert("Report Submitted Securely ✅");
+      form.reset();
+
+  } catch (error) {
+      alert("Submission failed. Please try again.");
+  }
 });
 </script>
+
 </body>
 </html>
-
