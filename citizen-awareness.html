@@ -2,24 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness | TARUN KUMAR</title>
+<title>Citizen Awareness | THE TARUN KUMAR STUDIO</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
+/* ===== GLOBAL ===== */
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background:black;
     color:white;
     scroll-behavior:smooth;
 }
 
+/* ===== HEADER ===== */
+header{
+    position:fixed;
+    width:100%;
+    background:black;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border-bottom:2px solid red;
+}
+
+.logo{
+    color:red;
+    font-weight:bold;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:red;
+}
+
+/* ===== HERO ===== */
 .hero{
     height:100vh;
     background:
     linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-    url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Constitution_of_India.jpg");
+    url("https://images.unsplash.com/photo-1581091215367-59ab6b0b8c3f?auto=format&fit=crop&w=1600&q=80");
     background-size:cover;
     background-position:center;
     display:flex;
@@ -27,17 +60,23 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding-top:80px;
 }
 
 .hero h1{
-    font-size:65px;
+    font-size:70px;
     color:red;
     animation:glow 2s infinite alternate;
 }
 
 @keyframes glow{
     from{ text-shadow:0 0 15px red;}
-    to{ text-shadow:0 0 40px crimson;}
+    to{ text-shadow:0 0 50px crimson;}
+}
+
+.hero p{
+    max-width:800px;
+    font-size:20px;
 }
 
 .tarun{
@@ -46,10 +85,11 @@ body{
     text-shadow:0 0 20px gold;
 }
 
+/* ===== AUDIO SECTION ===== */
 #audioSection{
     text-align:center;
     padding:40px;
-    background:#111;
+    background:#0a0a0a;
     border-top:2px solid red;
     border-bottom:2px solid red;
 }
@@ -57,22 +97,41 @@ body{
 .visualizer{
     display:flex;
     justify-content:center;
-    gap:5px;
+    gap:6px;
     margin-top:15px;
 }
 
 .bar{
-    width:5px;
+    width:6px;
     height:20px;
     background:red;
     animation:wave 1s infinite ease-in-out;
 }
 
+.bar:nth-child(2){animation-delay:0.2s;}
+.bar:nth-child(3){animation-delay:0.4s;}
+.bar:nth-child(4){animation-delay:0.6s;}
+
 @keyframes wave{
     0%,100%{height:20px;}
-    50%{height:60px;}
+    50%{height:70px;}
 }
 
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:white;
+    color:red;
+}
+
+/* ===== CONTENT ===== */
 section{
     padding:60px 20px;
     max-width:1000px;
@@ -103,45 +162,16 @@ summary{
     cursor:pointer;
 }
 
-button{
-    background:red;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    background:white;
-    color:red;
-}
-
 .speaking{
     background:red;
     padding:5px;
     border-radius:5px;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-th,td{
-    border:1px solid red;
-    padding:10px;
-}
-
-th{
-    background:red;
-}
-
 footer{
     text-align:center;
     padding:20px;
-    background:#111;
+    background:black;
     border-top:2px solid red;
 }
 
@@ -150,16 +180,27 @@ footer{
 
 <body>
 
+<header>
+    <div class="logo">THE TARUN KUMAR STUDIO</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Rights</a>
+        <a href="#">Duties</a>
+        <a href="#">Anti-Corruption</a>
+    </nav>
+</header>
+
 <div class="hero">
     <h1>CITIZEN AWARENESS</h1>
-    <p>Complete Constitutional Knowledge Platform</p>
-    <h2>Provided Free by <span class="tarun">TARUN KUMAR</span></h2>
+    <p>A powerful constitutional awareness platform exposing truth, empowering citizens, and strengthening democracy.</p>
+    <h2>Presented by <span class="tarun">TARUN KUMAR</span></h2>
 </div>
 
 <div id="audioSection">
     <h2>Article Voice Narration System</h2>
-    <p>Click on any Article or Law below to hear detailed AI explanation.</p>
+    <p>Click on any Article or Law to hear detailed AI explanation.</p>
     <button onclick="stopSpeech()">Stop Narration</button>
+
     <div class="visualizer">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -176,100 +217,64 @@ footer{
 <summary>Article 14 – Right to Equality</summary>
 <p id="a14">
 Article 14 guarantees equality before law and equal protection of laws. 
-It ensures that every citizen is treated equally regardless of religion, caste, gender or status. 
-The principle of rule of law prevents arbitrary government actions. 
-Reasonable classification is allowed but discrimination is prohibited. 
-The judiciary ensures enforcement through judicial review. 
-Equality strengthens democracy and ensures fairness in governance.
+It ensures no citizen is above the law and no citizen is denied protection. 
+This prevents arbitrary state action and strengthens rule of law. 
+Equality is the foundation of democracy and ensures justice, fairness and non-discrimination in governance.
 </p>
 </details>
 
 <details onclick="speakArticle('a19')">
 <summary>Article 19 – Right to Freedom</summary>
 <p id="a19">
-Article 19 grants six essential freedoms including speech, expression, assembly, movement, residence and profession. 
-These freedoms enable participation in democracy. 
-Reasonable restrictions exist to protect sovereignty, public order and morality. 
-Freedom of speech allows constructive criticism of government policies. 
-Freedom of profession ensures economic independence.
+Article 19 grants freedom of speech, expression, movement, assembly and profession. 
+These freedoms empower citizens to question authority and participate in democracy. 
+Reasonable restrictions protect sovereignty and public order.
 </p>
 </details>
 
 <details onclick="speakArticle('a21')">
 <summary>Article 21 – Right to Life and Liberty</summary>
 <p id="a21">
-Article 21 ensures protection of life and personal liberty. 
-It includes right to dignity, privacy, clean environment and legal aid. 
-No person can be deprived of liberty without due process of law. 
-It is one of the most powerful protections in the Constitution.
+Article 21 protects life and personal liberty. 
+It includes dignity, privacy, clean environment and legal protection. 
+It is one of the most powerful safeguards in the Constitution.
 </p>
 </details>
 
-<h2>Fundamental Duties (Article 51A)</h2>
-
+<h2>Fundamental Duties</h2>
 <p>
-Fundamental Duties were added by the 42nd Constitutional Amendment in 1976. 
-These duties remind citizens that rights come with responsibilities. 
-Every citizen must respect the Constitution, National Flag and National Anthem. 
-Citizens must protect sovereignty, unity and integrity of India. 
-It is the duty of every individual to promote harmony and brotherhood beyond religious, linguistic or regional differences. 
-
-Protecting environment including forests, lakes and wildlife is also a constitutional duty. 
-Citizens must safeguard public property and avoid violence. 
-Developing scientific temper, humanism and spirit of inquiry is essential for national progress. 
-Parents or guardians must provide opportunities for education to children between 6 and 14 years of age.
-
-Fundamental Duties are not directly enforceable by courts but they guide responsible citizenship. 
-A strong democracy depends not only on rights but also on disciplined and aware citizens.
+Every citizen must respect the Constitution, protect unity, promote harmony, safeguard public property and protect the environment. 
+Duties balance rights and create responsible citizenship.
 </p>
 
-<h2>Anti-Corruption Laws of India</h2>
+<h2>Anti-Corruption Laws</h2>
 
 <details onclick="speakArticle('pca')">
 <summary>Prevention of Corruption Act, 1988</summary>
 <p id="pca">
-The Prevention of Corruption Act criminalizes bribery and misuse of official position. 
-Public servants accepting illegal gratification can be prosecuted. 
-The Act was amended in 2018 to strengthen provisions and make bribery of public servants punishable. 
-It aims to maintain integrity in public administration.
+This Act criminalizes bribery and misuse of public office. 
+It ensures accountability of public servants and promotes integrity in governance.
 </p>
 </details>
 
 <details onclick="speakArticle('lokpal')">
 <summary>Lokpal and Lokayuktas Act, 2013</summary>
 <p id="lokpal">
-This Act established the Lokpal at the central level and Lokayuktas in states to investigate corruption complaints against public officials including ministers. 
-It promotes transparency and accountability in governance.
+This Act establishes independent authorities to investigate corruption against public officials and ministers.
 </p>
 </details>
 
 <details onclick="speakArticle('rti')">
 <summary>Right to Information Act, 2005</summary>
 <p id="rti">
-The RTI Act empowers citizens to request information from public authorities. 
-It enhances transparency and reduces corruption by making government accountable to the public.
+RTI empowers citizens to access government information and enhances transparency in governance.
 </p>
 </details>
-
-<h2>Important Articles Table</h2>
-
-<table>
-<tr><th>Article</th><th>Purpose</th></tr>
-<tr><td>14</td><td>Equality before law</td></tr>
-<tr><td>19</td><td>Freedom Rights</td></tr>
-<tr><td>21</td><td>Right to Life</td></tr>
-<tr><td>51A</td><td>Fundamental Duties</td></tr>
-</table>
-
-<h2>Official Constitution PDF</h2>
-<p>
-<a href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" target="_blank" style="color:red;">Download Constitution of India</a>
-</p>
 
 </section>
 
 <footer>
-© Citizen Awareness Initiative | Developed by <span class="tarun">TARUN KUMAR</span>
+© THE TARUN KUMAR STUDIO | Citizen Awareness Initiative
 </footer>
 
 <script>
