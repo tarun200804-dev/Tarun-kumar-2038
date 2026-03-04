@@ -2,92 +2,112 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness Campaigns | The Reality Show</title>
+<title>Citizen Awareness | The Reality Show</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Comprehensive guide to rights, duties, and constitutional protections of Indian citizens.">
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="Rights, Duties and Constitutional Awareness for Indian Citizens">
 
 <style>
 
-/* ===== HERO ===== */
-.awareness-hero{
-    height:85vh;
-    background:
-    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
-    url('https://images.unsplash.com/photo-1551836022-d5d88e9218df');
+/* ---------- GLOBAL ---------- */
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#000;
+    color:white;
+    line-height:1.8;
+}
+
+h1,h2{
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+span{
+    color:#ff0000;
+}
+
+.section{
+    padding:60px 10%;
+}
+
+/* ---------- HEADER ---------- */
+header{
+    background:#111;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid red;
+}
+
+.logo{
+    font-weight:bold;
+    font-size:20px;
+    color:red;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:red;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1581093588401-22c3f6f48f33?auto=format&fit=crop&w=1600&q=80');
     background-size:cover;
     background-position:center;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:0 20px;
 }
 
-.hero-content h1{
-    font-size:70px;
-    font-family:'Oswald',sans-serif;
-    letter-spacing:4px;
-    animation:glow 3s infinite alternate;
+.hero h1{
+    font-size:50px;
+    animation:fadeIn 2s ease-in-out;
 }
 
-.hero-content span{
-    color:#ff1a1a;
-}
-
-.hero-content p{
-    margin-top:25px;
-    max-width:800px;
-    font-size:18px;
-    line-height:1.8;
-    animation:fadeUp 2s ease forwards;
-}
-
-/* Glow animation */
-@keyframes glow{
-    from{ text-shadow:0 0 10px rgba(255,26,26,0.6);}
-    to{ text-shadow:0 0 30px rgba(255,26,26,1);}
-}
-
-/* Reveal animation */
-.reveal{
-    opacity:0;
-    transform:translateY(60px);
-    transition:all 1s ease;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* Content Styling */
-.content-section{
-    max-width:1000px;
+.hero p{
+    max-width:700px;
     margin:auto;
-    line-height:1.9;
-    font-size:17px;
-    color:#ccc;
+    margin-top:20px;
+    font-size:18px;
+    animation:fadeIn 3s ease-in-out;
 }
 
-.content-section img{
-    width:100%;
-    margin:40px 0;
-    border-radius:10px;
-    box-shadow:0 20px 60px rgba(255,26,26,0.2);
-    transition:0.5s;
-}
-
-.content-section img:hover{
-    transform:scale(1.03);
-}
-
-.content-section h3{
-    color:#ff1a1a;
+/* ---------- IMAGE SECTION ---------- */
+.image-box{
+    text-align:center;
     margin-top:40px;
-    margin-bottom:15px;
-    font-family:'Oswald',sans-serif;
-    font-size:26px;
+}
+
+.image-box img{
+    width:100%;
+    max-width:900px;
+    border:3px solid red;
+    border-radius:10px;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+    background:#111;
+    padding:20px;
+    text-align:center;
+    border-top:2px solid red;
 }
 
 </style>
@@ -99,123 +119,83 @@
     <div class="logo">THE TARUN KUMAR STUDIO</div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="#rights">Rights</a>
-        <a href="#duties">Duties</a>
-        <a href="#schemes">Schemes</a>
+        <a href="index.html#initiative">Initiative</a>
+        <a href="index.html#contact">Secure Report</a>
     </nav>
 </header>
 
-<section class="awareness-hero">
-    <div class="hero-content">
+<!-- HERO SECTION -->
+<section class="hero">
+    <div>
         <h1>CITIZEN <span>AWARENESS</span></h1>
         <p>
-            A powerful democratic nation depends on informed citizens. 
-            Understanding constitutional rights, civic duties, and public welfare 
-            protections empowers every Indian to participate responsibly in governance.
+        An informed citizen is the strongest pillar of democracy.
+        Understanding the Constitution of India empowers every individual 
+        to protect their rights and fulfill their responsibilities.
         </p>
     </div>
 </section>
 
-<section id="rights" class="content-section reveal">
-    <h2 class="section-title">Fundamental Rights of Indian Citizens</h2>
-
+<!-- RIGHTS SECTION -->
+<section class="section">
+    <h2>Fundamental <span>Rights</span></h2>
     <p>
-        The Constitution of India guarantees Fundamental Rights under Part III to ensure
-        dignity, equality, and freedom for every citizen. These rights protect individuals
-        against arbitrary state action and ensure justice in a democratic society.
+    The Constitution of India guarantees Fundamental Rights to every citizen.
+    These include the Right to Equality (Article 14–18), Right to Freedom 
+    (Article 19–22), Right against Exploitation, Right to Freedom of Religion,
+    Cultural and Educational Rights, and the Right to Constitutional Remedies.
+    These rights ensure that no citizen is discriminated against on the basis of 
+    religion, caste, gender, or place of birth. They protect freedom of speech,
+    expression, peaceful assembly, and movement across the country.
     </p>
 
-    <h3>Right to Equality (Articles 14–18)</h3>
-    <p>
-        Every citizen is equal before the law. Discrimination on the basis of religion,
-        caste, gender, or place of birth is strictly prohibited. This ensures fairness
-        and equal protection in all public matters.
-    </p>
+    <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1607853554439-0069ec0f29b3?auto=format&fit=crop&w=1200&q=80" alt="Indian Constitution Book">
+    </div>
+</section>
 
-    <h3>Right to Freedom (Articles 19–22)</h3>
+<!-- DUTIES SECTION -->
+<section class="section">
+    <h2>Fundamental <span>Duties</span></h2>
     <p>
-        Citizens enjoy freedom of speech and expression, peaceful assembly, movement
-        throughout India, residence in any part of the country, and choice of profession.
-        These freedoms form the backbone of democracy.
-    </p>
-
-    <img src="https://images.unsplash.com/photo-1602576666092-bf6447a729fc" alt="Indian Flag">
-
-    <h3>Right to Life and Personal Liberty (Article 21)</h3>
-    <p>
-        This is one of the most powerful rights. It ensures the right to live with dignity,
-        access to education, privacy, and protection from unlawful detention.
+    Along with rights, citizens have Fundamental Duties under Article 51A.
+    These include respecting the Constitution, national flag and anthem,
+    protecting public property, promoting harmony, safeguarding the environment,
+    and developing scientific temper. Democracy survives only when citizens 
+    actively participate in nation-building and uphold constitutional values.
     </p>
 </section>
 
-<section id="duties" class="content-section reveal">
-    <h2 class="section-title">Fundamental Duties</h2>
-
+<!-- GOVERNMENT SCHEMES -->
+<section class="section">
+    <h2>Constitutional <span>Safeguards & Aids</span></h2>
     <p>
-        While rights empower citizens, duties ensure responsibility. Article 51A lists
-        duties that promote unity, integrity, and national development.
+    The Indian Constitution also provides mechanisms like Public Interest 
+    Litigation (PIL), Right to Information (RTI), and independent judiciary 
+    to protect citizens from injustice. Welfare schemes such as legal aid 
+    services, social justice reservations, and minority protections are rooted 
+    in constitutional principles to ensure inclusive growth.
     </p>
 
-    <h3>Key Responsibilities Include:</h3>
-    <p>
-        Respecting the Constitution and National Symbols, promoting harmony,
-        protecting public property, safeguarding the environment, and developing
-        scientific temper are essential for strengthening democracy.
-    </p>
-
-    <img src="https://images.unsplash.com/photo-1581091870627-3aab60c4c1de" alt="Indian Constitution">
-
+    <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1591696331111-ef9586a5b17c?auto=format&fit=crop&w=1200&q=80" alt="Indian Parliament">
+    </div>
 </section>
 
-<section id="schemes" class="content-section reveal">
-    <h2 class="section-title">Government Welfare Schemes</h2>
-
+<!-- PARTICIPATION -->
+<section class="section">
+    <h2>Active <span>Citizen Participation</span></h2>
     <p>
-        The Indian government runs numerous schemes to support education, healthcare,
-        employment, and food security.
-    </p>
-
-    <h3>Right to Education</h3>
-    <p>
-        Free and compulsory education for children aged 6–14 ensures equal learning
-        opportunities.
-    </p>
-
-    <h3>Public Distribution System (PDS)</h3>
-    <p>
-        Provides subsidized food grains to economically weaker sections.
-    </p>
-
-    <h3>MGNREGA</h3>
-    <p>
-        Guarantees 100 days of wage employment to rural households, reducing poverty.
-    </p>
-
-    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3" alt="Healthcare Scheme">
-
-    <p>
-        Awareness of these schemes ensures that citizens receive the benefits
-        guaranteed by law and prevents exploitation or misinformation.
+    Citizen awareness goes beyond knowledge. It requires active participation 
+    in voting, attending public forums, questioning authorities responsibly, 
+    and standing against corruption. An aware citizen strengthens transparency, 
+    accountability, and good governance.
     </p>
 </section>
 
 <footer>
     © THE REALITY SHOW | Developed by Tarun Kumar
 </footer>
-
-<script>
-function reveal(){
-    var reveals = document.querySelectorAll(".reveal");
-    for(var i = 0; i < reveals.length; i++){
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        if(elementTop < windowHeight - 100){
-            reveals[i].classList.add("active");
-        }
-    }
-}
-window.addEventListener("scroll", reveal);
-</script>
 
 </body>
 </html>
