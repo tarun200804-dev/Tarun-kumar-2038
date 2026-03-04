@@ -11,7 +11,7 @@ body{
     background:#06060a;
     color:#e6e6e6;
     font-family:'Poppins',sans-serif;
-    padding-top:80px; /* FIXED HEADER SPACE */
+    padding-top:80px;
 }
 
 /* HEADER */
@@ -78,7 +78,6 @@ nav a:hover::after{
     padding:0 80px;
 }
 
-/* Secondary Page Hero */
 .page-hero{
     height:60vh;
     background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.95));
@@ -154,6 +153,8 @@ section{
     text-align:center;
     border-radius:5px;
     transition:all 0.3s;
+    position:relative;
+    overflow:hidden;
 }
 
 .stat:hover{
@@ -161,11 +162,43 @@ section{
     box-shadow:0 10px 30px rgba(255,26,26,0.2);
 }
 
+/* Shine animation */
+.stat::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,26,26,0.08),
+        transparent
+    );
+    transition:0.6s;
+}
+
+.stat:hover::after{
+    left:100%;
+}
+
 .stat h2{
     font-size:48px;
     color:#ff1a1a;
     margin-bottom:10px;
     font-family:'Oswald',sans-serif;
+    transition:all 0.3s ease;
+}
+
+/* Counter Styling */
+.counter{
+    display:inline-block;
+    animation:counterFade 1s ease forwards;
+}
+
+.stat:hover .counter{
+    text-shadow:0 0 15px rgba(255,26,26,0.8);
 }
 
 /* CARDS */
@@ -328,11 +361,22 @@ footer{
     margin-top:80px;
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes fadeUp{
     from{
         opacity:0;
         transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes counterFade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
     }
     to{
         opacity:1;
@@ -348,7 +392,7 @@ footer{
     }
 
     nav{
-        display:none; /* Cleaner mobile look */
+        display:none;
     }
 
     .hero,
@@ -383,5 +427,4 @@ footer{
     .timeline-item::before{
         left:0;
     }
-
 }
