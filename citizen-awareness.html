@@ -11,48 +11,50 @@
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background:black;
-    color:white;
+    background:#0b0b0f;
+    color:#f1f1f1;
     scroll-behavior:smooth;
+    overflow-x:hidden;
 }
 
 /* ===== HEADER ===== */
 header{
     position:fixed;
     width:100%;
-    background:black;
-    padding:15px 30px;
+    top:0;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:15px 40px;
     z-index:1000;
-    border-bottom:2px solid red;
+    border-bottom:1px solid #aa0000;
 }
 
 .logo{
-    color:red;
-    font-weight:bold;
-    font-size:20px;
+    color:#ff1a1a;
+    font-weight:600;
     letter-spacing:2px;
 }
 
 nav a{
-    color:white;
+    color:#ccc;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:25px;
     transition:0.3s;
 }
 
 nav a:hover{
-    color:red;
+    color:#ff1a1a;
 }
 
 /* ===== HERO ===== */
 .hero{
     height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-    url("https://images.unsplash.com/photo-1581091215367-59ab6b0b8c3f?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+    url("https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=1600&q=80");
     background-size:cover;
     background-position:center;
     display:flex;
@@ -64,115 +66,106 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:70px;
-    color:red;
-    animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-    from{ text-shadow:0 0 15px red;}
-    to{ text-shadow:0 0 50px crimson;}
+    font-size:64px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin:0;
+    animation:fadeUp 1.5s ease forwards;
 }
 
 .hero p{
     max-width:800px;
+    margin-top:20px;
+    color:#ccc;
+    animation:fadeUp 2s ease forwards;
+}
+
+.author{
+    margin-top:25px;
     font-size:20px;
+    color:#ff1a1a;
+    letter-spacing:1px;
+    animation:fadeUp 2.5s ease forwards;
 }
 
-.tarun{
-    color:gold;
-    font-weight:bold;
-    text-shadow:0 0 20px gold;
-}
-
-/* ===== AUDIO SECTION ===== */
-#audioSection{
-    text-align:center;
-    padding:40px;
-    background:#0a0a0a;
-    border-top:2px solid red;
-    border-bottom:2px solid red;
-}
-
-.visualizer{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    margin-top:15px;
-}
-
-.bar{
-    width:6px;
-    height:20px;
-    background:red;
-    animation:wave 1s infinite ease-in-out;
-}
-
-.bar:nth-child(2){animation-delay:0.2s;}
-.bar:nth-child(3){animation-delay:0.4s;}
-.bar:nth-child(4){animation-delay:0.6s;}
-
-@keyframes wave{
-    0%,100%{height:20px;}
-    50%{height:70px;}
-}
-
-button{
-    background:red;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    background:white;
-    color:red;
-}
-
-/* ===== CONTENT ===== */
+/* ===== SECTION ===== */
 section{
-    padding:60px 20px;
     max-width:1000px;
     margin:auto;
+    padding:80px 20px;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 h2{
-    color:red;
-    border-bottom:2px solid red;
-    padding-bottom:10px;
+    color:#ff1a1a;
+    margin-bottom:20px;
+    border-left:4px solid #ff1a1a;
+    padding-left:10px;
 }
 
 details{
+    background:#14141a;
     margin:20px 0;
-    background:#111;
     padding:20px;
-    border-left:5px solid red;
+    border-radius:8px;
+    border:1px solid #222;
     transition:0.4s;
 }
 
 details:hover{
-    background:#1a0000;
+    border:1px solid #aa0000;
 }
 
 summary{
-    font-size:20px;
-    font-weight:bold;
+    font-size:18px;
+    font-weight:600;
     cursor:pointer;
 }
 
-.speaking{
-    background:red;
-    padding:5px;
-    border-radius:5px;
+p{
+    line-height:1.7;
+    color:#ddd;
 }
 
+/* ===== BUTTON ===== */
+button{
+    background:#aa0000;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin-top:15px;
+    border-radius:4px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff1a1a;
+}
+
+/* ===== SPEAKING HIGHLIGHT ===== */
+.speaking{
+    background:#330000;
+    padding:8px;
+    border-radius:6px;
+}
+
+/* ===== FOOTER ===== */
 footer{
     text-align:center;
-    padding:20px;
-    background:black;
-    border-top:2px solid red;
+    padding:30px;
+    background:#0b0b0f;
+    border-top:1px solid #aa0000;
+    color:#888;
 }
 
 </style>
@@ -183,7 +176,6 @@ footer{
 <header>
     <div class="logo">THE TARUN KUMAR STUDIO</div>
     <nav>
-        <a href="#">Home</a>
         <a href="#">Rights</a>
         <a href="#">Duties</a>
         <a href="#">Anti-Corruption</a>
@@ -192,84 +184,69 @@ footer{
 
 <div class="hero">
     <h1>CITIZEN AWARENESS</h1>
-    <p>A powerful constitutional awareness platform exposing truth, empowering citizens, and strengthening democracy.</p>
-    <h2>Presented by <span class="tarun">TARUN KUMAR</span></h2>
-</div>
-
-<div id="audioSection">
-    <h2>Article Voice Narration System</h2>
-    <p>Click on any Article or Law to hear detailed AI explanation.</p>
-    <button onclick="stopSpeech()">Stop Narration</button>
-
-    <div class="visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+    <p>Understanding constitutional power, civic responsibility and anti-corruption safeguards.</p>
+    <div class="author">An Initiative by TARUN KUMAR</div>
 </div>
 
 <section>
 
 <h2>Fundamental Rights</h2>
 
-<details onclick="speakArticle('a14')">
+<details onclick="speak('a14')">
 <summary>Article 14 – Right to Equality</summary>
 <p id="a14">
-Article 14 guarantees equality before law and equal protection of laws. 
-It ensures no citizen is above the law and no citizen is denied protection. 
-This prevents arbitrary state action and strengthens rule of law. 
-Equality is the foundation of democracy and ensures justice, fairness and non-discrimination in governance.
+Article 14 guarantees equality before the law and equal protection of the laws within the territory of India. 
+It ensures that no citizen is treated unfairly on arbitrary grounds. 
+The principle of rule of law ensures that governance remains transparent and accountable. 
+This Article prevents discrimination and strengthens democratic justice.
 </p>
 </details>
 
-<details onclick="speakArticle('a19')">
+<details onclick="speak('a19')">
 <summary>Article 19 – Right to Freedom</summary>
 <p id="a19">
-Article 19 grants freedom of speech, expression, movement, assembly and profession. 
-These freedoms empower citizens to question authority and participate in democracy. 
+Article 19 grants freedom of speech, movement, assembly, association and profession. 
+These freedoms empower citizens to question, participate and contribute to democracy. 
 Reasonable restrictions protect sovereignty and public order.
 </p>
 </details>
 
-<details onclick="speakArticle('a21')">
-<summary>Article 21 – Right to Life and Liberty</summary>
-<p id="a21">
-Article 21 protects life and personal liberty. 
-It includes dignity, privacy, clean environment and legal protection. 
-It is one of the most powerful safeguards in the Constitution.
-</p>
-</details>
-
 <h2>Fundamental Duties</h2>
+
 <p>
-Every citizen must respect the Constitution, protect unity, promote harmony, safeguard public property and protect the environment. 
-Duties balance rights and create responsible citizenship.
+Fundamental Duties under Article 51A remind citizens that rights must be balanced with responsibilities. 
+Citizens must respect the Constitution, protect national unity, preserve cultural heritage, protect environment and promote harmony. 
+Duties strengthen democratic discipline and moral accountability.
 </p>
 
 <h2>Anti-Corruption Laws</h2>
 
-<details onclick="speakArticle('pca')">
+<details onclick="speak('pca')">
 <summary>Prevention of Corruption Act, 1988</summary>
 <p id="pca">
-This Act criminalizes bribery and misuse of public office. 
-It ensures accountability of public servants and promotes integrity in governance.
+The Prevention of Corruption Act criminalizes bribery and abuse of official power. 
+Public servants accepting illegal gratification face prosecution. 
+The Act was strengthened in 2018 to enhance accountability and transparency in governance.
 </p>
 </details>
 
-<details onclick="speakArticle('lokpal')">
+<details onclick="speak('lokpal')">
 <summary>Lokpal and Lokayuktas Act, 2013</summary>
 <p id="lokpal">
-This Act establishes independent authorities to investigate corruption against public officials and ministers.
+This Act established independent anti-corruption authorities to investigate complaints against ministers and public officials. 
+It strengthens institutional accountability and protects democratic integrity.
 </p>
 </details>
 
-<details onclick="speakArticle('rti')">
+<details onclick="speak('rti')">
 <summary>Right to Information Act, 2005</summary>
 <p id="rti">
-RTI empowers citizens to access government information and enhances transparency in governance.
+The RTI Act empowers citizens to request information from public authorities. 
+It enhances transparency and reduces corruption by enabling public oversight.
 </p>
 </details>
+
+<button onclick="stopSpeech()">Stop Narration</button>
 
 </section>
 
@@ -281,20 +258,21 @@ RTI empowers citizens to access government information and enhances transparency
 
 let speech;
 
-function speakArticle(id){
+function speak(id){
     window.speechSynthesis.cancel();
-    let element = document.getElementById(id);
-    let text = element.innerText;
+
+    let el = document.getElementById(id);
+    let text = el.innerText;
 
     speech = new SpeechSynthesisUtterance(text);
     speech.lang = "en-IN";
     speech.rate = 1;
     speech.pitch = 1;
 
-    element.classList.add("speaking");
+    el.classList.add("speaking");
 
     speech.onend = function(){
-        element.classList.remove("speaking");
+        el.classList.remove("speaking");
     };
 
     window.speechSynthesis.speak(speech);
