@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness Portal | Constitutional Knowledge</title>
+<title>Citizen Awakening | Constitutional Revolution</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,78 +12,78 @@ body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
     background:#000;
-    color:#fff;
+    color:white;
     line-height:1.8;
+    overflow-x:hidden;
 }
 
+/* ================= HEADER ================= */
 header{
-    background:#111;
+    background:#0a0a0a;
     padding:20px 8%;
     display:flex;
     justify-content:space-between;
-    align-items:center;
     border-bottom:2px solid red;
 }
 
 .logo{
     color:red;
     font-weight:bold;
-    letter-spacing:2px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-nav a:hover{
-    color:red;
+    letter-spacing:3px;
+    text-shadow:0 0 15px red;
 }
 
 /* ================= HERO ================= */
 .hero{
-    height:95vh;
+    height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.95)),
+    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
     url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Constitution_of_India.jpg');
     background-size:cover;
     background-position:center;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
 }
 
 .hero h1{
-    font-size:60px;
+    font-size:65px;
     color:red;
     animation:glow 2s infinite alternate;
 }
 
+.hero p{
+    max-width:800px;
+    font-size:20px;
+}
+
+/* Glow Animation */
 @keyframes glow{
     from{ text-shadow:0 0 10px red; }
-    to{ text-shadow:0 0 30px crimson,0 0 50px red; }
+    to{ text-shadow:0 0 40px crimson,0 0 60px red; }
 }
 
-/* ================= SEARCH ================= */
-.search-box{
-    text-align:center;
-    padding:40px 10%;
+/* ================= ASHOKA CHAKRA ================= */
+.chakra{
+    width:120px;
+    height:120px;
+    border:5px solid #0047AB;
+    border-radius:50%;
+    margin:30px auto;
+    position:relative;
+    animation:spin 15s linear infinite;
 }
 
-.search-box input{
-    width:60%;
-    padding:12px;
-    border:2px solid red;
-    background:#111;
-    color:white;
-    font-size:16px;
+@keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 .section{
-    padding:60px 12%;
+    padding:70px 12%;
     opacity:0;
     transform:translateY(40px);
     transition:1s;
@@ -96,22 +96,50 @@ nav a:hover{
 
 .section h2{
     color:red;
-    text-shadow:0 0 15px red;
+    text-shadow:0 0 20px red;
 }
 
 /* ================= EXPANDABLE ================= */
 details{
     background:#111;
-    margin:20px 0;
     padding:20px;
+    margin:20px 0;
     border-left:4px solid red;
 }
 
 summary{
     font-weight:bold;
-    cursor:pointer;
-    font-size:18px;
     color:red;
+    cursor:pointer;
+}
+
+/* ================= SEARCH ================= */
+.search-area{
+    text-align:center;
+    padding:40px;
+}
+
+.search-area input{
+    width:60%;
+    padding:12px;
+    background:#111;
+    border:2px solid red;
+    color:white;
+}
+
+/* ================= BUTTONS ================= */
+button{
+    background:black;
+    color:red;
+    border:2px solid red;
+    padding:10px 20px;
+    margin:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:red;
+    color:black;
 }
 
 /* ================= TABLE ================= */
@@ -131,21 +159,6 @@ th{
     color:red;
 }
 
-/* ================= BUTTON ================= */
-.download-btn{
-    display:inline-block;
-    padding:12px 20px;
-    margin-top:20px;
-    border:2px solid red;
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.download-btn:hover{
-    background:red;
-}
-
 /* ================= FOOTER ================= */
 footer{
     background:#111;
@@ -159,145 +172,112 @@ footer{
 <body>
 
 <header>
-<div class="logo">THE TARUN KUMAR STUDIO</div>
-<nav>
-<a href="index.html">Home</a>
-</nav>
+<div class="logo">THE TARUN KUMAR REVOLUTION</div>
 </header>
 
 <section class="hero">
-<div>
-<h1>CITIZEN AWARENESS PORTAL</h1>
-<p>Complete Constitutional Knowledge For Every Indian Citizen</p>
+<h1>CITIZEN AWAKENING</h1>
+<p>Know the Constitution. Question Power. Protect Democracy.</p>
+<div class="chakra"></div>
+<button onclick="startNarration()">🔊 Start Voice Narration</button>
+</section>
+
+<div class="search-area">
+<input type="text" id="articleSearch" placeholder="Jump to Article (e.g., 21)" onkeyup="jumpArticle()">
 </div>
-</section>
 
-<!-- SEARCH -->
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search Articles, Rights, Laws..." onkeyup="searchContent()">
-</div>
+<section class="section" id="rights">
+<h2>Fundamental Rights Database</h2>
 
-<!-- FUNDAMENTAL RIGHTS -->
-<section class="section searchable">
-<h2>Fundamental Rights (Articles 12–35)</h2>
-
-<details>
-<summary>Read More: Right to Equality (14–18)</summary>
-<p>Ensures equality before law, prohibits discrimination, abolishes untouchability and titles.</p>
+<details id="article14">
+<summary>Article 14 – Equality Before Law</summary>
+<p>Guarantees equality before law and equal protection of laws.</p>
 </details>
 
-<details>
-<summary>Read More: Right to Freedom (19–22)</summary>
-<p>Freedom of speech, assembly, association, movement, residence, profession, protection in criminal cases and personal liberty.</p>
+<details id="article19">
+<summary>Article 19 – Freedom Rights</summary>
+<p>Freedom of speech, assembly, association, movement, residence and profession.</p>
 </details>
 
-<details>
-<summary>Read More: Right Against Exploitation (23–24)</summary>
-<p>Prohibits trafficking, forced labour and child labour.</p>
+<details id="article21">
+<summary>Article 21 – Right to Life and Personal Liberty</summary>
+<p>No person shall be deprived of life or personal liberty except according to procedure established by law.</p>
 </details>
 
-</section>
-
-<!-- ARTICLE TABLE -->
-<section class="section searchable">
-<h2>Article Reference Table</h2>
-
-<table>
-<tr>
-<th>Article</th>
-<th>Subject</th>
-</tr>
-<tr>
-<td>14</td>
-<td>Equality Before Law</td>
-</tr>
-<tr>
-<td>19</td>
-<td>Freedom Rights</td>
-</tr>
-<tr>
-<td>21</td>
-<td>Right to Life & Liberty</td>
-</tr>
-<tr>
-<td>32</td>
-<td>Constitutional Remedies</td>
-</tr>
-<tr>
-<td>51A</td>
-<td>Fundamental Duties</td>
-</tr>
-</table>
-
-</section>
-
-<!-- ANTI CORRUPTION -->
-<section class="section searchable">
-<h2>Anti-Corruption Framework</h2>
-
-<details>
-<summary>Prevention of Corruption Act, 1988</summary>
-<p>Punishes bribery and corruption in public office.</p>
-</details>
-
-<details>
-<summary>Right to Information Act, 2005</summary>
-<p>Allows citizens to request government information for transparency.</p>
-</details>
-
-<details>
-<summary>Lokpal and Lokayuktas Act, 2013</summary>
-<p>Establishes anti-corruption ombudsman.</p>
+<details id="article32">
+<summary>Article 32 – Constitutional Remedies</summary>
+<p>Right to approach Supreme Court for enforcement of rights.</p>
 </details>
 
 </section>
 
-<!-- OFFICIAL PDF -->
 <section class="section">
-<h2>Official Constitution PDF</h2>
+<h2>Landmark Case Filter</h2>
+<button onclick="filterCases('all')">All</button>
+<button onclick="filterCases('rights')">Rights Cases</button>
+<button onclick="filterCases('structure')">Basic Structure Cases</button>
 
-<p>You can download the official Constitution of India from the Government of India website.</p>
+<div id="cases">
 
-<a class="download-btn" 
-href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" 
-target="_blank">
-Download Official Constitution PDF
+<p class="rights">Maneka Gandhi (1978) – Expanded Article 21.</p>
+<p class="structure">Kesavananda Bharati (1973) – Basic Structure Doctrine.</p>
+<p class="rights">Puttaswamy (2017) – Right to Privacy fundamental right.</p>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Official Constitution Document</h2>
+<a href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" target="_blank">
+<button>Download Official Constitution PDF</button>
 </a>
-
 </section>
 
 <footer>
-© THE REALITY SHOW | Developed by Tarun Kumar
+© Citizen Awakening Movement | Developed by Tarun Kumar
 </footer>
 
 <script>
 
-/* ===== SEARCH FUNCTION ===== */
-function searchContent(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let sections = document.getElementsByClassName("searchable");
+/* Scroll Fade */
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+document.querySelectorAll(".section").forEach(sec=>observer.observe(sec));
 
-    for(let i=0;i<sections.length;i++){
-        if(sections[i].innerText.toLowerCase().includes(input)){
-            sections[i].style.display="block";
-        } else {
-            sections[i].style.display="none";
-        }
-    }
+/* Article Jump */
+function jumpArticle(){
+let value=document.getElementById("articleSearch").value;
+let article=document.getElementById("article"+value);
+if(article){
+article.open=true;
+article.scrollIntoView({behavior:"smooth"});
+}
 }
 
-/* ===== SCROLL FADE IN ===== */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
+/* Case Filter */
+function filterCases(type){
+let cases=document.querySelectorAll("#cases p");
+cases.forEach(c=>{
+if(type==="all"){c.style.display="block";}
+else if(c.classList.contains(type)){c.style.display="block";}
+else{c.style.display="none";}
 });
+}
 
-document.querySelectorAll(".section").forEach(section=>{
-    observer.observe(section);
-});
+/* Voice Narration */
+function startNarration(){
+let text=document.body.innerText;
+let speech=new SpeechSynthesisUtterance(text);
+speech.rate=0.9;
+speech.pitch=1;
+speech.volume=1;
+window.speechSynthesis.speak(speech);
+}
 
 </script>
 
