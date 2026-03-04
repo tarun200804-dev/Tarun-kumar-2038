@@ -16,11 +16,11 @@ body{
     scroll-behavior:smooth;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO ===== */
 .hero{
     height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
     url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Constitution_of_India.jpg");
     background-size:cover;
     background-position:center;
@@ -32,77 +32,23 @@ body{
 }
 
 .hero h1{
-    font-size:60px;
+    font-size:65px;
     color:red;
-    text-shadow:0 0 20px red;
     animation:glow 2s infinite alternate;
 }
 
 @keyframes glow{
-    from{ text-shadow:0 0 10px red;}
+    from{ text-shadow:0 0 15px red;}
     to{ text-shadow:0 0 40px crimson;}
 }
 
-.hero p{
-    font-size:22px;
-    max-width:800px;
-}
-
-.author{
-    font-size:28px;
-    color:white;
-    margin-top:20px;
-}
-
-/* ===== AUDIO SECTION ===== */
-#audioBox{
-    background:#111;
-    padding:30px;
-    text-align:center;
-    border-top:2px solid red;
-    border-bottom:2px solid red;
-}
-
-button{
-    background:red;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    margin:10px;
-    cursor:pointer;
+.tarun{
+    color:gold;
     font-weight:bold;
-    transition:0.3s;
+    text-shadow:0 0 20px gold;
 }
 
-button:hover{
-    background:white;
-    color:red;
-}
-
-.visualizer{
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:5px;
-}
-
-.bar{
-    width:5px;
-    height:20px;
-    background:red;
-    animation:wave 1s infinite ease-in-out;
-}
-
-.bar:nth-child(2){animation-delay:0.2s;}
-.bar:nth-child(3){animation-delay:0.4s;}
-.bar:nth-child(4){animation-delay:0.6s;}
-
-@keyframes wave{
-    0%,100%{height:20px;}
-    50%{height:60px;}
-}
-
-/* ===== SECTIONS ===== */
+/* ===== SECTION ===== */
 section{
     padding:60px 20px;
     max-width:1000px;
@@ -118,43 +64,44 @@ h2{
 details{
     margin:20px 0;
     background:#111;
-    padding:15px;
-    border-left:4px solid red;
-    cursor:pointer;
+    padding:20px;
+    border-left:5px solid red;
+    transition:0.4s;
+}
+
+details:hover{
+    background:#1a0000;
 }
 
 summary{
+    font-size:20px;
     font-weight:bold;
-    font-size:18px;
+    cursor:pointer;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-th,td{
-    border:1px solid red;
-    padding:10px;
-    text-align:left;
-}
-
-th{
+/* ===== BUTTONS ===== */
+button{
     background:red;
-}
-
-/* ===== SEARCH ===== */
-#search{
-    width:100%;
-    padding:12px;
-    margin:20px 0;
-    background:#222;
     color:white;
-    border:1px solid red;
+    border:none;
+    padding:10px 18px;
+    margin:10px 0;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-/* ===== FOOTER ===== */
+button:hover{
+    background:white;
+    color:red;
+}
+
+/* ===== SPEAKING HIGHLIGHT ===== */
+.speaking{
+    background:red;
+    padding:5px;
+    border-radius:5px;
+}
+
 footer{
     text-align:center;
     padding:20px;
@@ -167,128 +114,127 @@ footer{
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
     <h1>CITIZEN AWARENESS</h1>
-    <p>Complete guide to Fundamental Rights, Duties, Constitution Articles and Anti-Corruption Laws of India.</p>
-    <div class="author">Provided Free by TARUN KUMAR</div>
-</div>
-
-<!-- AUDIO NARRATION -->
-<div id="audioBox">
-    <h2>AI Voice Narration</h2>
-    <button onclick="startSpeech()">Start Narration</button>
-    <button onclick="stopSpeech()">Stop</button>
-    <div class="visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
-    <p id="spokenText"></p>
+    <p>Complete Constitutional Knowledge Platform</p>
+    <h2>Provided Free by <span class="tarun">TARUN KUMAR</span></h2>
 </div>
 
 <section>
 
-<input type="text" id="search" placeholder="Search Articles, Rights, Duties..." onkeyup="searchContent()">
+<h2>AI Article Narration</h2>
+<button onclick="stopSpeech()">Stop Narration</button>
 
-<h2>Fundamental Rights (Articles 12–35)</h2>
+<!-- ARTICLE 14 -->
+<details onclick="speakArticle('a14')">
+<summary>Article 14 – Right to Equality</summary>
+<p id="a14">
+Article 14 of the Constitution of India guarantees equality before law and equal protection of laws within the territory of India. 
+This means that every individual, regardless of caste, religion, gender, wealth, political influence, or social status, is subject to the same legal standards. 
+No citizen can be given special privileges that place them above the law. 
+This principle forms the backbone of democracy and ensures that governance is not arbitrary or discriminatory.
 
-<details>
-<summary>Right to Equality (Articles 14-18)</summary>
-<p>Ensures equality before law and prohibits discrimination on religion, race, caste, sex or place of birth.</p>
-</details>
+Equality before law is a concept borrowed from the British legal system and implies the absence of any special privilege in favor of any individual. 
+Equal protection of laws, inspired by the American Constitution, means that the state must treat similar people in similar circumstances equally. 
+However, reasonable classification is allowed. 
+For example, laws can differentiate between minors and adults or between economically weaker sections and others, provided the classification is rational and serves a legitimate objective.
 
-<details>
-<summary>Right to Freedom (Articles 19-22)</summary>
-<p>Includes freedom of speech, expression, movement, association, residence and profession.</p>
-</details>
+The judiciary plays a vital role in enforcing Article 14. 
+If a citizen feels discriminated against, they can approach courts for justice. 
+Landmark judgments by the Supreme Court have expanded the scope of equality to include fairness, non-arbitrariness, and justice in state action.
 
-<details>
-<summary>Right Against Exploitation (Articles 23-24)</summary>
-<p>Prohibits human trafficking, forced labour and child labour.</p>
-</details>
+Article 14 ensures that India remains a nation governed by rule of law rather than rule of individuals. 
+It protects citizens from unfair government actions and strengthens public trust in institutions. 
+Without equality, freedom and democracy cannot survive.
 
-<details>
-<summary>Right to Freedom of Religion (Articles 25-28)</summary>
-<p>Ensures religious freedom and secularism.</p>
-</details>
-
-<details>
-<summary>Cultural and Educational Rights (Articles 29-30)</summary>
-<p>Protects rights of minorities to conserve culture and establish institutions.</p>
-</details>
-
-<details>
-<summary>Right to Constitutional Remedies (Article 32)</summary>
-<p>Citizens can approach Supreme Court if rights are violated.</p>
-</details>
-
-<h2>Fundamental Duties (Article 51A)</h2>
-
-<p>Every citizen must respect the Constitution, National Flag, National Anthem, protect environment, promote harmony and safeguard public property.</p>
-
-<h2>Important Constitutional Articles</h2>
-
-<table>
-<tr><th>Article</th><th>Description</th></tr>
-<tr><td>Article 14</td><td>Equality before law</td></tr>
-<tr><td>Article 19</td><td>Freedom of Speech</td></tr>
-<tr><td>Article 21</td><td>Right to Life</td></tr>
-<tr><td>Article 32</td><td>Right to Constitutional Remedies</td></tr>
-<tr><td>Article 51A</td><td>Fundamental Duties</td></tr>
-</table>
-
-<h2>Anti-Corruption Laws</h2>
-
-<p>
-Prevention of Corruption Act 1988 criminalizes bribery and corruption.
-Lokpal and Lokayuktas Act 2013 ensures investigation of corruption cases.
-Right to Information Act 2005 empowers citizens to access government records.
+This explanation is presented to you through the Citizen Awareness initiative created by Tarun Kumar to ensure every Indian understands the power and protection given by the Constitution.
 </p>
+</details>
 
-<h2>Official Constitution PDF</h2>
+<!-- ARTICLE 19 -->
+<details onclick="speakArticle('a19')">
+<summary>Article 19 – Right to Freedom</summary>
+<p id="a19">
+Article 19 provides six fundamental freedoms essential for the functioning of democracy. 
+These include freedom of speech and expression, freedom to assemble peacefully, freedom to form associations or unions, freedom to move freely throughout India, freedom to reside and settle in any part of India, and freedom to practice any profession or occupation.
 
-<p>
-Download official Constitution of India:
-<a href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" target="_blank" style="color:red;">Click Here</a>
+Freedom of speech and expression allows citizens to express opinions, criticize the government, and share ideas openly. 
+However, this freedom is subject to reasonable restrictions in the interests of sovereignty, public order, decency, and morality.
+
+Freedom of assembly ensures citizens can protest peacefully without weapons. 
+Freedom of association enables formation of unions, organizations, and political parties. 
+Freedom of movement and residence supports national unity by allowing citizens to travel and settle anywhere in India.
+
+Freedom of profession guarantees economic liberty. 
+However, the state can impose regulations to maintain professional standards.
+
+Article 19 empowers citizens to actively participate in democracy. 
+Without these freedoms, governance would become authoritarian. 
+The Supreme Court has consistently interpreted Article 19 broadly to protect digital expression, media freedom, and individual dignity.
+
+Understanding these freedoms ensures citizens exercise them responsibly. 
+This platform by Tarun Kumar aims to spread awareness so that citizens not only enjoy rights but also respect constitutional limits.
 </p>
+</details>
+
+<!-- ARTICLE 21 -->
+<details onclick="speakArticle('a21')">
+<summary>Article 21 – Right to Life and Personal Liberty</summary>
+<p id="a21">
+Article 21 guarantees that no person shall be deprived of life or personal liberty except according to procedure established by law. 
+Over time, the Supreme Court has expanded this article to include the right to live with dignity, right to privacy, right to clean environment, right to education, and right to legal aid.
+
+This article is considered the heart of fundamental rights. 
+It ensures that the government cannot arbitrarily detain or harm citizens without legal procedure. 
+The interpretation of Article 21 in the Maneka Gandhi case transformed it into a powerful tool for justice.
+
+Right to privacy was recognized as fundamental in 2017. 
+Right to a pollution-free environment and safe working conditions are also derived from Article 21.
+
+This article ensures human dignity remains central to governance. 
+Every citizen must understand that life means more than survival — it includes respect, opportunity, and security.
+
+This awareness initiative by Tarun Kumar ensures citizens understand how powerful Article 21 truly is.
+</p>
+</details>
 
 </section>
 
 <footer>
-© THE REALITY SHOW | Developed by TARUN KUMAR
+© Citizen Awareness Initiative | Developed by <span class="tarun">TARUN KUMAR</span>
 </footer>
 
 <script>
 
-/* ===== AI SPEECH ===== */
 let speech;
 
-function startSpeech(){
-    let text = "Welcome to Citizen Awareness platform by Tarun Kumar. This website explains fundamental rights, duties, constitutional articles and anti corruption laws of India.";
+/* ===== SPEAK ARTICLE ===== */
+function speakArticle(id){
+
+    window.speechSynthesis.cancel();
+
+    let element = document.getElementById(id);
+    let text = element.innerText;
+
     speech = new SpeechSynthesisUtterance(text);
     speech.lang = "en-IN";
     speech.rate = 1;
     speech.pitch = 1;
+
+    element.classList.add("speaking");
+
+    speech.onend = function(){
+        element.classList.remove("speaking");
+    };
+
     window.speechSynthesis.speak(speech);
-    document.getElementById("spokenText").innerText = text;
 }
 
+/* ===== STOP ===== */
 function stopSpeech(){
     window.speechSynthesis.cancel();
-}
-
-/* ===== SEARCH FUNCTION ===== */
-function searchContent(){
-    let input = document.getElementById("search").value.toLowerCase();
-    let sections = document.querySelectorAll("section, details");
-    sections.forEach(sec=>{
-        if(sec.innerText.toLowerCase().includes(input)){
-            sec.style.display="block";
-        }else{
-            sec.style.display="none";
-        }
+    document.querySelectorAll(".speaking").forEach(el=>{
+        el.classList.remove("speaking");
     });
 }
 
