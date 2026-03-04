@@ -7,7 +7,6 @@
 
 <style>
 
-/* ===== GLOBAL ===== */
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,7 +15,6 @@ body{
     scroll-behavior:smooth;
 }
 
-/* ===== HERO ===== */
 .hero{
     height:100vh;
     background:
@@ -48,7 +46,6 @@ body{
     text-shadow:0 0 20px gold;
 }
 
-/* ===== AUDIO SECTION ===== */
 #audioSection{
     text-align:center;
     padding:40px;
@@ -76,7 +73,6 @@ body{
     50%{height:60px;}
 }
 
-/* ===== SECTION ===== */
 section{
     padding:60px 20px;
     max-width:1000px;
@@ -154,19 +150,16 @@ footer{
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
     <h1>CITIZEN AWARENESS</h1>
     <p>Complete Constitutional Knowledge Platform</p>
     <h2>Provided Free by <span class="tarun">TARUN KUMAR</span></h2>
 </div>
 
-<!-- AUDIO SECTION (NO AUTO NARRATION) -->
 <div id="audioSection">
     <h2>Article Voice Narration System</h2>
-    <p>Click on any Article below to hear detailed AI explanation.</p>
+    <p>Click on any Article or Law below to hear detailed AI explanation.</p>
     <button onclick="stopSpeech()">Stop Narration</button>
-
     <div class="visualizer">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -179,51 +172,84 @@ footer{
 
 <h2>Fundamental Rights</h2>
 
-<!-- ARTICLE 14 -->
 <details onclick="speakArticle('a14')">
 <summary>Article 14 – Right to Equality</summary>
 <p id="a14">
 Article 14 guarantees equality before law and equal protection of laws. 
-It ensures that no citizen is above the law and no citizen is denied protection. 
-The rule of law forms the backbone of democracy. 
-The State cannot act arbitrarily. 
+It ensures that every citizen is treated equally regardless of religion, caste, gender or status. 
+The principle of rule of law prevents arbitrary government actions. 
 Reasonable classification is allowed but discrimination is prohibited. 
-The judiciary ensures fairness through judicial review. 
-Equality strengthens democracy, builds trust in institutions, and protects citizens from misuse of power. 
-Understanding Article 14 empowers citizens to challenge injustice and defend their dignity under the Constitution of India.
+The judiciary ensures enforcement through judicial review. 
+Equality strengthens democracy and ensures fairness in governance.
 </p>
 </details>
 
-<!-- ARTICLE 19 -->
 <details onclick="speakArticle('a19')">
 <summary>Article 19 – Right to Freedom</summary>
 <p id="a19">
-Article 19 grants six freedoms including speech, expression, movement, assembly, association and profession. 
-These freedoms enable citizens to actively participate in democracy. 
-Freedom of speech allows criticism of government policies. 
-Freedom of movement strengthens national unity. 
-Freedom of profession ensures economic liberty. 
-Reasonable restrictions exist to protect public order and sovereignty. 
-Article 19 is essential for democratic governance and responsible citizenship.
+Article 19 grants six essential freedoms including speech, expression, assembly, movement, residence and profession. 
+These freedoms enable participation in democracy. 
+Reasonable restrictions exist to protect sovereignty, public order and morality. 
+Freedom of speech allows constructive criticism of government policies. 
+Freedom of profession ensures economic independence.
 </p>
 </details>
 
-<!-- ARTICLE 21 -->
 <details onclick="speakArticle('a21')">
-<summary>Article 21 – Right to Life</summary>
+<summary>Article 21 – Right to Life and Liberty</summary>
 <p id="a21">
-Article 21 ensures no person shall be deprived of life or liberty except by procedure established by law. 
-The Supreme Court expanded it to include dignity, privacy, clean environment and legal aid. 
-It protects citizens from arbitrary state action. 
-Right to life means right to live with dignity and respect. 
-It is one of the most powerful articles of the Constitution.
+Article 21 ensures protection of life and personal liberty. 
+It includes right to dignity, privacy, clean environment and legal aid. 
+No person can be deprived of liberty without due process of law. 
+It is one of the most powerful protections in the Constitution.
 </p>
 </details>
 
-<h2>Fundamental Duties</h2>
+<h2>Fundamental Duties (Article 51A)</h2>
+
 <p>
-Article 51A lists duties of every citizen including respecting the Constitution, protecting environment, promoting harmony and safeguarding public property.
+Fundamental Duties were added by the 42nd Constitutional Amendment in 1976. 
+These duties remind citizens that rights come with responsibilities. 
+Every citizen must respect the Constitution, National Flag and National Anthem. 
+Citizens must protect sovereignty, unity and integrity of India. 
+It is the duty of every individual to promote harmony and brotherhood beyond religious, linguistic or regional differences. 
+
+Protecting environment including forests, lakes and wildlife is also a constitutional duty. 
+Citizens must safeguard public property and avoid violence. 
+Developing scientific temper, humanism and spirit of inquiry is essential for national progress. 
+Parents or guardians must provide opportunities for education to children between 6 and 14 years of age.
+
+Fundamental Duties are not directly enforceable by courts but they guide responsible citizenship. 
+A strong democracy depends not only on rights but also on disciplined and aware citizens.
 </p>
+
+<h2>Anti-Corruption Laws of India</h2>
+
+<details onclick="speakArticle('pca')">
+<summary>Prevention of Corruption Act, 1988</summary>
+<p id="pca">
+The Prevention of Corruption Act criminalizes bribery and misuse of official position. 
+Public servants accepting illegal gratification can be prosecuted. 
+The Act was amended in 2018 to strengthen provisions and make bribery of public servants punishable. 
+It aims to maintain integrity in public administration.
+</p>
+</details>
+
+<details onclick="speakArticle('lokpal')">
+<summary>Lokpal and Lokayuktas Act, 2013</summary>
+<p id="lokpal">
+This Act established the Lokpal at the central level and Lokayuktas in states to investigate corruption complaints against public officials including ministers. 
+It promotes transparency and accountability in governance.
+</p>
+</details>
+
+<details onclick="speakArticle('rti')">
+<summary>Right to Information Act, 2005</summary>
+<p id="rti">
+The RTI Act empowers citizens to request information from public authorities. 
+It enhances transparency and reduces corruption by making government accountable to the public.
+</p>
+</details>
 
 <h2>Important Articles Table</h2>
 
@@ -232,7 +258,7 @@ Article 51A lists duties of every citizen including respecting the Constitution,
 <tr><td>14</td><td>Equality before law</td></tr>
 <tr><td>19</td><td>Freedom Rights</td></tr>
 <tr><td>21</td><td>Right to Life</td></tr>
-<tr><td>32</td><td>Remedies</td></tr>
+<tr><td>51A</td><td>Fundamental Duties</td></tr>
 </table>
 
 <h2>Official Constitution PDF</h2>
@@ -250,11 +276,8 @@ Article 51A lists duties of every citizen including respecting the Constitution,
 
 let speech;
 
-/* ONLY ARTICLE NARRATION */
 function speakArticle(id){
-
     window.speechSynthesis.cancel();
-
     let element = document.getElementById(id);
     let text = element.innerText;
 
@@ -272,7 +295,6 @@ function speakArticle(id){
     window.speechSynthesis.speak(speech);
 }
 
-/* STOP BUTTON */
 function stopSpeech(){
     window.speechSynthesis.cancel();
     document.querySelectorAll(".speaking").forEach(el=>{
