@@ -48,6 +48,34 @@ body{
     text-shadow:0 0 20px gold;
 }
 
+/* ===== AUDIO SECTION ===== */
+#audioSection{
+    text-align:center;
+    padding:40px;
+    background:#111;
+    border-top:2px solid red;
+    border-bottom:2px solid red;
+}
+
+.visualizer{
+    display:flex;
+    justify-content:center;
+    gap:5px;
+    margin-top:15px;
+}
+
+.bar{
+    width:5px;
+    height:20px;
+    background:red;
+    animation:wave 1s infinite ease-in-out;
+}
+
+@keyframes wave{
+    0%,100%{height:20px;}
+    50%{height:60px;}
+}
+
 /* ===== SECTION ===== */
 section{
     padding:60px 20px;
@@ -79,13 +107,11 @@ summary{
     cursor:pointer;
 }
 
-/* ===== BUTTONS ===== */
 button{
     background:red;
     color:white;
     border:none;
     padding:10px 18px;
-    margin:10px 0;
     cursor:pointer;
     font-weight:bold;
 }
@@ -95,11 +121,25 @@ button:hover{
     color:red;
 }
 
-/* ===== SPEAKING HIGHLIGHT ===== */
 .speaking{
     background:red;
     padding:5px;
     border-radius:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    border:1px solid red;
+    padding:10px;
+}
+
+th{
+    background:red;
 }
 
 footer{
@@ -114,40 +154,43 @@ footer{
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
     <h1>CITIZEN AWARENESS</h1>
     <p>Complete Constitutional Knowledge Platform</p>
     <h2>Provided Free by <span class="tarun">TARUN KUMAR</span></h2>
 </div>
 
+<!-- AUDIO SECTION (NO AUTO NARRATION) -->
+<div id="audioSection">
+    <h2>Article Voice Narration System</h2>
+    <p>Click on any Article below to hear detailed AI explanation.</p>
+    <button onclick="stopSpeech()">Stop Narration</button>
+
+    <div class="visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+
 <section>
 
-<h2>AI Article Narration</h2>
-<button onclick="stopSpeech()">Stop Narration</button>
+<h2>Fundamental Rights</h2>
 
 <!-- ARTICLE 14 -->
 <details onclick="speakArticle('a14')">
 <summary>Article 14 – Right to Equality</summary>
 <p id="a14">
-Article 14 of the Constitution of India guarantees equality before law and equal protection of laws within the territory of India. 
-This means that every individual, regardless of caste, religion, gender, wealth, political influence, or social status, is subject to the same legal standards. 
-No citizen can be given special privileges that place them above the law. 
-This principle forms the backbone of democracy and ensures that governance is not arbitrary or discriminatory.
-
-Equality before law is a concept borrowed from the British legal system and implies the absence of any special privilege in favor of any individual. 
-Equal protection of laws, inspired by the American Constitution, means that the state must treat similar people in similar circumstances equally. 
-However, reasonable classification is allowed. 
-For example, laws can differentiate between minors and adults or between economically weaker sections and others, provided the classification is rational and serves a legitimate objective.
-
-The judiciary plays a vital role in enforcing Article 14. 
-If a citizen feels discriminated against, they can approach courts for justice. 
-Landmark judgments by the Supreme Court have expanded the scope of equality to include fairness, non-arbitrariness, and justice in state action.
-
-Article 14 ensures that India remains a nation governed by rule of law rather than rule of individuals. 
-It protects citizens from unfair government actions and strengthens public trust in institutions. 
-Without equality, freedom and democracy cannot survive.
-
-This explanation is presented to you through the Citizen Awareness initiative created by Tarun Kumar to ensure every Indian understands the power and protection given by the Constitution.
+Article 14 guarantees equality before law and equal protection of laws. 
+It ensures that no citizen is above the law and no citizen is denied protection. 
+The rule of law forms the backbone of democracy. 
+The State cannot act arbitrarily. 
+Reasonable classification is allowed but discrimination is prohibited. 
+The judiciary ensures fairness through judicial review. 
+Equality strengthens democracy, builds trust in institutions, and protects citizens from misuse of power. 
+Understanding Article 14 empowers citizens to challenge injustice and defend their dignity under the Constitution of India.
 </p>
 </details>
 
@@ -155,48 +198,47 @@ This explanation is presented to you through the Citizen Awareness initiative cr
 <details onclick="speakArticle('a19')">
 <summary>Article 19 – Right to Freedom</summary>
 <p id="a19">
-Article 19 provides six fundamental freedoms essential for the functioning of democracy. 
-These include freedom of speech and expression, freedom to assemble peacefully, freedom to form associations or unions, freedom to move freely throughout India, freedom to reside and settle in any part of India, and freedom to practice any profession or occupation.
-
-Freedom of speech and expression allows citizens to express opinions, criticize the government, and share ideas openly. 
-However, this freedom is subject to reasonable restrictions in the interests of sovereignty, public order, decency, and morality.
-
-Freedom of assembly ensures citizens can protest peacefully without weapons. 
-Freedom of association enables formation of unions, organizations, and political parties. 
-Freedom of movement and residence supports national unity by allowing citizens to travel and settle anywhere in India.
-
-Freedom of profession guarantees economic liberty. 
-However, the state can impose regulations to maintain professional standards.
-
-Article 19 empowers citizens to actively participate in democracy. 
-Without these freedoms, governance would become authoritarian. 
-The Supreme Court has consistently interpreted Article 19 broadly to protect digital expression, media freedom, and individual dignity.
-
-Understanding these freedoms ensures citizens exercise them responsibly. 
-This platform by Tarun Kumar aims to spread awareness so that citizens not only enjoy rights but also respect constitutional limits.
+Article 19 grants six freedoms including speech, expression, movement, assembly, association and profession. 
+These freedoms enable citizens to actively participate in democracy. 
+Freedom of speech allows criticism of government policies. 
+Freedom of movement strengthens national unity. 
+Freedom of profession ensures economic liberty. 
+Reasonable restrictions exist to protect public order and sovereignty. 
+Article 19 is essential for democratic governance and responsible citizenship.
 </p>
 </details>
 
 <!-- ARTICLE 21 -->
 <details onclick="speakArticle('a21')">
-<summary>Article 21 – Right to Life and Personal Liberty</summary>
+<summary>Article 21 – Right to Life</summary>
 <p id="a21">
-Article 21 guarantees that no person shall be deprived of life or personal liberty except according to procedure established by law. 
-Over time, the Supreme Court has expanded this article to include the right to live with dignity, right to privacy, right to clean environment, right to education, and right to legal aid.
-
-This article is considered the heart of fundamental rights. 
-It ensures that the government cannot arbitrarily detain or harm citizens without legal procedure. 
-The interpretation of Article 21 in the Maneka Gandhi case transformed it into a powerful tool for justice.
-
-Right to privacy was recognized as fundamental in 2017. 
-Right to a pollution-free environment and safe working conditions are also derived from Article 21.
-
-This article ensures human dignity remains central to governance. 
-Every citizen must understand that life means more than survival — it includes respect, opportunity, and security.
-
-This awareness initiative by Tarun Kumar ensures citizens understand how powerful Article 21 truly is.
+Article 21 ensures no person shall be deprived of life or liberty except by procedure established by law. 
+The Supreme Court expanded it to include dignity, privacy, clean environment and legal aid. 
+It protects citizens from arbitrary state action. 
+Right to life means right to live with dignity and respect. 
+It is one of the most powerful articles of the Constitution.
 </p>
 </details>
+
+<h2>Fundamental Duties</h2>
+<p>
+Article 51A lists duties of every citizen including respecting the Constitution, protecting environment, promoting harmony and safeguarding public property.
+</p>
+
+<h2>Important Articles Table</h2>
+
+<table>
+<tr><th>Article</th><th>Purpose</th></tr>
+<tr><td>14</td><td>Equality before law</td></tr>
+<tr><td>19</td><td>Freedom Rights</td></tr>
+<tr><td>21</td><td>Right to Life</td></tr>
+<tr><td>32</td><td>Remedies</td></tr>
+</table>
+
+<h2>Official Constitution PDF</h2>
+<p>
+<a href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" target="_blank" style="color:red;">Download Constitution of India</a>
+</p>
 
 </section>
 
@@ -208,7 +250,7 @@ This awareness initiative by Tarun Kumar ensures citizens understand how powerfu
 
 let speech;
 
-/* ===== SPEAK ARTICLE ===== */
+/* ONLY ARTICLE NARRATION */
 function speakArticle(id){
 
     window.speechSynthesis.cancel();
@@ -230,7 +272,7 @@ function speakArticle(id){
     window.speechSynthesis.speak(speech);
 }
 
-/* ===== STOP ===== */
+/* STOP BUTTON */
 function stopSpeech(){
     window.speechSynthesis.cancel();
     document.querySelectorAll(".speaking").forEach(el=>{
