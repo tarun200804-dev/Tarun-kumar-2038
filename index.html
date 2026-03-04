@@ -46,11 +46,11 @@
 
     <div class="stats">
         <div class="stat">
-            <h2>100+</h2>
+            <h2 class="counter" data-target="100">0</h2>
             <p>Investigations Planned</p>
         </div>
         <div class="stat">
-            <h2>50+</h2>
+            <h2 class="counter" data-target="50">0</h2>
             <p>Research Analysts</p>
         </div>
         <div class="stat">
@@ -144,13 +144,57 @@
 </footer>
 
 <script>
+
+/* ======================
+   COUNTER ANIMATION
+====================== */
+
+const counters = document.querySelectorAll('.counter');
+let counterStarted = false;
+
+function startCounters() {
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+
+            const speed = 200;
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target + "+";
+            }
+        };
+        updateCount();
+    });
+}
+
+window.addEventListener('scroll', () => {
+    const aboutSection = document.getElementById('about');
+    const sectionTop = aboutSection.offsetTop;
+    const sectionHeight = aboutSection.offsetHeight;
+    const scrollPosition = window.scrollY + window.innerHeight;
+
+    if (scrollPosition > sectionTop + sectionHeight / 4 && !counterStarted) {
+        startCounters();
+        counterStarted = true;
+    }
+});
+
+
+/* ======================
+   FORM SUBMISSION
+====================== */
+
 const form = document.getElementById("reportForm");
 
 form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const formData = new FormData(form);
-
   const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
 
   try {
@@ -166,6 +210,7 @@ form.addEventListener("submit", async function(e) {
       alert("Submission failed. Please try again.");
   }
 });
+
 </script>
 
 </body>
