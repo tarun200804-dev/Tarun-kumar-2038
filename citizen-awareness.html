@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Citizen Awareness | Constitutional Education</title>
+<title>Citizen Awareness Portal | Constitutional Knowledge</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* ---------- GLOBAL ---------- */
+/* ================= GLOBAL ================= */
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
     background:#000;
     color:#fff;
-    line-height:1.9;
-    scroll-behavior:smooth;
+    line-height:1.8;
 }
 
-/* ---------- HEADER ---------- */
 header{
     background:#111;
     padding:20px 8%;
@@ -37,18 +35,17 @@ nav a{
     color:white;
     text-decoration:none;
     margin-left:20px;
-    transition:0.3s;
 }
 
 nav a:hover{
     color:red;
 }
 
-/* ---------- HERO ---------- */
+/* ================= HERO ================= */
 .hero{
     height:95vh;
     background:
-    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.92)),
+    linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.95)),
     url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Constitution_of_India.jpg');
     background-size:cover;
     background-position:center;
@@ -59,79 +56,106 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:65px;
-    text-transform:uppercase;
+    font-size:60px;
     color:red;
     animation:glow 2s infinite alternate;
 }
 
-.hero p{
-    max-width:900px;
-    margin:auto;
-    font-size:20px;
-    margin-top:20px;
-}
-
-/* ---------- SHINING TEXT EFFECT ---------- */
 @keyframes glow{
-    from { text-shadow: 0 0 10px red; }
-    to { text-shadow: 0 0 25px crimson, 0 0 40px red; }
+    from{ text-shadow:0 0 10px red; }
+    to{ text-shadow:0 0 30px crimson,0 0 50px red; }
 }
 
-/* ---------- SECTIONS ---------- */
+/* ================= SEARCH ================= */
+.search-box{
+    text-align:center;
+    padding:40px 10%;
+}
+
+.search-box input{
+    width:60%;
+    padding:12px;
+    border:2px solid red;
+    background:#111;
+    color:white;
+    font-size:16px;
+}
+
+/* ================= SECTIONS ================= */
 .section{
-    padding:80px 12%;
-    animation:fadeIn 1.5s ease-in-out;
+    padding:60px 12%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .section h2{
     color:red;
-    font-size:32px;
-    margin-bottom:25px;
-    text-shadow:0 0 10px red;
+    text-shadow:0 0 15px red;
 }
 
-.section p{
-    font-size:17px;
-    margin-bottom:20px;
+/* ================= EXPANDABLE ================= */
+details{
+    background:#111;
+    margin:20px 0;
+    padding:20px;
+    border-left:4px solid red;
 }
 
-/* ---------- IMAGE ---------- */
-.image-box{
-    text-align:center;
-    margin:50px 0;
+summary{
+    font-weight:bold;
+    cursor:pointer;
+    font-size:18px;
+    color:red;
 }
 
-.image-box img{
+/* ================= TABLE ================= */
+table{
     width:100%;
-    max-width:1000px;
-    border:3px solid red;
-    border-radius:10px;
-    transition:0.5s;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
-.image-box img:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 30px red;
+th, td{
+    border:1px solid red;
+    padding:10px;
 }
 
-/* ---------- FADE ---------- */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
+th{
+    background:#111;
+    color:red;
 }
 
-/* ---------- FOOTER ---------- */
+/* ================= BUTTON ================= */
+.download-btn{
+    display:inline-block;
+    padding:12px 20px;
+    margin-top:20px;
+    border:2px solid red;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:red;
+}
+
+/* ================= FOOTER ================= */
 footer{
     background:#111;
-    text-align:center;
     padding:30px;
+    text-align:center;
     border-top:2px solid red;
 }
 
 </style>
 </head>
-
 <body>
 
 <header>
@@ -141,130 +165,141 @@ footer{
 </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <div>
-<h1>CITIZEN AWARENESS</h1>
-<p>
-The Constitution of India is not just a legal document — it is the foundation of democracy, justice, liberty, equality and fraternity.
-Every citizen must understand their rights, duties and constitutional protections to safeguard the nation’s integrity.
-</p>
+<h1>CITIZEN AWARENESS PORTAL</h1>
+<p>Complete Constitutional Knowledge For Every Indian Citizen</p>
 </div>
 </section>
 
-<!-- INTRODUCTION -->
-<section class="section">
-<h2>Introduction to the Constitution of India</h2>
-
-<p>
-The Constitution of India was adopted on 26 November 1949 and came into effect on 26 January 1950.
-It is the longest written Constitution in the world. It defines the structure of the government,
-distribution of powers, fundamental rights, directive principles, and duties of citizens.
-</p>
-
-<p>
-The Constitution establishes India as a Sovereign, Socialist, Secular, Democratic Republic.
-It guarantees justice — social, economic and political; liberty of thought and expression;
-equality of status and opportunity; and promotes fraternity assuring dignity and unity.
-</p>
-
-<div class="image-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Indian_Constitution.jpg/1280px-Indian_Constitution.jpg" alt="Indian Constitution">
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search Articles, Rights, Laws..." onkeyup="searchContent()">
 </div>
-
-</section>
 
 <!-- FUNDAMENTAL RIGHTS -->
-<section class="section">
-<h2>Fundamental Rights (Part III, Articles 12–35)</h2>
+<section class="section searchable">
+<h2>Fundamental Rights (Articles 12–35)</h2>
 
-<p><strong>Right to Equality (Articles 14–18):</strong>
-Ensures equality before law and prohibits discrimination on grounds of religion, race, caste, sex or place of birth.
-Abolishes untouchability (Article 17) and titles (Article 18).
-</p>
+<details>
+<summary>Read More: Right to Equality (14–18)</summary>
+<p>Ensures equality before law, prohibits discrimination, abolishes untouchability and titles.</p>
+</details>
 
-<p><strong>Right to Freedom (Articles 19–22):</strong>
-Includes freedom of speech and expression, peaceful assembly, association, movement,
-residence and profession. Article 21 protects life and personal liberty.
-</p>
+<details>
+<summary>Read More: Right to Freedom (19–22)</summary>
+<p>Freedom of speech, assembly, association, movement, residence, profession, protection in criminal cases and personal liberty.</p>
+</details>
 
-<p><strong>Right Against Exploitation (Articles 23–24):</strong>
-Prohibits human trafficking, forced labour and child labour.
-</p>
-
-<p><strong>Freedom of Religion (Articles 25–28):</strong>
-Guarantees freedom of conscience and religion.
-</p>
-
-<p><strong>Cultural and Educational Rights (Articles 29–30):</strong>
-Protects minority rights to preserve culture and establish institutions.
-</p>
-
-<p><strong>Right to Constitutional Remedies (Article 32):</strong>
-Allows citizens to approach Supreme Court through writs like Habeas Corpus, Mandamus,
-Certiorari, Prohibition and Quo Warranto.
-</p>
-
-<div class="image-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Supreme_Court_of_India.jpg/1280px-Supreme_Court_of_India.jpg" alt="Supreme Court of India">
-</div>
+<details>
+<summary>Read More: Right Against Exploitation (23–24)</summary>
+<p>Prohibits trafficking, forced labour and child labour.</p>
+</details>
 
 </section>
 
-<!-- DIRECTIVE PRINCIPLES -->
-<section class="section">
-<h2>Directive Principles of State Policy (Part IV)</h2>
+<!-- ARTICLE TABLE -->
+<section class="section searchable">
+<h2>Article Reference Table</h2>
 
-<p>
-Directive Principles guide the government in making laws for social and economic welfare.
-Though not enforceable in courts, they aim to create a welfare state.
-These include equal pay for equal work, free legal aid, protection of environment,
-promotion of education and public health.
-</p>
-</section>
+<table>
+<tr>
+<th>Article</th>
+<th>Subject</th>
+</tr>
+<tr>
+<td>14</td>
+<td>Equality Before Law</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Freedom Rights</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Right to Life & Liberty</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Constitutional Remedies</td>
+</tr>
+<tr>
+<td>51A</td>
+<td>Fundamental Duties</td>
+</tr>
+</table>
 
-<!-- FUNDAMENTAL DUTIES -->
-<section class="section">
-<h2>Fundamental Duties (Article 51A)</h2>
-
-<p>
-Added by the 42nd Amendment (1976), these duties include respecting the Constitution,
-promoting harmony, protecting environment, safeguarding public property,
-developing scientific temper and striving for excellence.
-</p>
 </section>
 
 <!-- ANTI CORRUPTION -->
-<section class="section">
-<h2>Anti-Corruption Laws in India</h2>
+<section class="section searchable">
+<h2>Anti-Corruption Framework</h2>
 
-<p>
-The Prevention of Corruption Act, 1988 penalizes bribery and misuse of power.
-The Right to Information Act, 2005 empowers citizens to demand transparency.
-The Lokpal and Lokayuktas Act, 2013 establishes independent anti-corruption bodies.
-The Whistle Blowers Protection Act, 2014 protects those exposing corruption.
-</p>
+<details>
+<summary>Prevention of Corruption Act, 1988</summary>
+<p>Punishes bribery and corruption in public office.</p>
+</details>
 
-<div class="image-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Parliament_of_India.jpg/1280px-Parliament_of_India.jpg" alt="Indian Parliament">
-</div>
+<details>
+<summary>Right to Information Act, 2005</summary>
+<p>Allows citizens to request government information for transparency.</p>
+</details>
+
+<details>
+<summary>Lokpal and Lokayuktas Act, 2013</summary>
+<p>Establishes anti-corruption ombudsman.</p>
+</details>
 
 </section>
 
-<!-- ROLE -->
+<!-- OFFICIAL PDF -->
 <section class="section">
-<h2>Role of an Aware Citizen</h2>
+<h2>Official Constitution PDF</h2>
 
-<p>
-An aware citizen participates in elections, respects diversity,
-questions injustice lawfully, protects national unity and promotes constitutional values.
-Democracy survives not merely by voting, but by active civic responsibility.
-</p>
+<p>You can download the official Constitution of India from the Government of India website.</p>
+
+<a class="download-btn" 
+href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" 
+target="_blank">
+Download Official Constitution PDF
+</a>
+
 </section>
 
 <footer>
 © THE REALITY SHOW | Developed by Tarun Kumar
 </footer>
+
+<script>
+
+/* ===== SEARCH FUNCTION ===== */
+function searchContent(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let sections = document.getElementsByClassName("searchable");
+
+    for(let i=0;i<sections.length;i++){
+        if(sections[i].innerText.toLowerCase().includes(input)){
+            sections[i].style.display="block";
+        } else {
+            sections[i].style.display="none";
+        }
+    }
+}
+
+/* ===== SCROLL FADE IN ===== */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".section").forEach(section=>{
+    observer.observe(section);
+});
+
+</script>
 
 </body>
 </html>
