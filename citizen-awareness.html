@@ -3,250 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Citizen Awareness Campaigns | The Reality Show</title>
+<title>Citizen Awareness Campaign | The Reality Show</title>
 <meta name="description" content="Empowering citizens through governance education and civic awareness.">
 <link rel="stylesheet" href="style.css">
-
 <style>
-/* BASE STYLES */
-body{
-    font-family:'Poppins',sans-serif;
-    margin:0;
-    padding-top:80px;
-    background:#06060a;
-    color:#e6e6e6;
-    scroll-behavior:smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-header{
-    position:fixed;
-    top:0;
-    width:100%;
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(6,6,10,0.95);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid #111;
-    z-index:1000;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{background:#06060a;color:#e6e6e6;font-family:'Poppins',sans-serif;padding-top:80px;}
+header{position:fixed;top:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,6,10,0.95);border-bottom:1px solid #111;z-index:1000;}
+.logo{font-family:'Oswald',sans-serif;font-size:24px;letter-spacing:3px;color:#ff1a1a;text-shadow:0 0 10px rgba(255,26,26,0.6);}
+nav a{text-decoration:none;color:#aaa;margin-left:25px;transition:0.3s;font-weight:500;position:relative;}
+nav a::after{content:'';position:absolute;bottom:-5px;left:0;width:0%;height:2px;background:#ff1a1a;transition:0.3s;}
+nav a:hover{color:#ff1a1a;}
+nav a:hover::after{width:100%;}
 
-.logo{
-    font-family:'Oswald',sans-serif;
-    font-size:24px;
-    letter-spacing:3px;
-    color:#ff1a1a;
-    text-shadow:0 0 10px rgba(255,26,26,0.6);
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:500;
-    position:relative;
-    transition:0.3s;
-}
-
-nav a::after{
-    content:'';
-    position:absolute;
-    bottom:-5px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#ff1a1a;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#ff1a1a;
-}
-nav a:hover::after{
-    width:100%;
-}
-
-/* HERO */
 .page-hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/3/38/Constitution_of_India.jpg');
+    height:70vh;
+    background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+    url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Constitution_of_India.jpg');
     background-size:cover;
     background-position:center;
     display:flex;
     align-items:center;
     justify-content:center;
+    flex-direction:column;
     text-align:center;
     padding:0 40px;
 }
+.hero-content h1{font-family:'Oswald',sans-serif;font-size:55px;text-transform:uppercase;color:#fff;animation:fadeUp 1s ease forwards;}
+.hero-content span{color:#ff1a1a;text-shadow:0 0 20px #ff1a1a;}
+.hero-content p{margin-top:15px;max-width:700px;color:#bbb;line-height:1.6;animation:fadeUp 1.3s ease forwards;}
+.hero-author{margin-top:10px;font-size:18px;color:#ff1a1a;font-weight:600;animation:shiningText 2s infinite;}
 
-.hero-content h1{
-    font-family:'Oswald',sans-serif;
-    font-size:60px;
-    color:#fff;
-    text-transform:uppercase;
-    animation:fadeUp 1s ease forwards;
-}
+section{padding:80px 40px;}
+.section-title{font-family:'Oswald',sans-serif;font-size:32px;margin-bottom:30px;border-left:4px solid #ff1a1a;padding-left:10px;text-transform:uppercase;color:#ff1a1a;animation:fadeUp 1s ease forwards;}
+p{margin-bottom:20px;line-height:1.7;color:#ccc;}
 
-.hero-content span{
-    color:#ff1a1a;
-    text-shadow: 0 0 20px #ff1a1a;
-}
+.stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;}
+.stat{flex:1;min-width:200px;background:linear-gradient(135deg,#1a1a22 0%,#0f0f15 100%);padding:20px;border-left:4px solid #ff1a1a;text-align:center;border-radius:5px;transition:0.3s;}
+.stat:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(255,26,26,0.2);}
+.stat h2{font-size:36px;color:#ff1a1a;margin-bottom:8px;font-family:'Oswald',sans-serif;}
+.stat p{font-size:14px;color:#aaa;}
 
-.hero-author{
-    font-family: 'Oswald',sans-serif;
-    font-size:28px;
-    margin-top:15px;
-    color:#fff;
-}
+.card-container{display:flex;flex-wrap:wrap;gap:20px;margin-top:30px;}
+.card-link{flex:1;min-width:250px;text-decoration:none;color:inherit;}
+.card{background:linear-gradient(135deg,#1a1a22 0%,#0f0f15 100%);padding:30px;border-left:4px solid #ff1a1a;border-radius:5px;transition:all 0.3s;cursor:pointer;}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(255,26,26,0.3);}
+.card h3{font-family:'Oswald',sans-serif;font-size:22px;margin-bottom:10px;color:#ff1a1a;text-transform:uppercase;}
+.card p{color:#aaa;line-height:1.5;font-size:14px;}
 
-.shining-text{
-    color:#ff1a1a;
-    font-weight:700;
-    background: linear-gradient(90deg, #ff1a1a, #ff6666, #ff1a1a);
-    background-size:200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 2s linear infinite;
-    display:inline-block;
-}
+.collapsible{background:#1a1a22;color:#ff1a1a;cursor:pointer;padding:15px;width:100%;border:none;text-align:left;outline:none;font-size:16px;font-family:'Oswald',sans-serif;border-radius:5px;margin-bottom:5px;transition:0.3s;}
+.collapsible:hover{background:#ff1a1a;color:#06060a;}
+.active, .collapsible:after{content:'▼';float:right;}
+.active:after{content:'▲';}
+.content{padding:0 15px;display:none;overflow:hidden;background:#0f0f15;border-left:4px solid #ff1a1a;margin-bottom:10px;border-radius:0 5px 5px 0;color:#ccc;}
 
-@keyframes shine{
-    to{background-position:200% center;}
-}
+#audio-container{background:#1a1a22;padding:15px;margin:20px 0;border-left:4px solid #ff1a1a;border-radius:5px;display:flex;align-items:center;gap:15px;}
+#audio-container button{background:#ff1a1a;color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
+#audio-container button:hover{background:#b30000;box-shadow:0 0 10px #ff1a1a;}
+#audio-text{color:#ccc;flex:1;}
 
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes shiningText{0%{text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a;}50%{text-shadow:0 0 20px #ff1a1a,0 0 30px #ff1a1a;}100%{text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a;}}
 
-/* SECTIONS */
-section{
-    padding:80px 60px;
-    max-width:1200px;
-    margin:0 auto;
-}
-
-.section-title{
-    font-family:'Oswald',sans-serif;
-    font-size:36px;
-    margin-bottom:20px;
-    border-left:4px solid #ff1a1a;
-    padding-left:15px;
-    text-transform:uppercase;
-    color:#ff1a1a;
-}
-
-/* COLLAPSIBLE */
-.collapsible {
-    background-color: #1a1a1f;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 18px;
-    border-left: 4px solid #ff1a1a;
-    margin-bottom:10px;
-    transition: 0.3s;
-}
-
-.active, .collapsible:hover {
-    background-color: #111;
-}
-
-.collapsible::after {
-    content: '\002B';
-    color: #ff1a1a;
-    float: right;
-    margin-left: 5px;
-}
-
-.active::after {
-    content: "\2212";
-}
-
-.content {
-    padding: 0 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-    background-color: #0f0f15;
-    margin-bottom:15px;
-    border-radius:5px;
-    line-height:1.6;
-    color:#ccc;
-}
-
-/* TABLES */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-bottom:20px;
-}
-table, th, td{
-    border:1px solid #ff1a1a;
-}
-th, td{
-    padding:10px;
-    text-align:left;
-    color:#ccc;
-}
-th{
-    background:#1a1a22;
-}
-
-/* AUDIO CONTROLS */
-#audio-container{
-    background:#111;
-    padding:15px;
-    border-radius:5px;
-    margin-bottom:20px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-#audio-container button{
-    background:#ff1a1a;
-    border:none;
-    padding:8px 12px;
-    color:#fff;
-    cursor:pointer;
-    border-radius:5px;
-    font-weight:600;
-    transition:0.3s;
-}
-#audio-container button:hover{
-    background:#b30000;
-}
-
-/* SEARCH */
-#searchInput{
-    padding:10px;
-    width:100%;
-    margin-bottom:20px;
-    border-radius:5px;
-    border:1px solid #ff1a1a;
-    background:#0a0a0f;
-    color:#fff;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#000;
-    color:#666;
-    border-top:1px solid #1a1a1a;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .hero-content h1{font-size:40px;}
-    .hero-author{font-size:22px;}
-}
+footer{background:#000;color:#666;text-align:center;padding:20px;border-top:1px solid #1a1a1a;margin-top:40px;font-size:14px;}
+@media(max-width:768px){.card-container,.stats{flex-direction:column;}.hero-content h1{font-size:35px;}}
 </style>
 </head>
 <body>
@@ -255,9 +77,11 @@ footer{
     <div class="logo">THE TARUN KUMAR STUDIO</div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="index.html#initiative">Initiative</a>
-        <a href="index.html#timeline">Timeline</a>
-        <a href="index.html#contact">Secure Report</a>
+        <a href="#initiative">Initiative</a>
+        <a href="#rights">Rights</a>
+        <a href="#duties">Duties</a>
+        <a href="#anticorruption">Anti-Corruption</a>
+        <a href="#contact">Report</a>
     </nav>
 </header>
 
@@ -269,156 +93,135 @@ footer{
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Search Articles & Rights</h2>
-    <input type="text" id="searchInput" onkeyup="searchSections()" placeholder="Search topics...">
+<!-- Audio Narration -->
+<section id="audio-narration">
+    <h2 class="section-title">Audio Narration</h2>
+    <div id="audio-container">
+        <audio id="audio" src="citizen_awareness_narration.mp3"></audio>
+        <button onclick="toggleAudio()">Play / Pause Narration</button>
+        <span id="audio-text">Audio narration explaining Rights & Duties of Indian Citizens...</span>
+    </div>
 </section>
 
-<!-- RIGHTS & DUTIES -->
-<section>
+<!-- Rights Section -->
+<section id="rights">
     <h2 class="section-title">Fundamental Rights</h2>
     <button class="collapsible">Right to Equality (Articles 14-18)</button>
     <div class="content">
-        <p>All citizens are equal before the law, prohibiting discrimination and ensuring equal opportunity.</p>
+        <p>All citizens are equal before the law and prohibited from discrimination based on religion, caste, sex, or place of birth. Abolition of untouchability and titles are ensured.</p>
     </div>
 
     <button class="collapsible">Right to Freedom (Articles 19-22)</button>
     <div class="content">
-        <p>Guarantees freedom of speech, assembly, association, movement, and profession while ensuring personal liberty.</p>
+        <p>Includes freedom of speech, assembly, association, movement, and right to practice any profession. Protection in case of arrest or preventive detention.</p>
     </div>
 
-    <button class="collapsible">Right Against Exploitation (Articles 23-24)</button>
+    <button class="collapsible">Right against Exploitation (Articles 23-24)</button>
     <div class="content">
-        <p>Prohibits human trafficking, forced labor, and child labor.</p>
+        <p>Prohibits human trafficking, forced labor, and child labor under 14 years.</p>
     </div>
 
     <button class="collapsible">Right to Freedom of Religion (Articles 25-28)</button>
     <div class="content">
-        <p>Ensures religious freedom and equality of all faiths.</p>
+        <p>Ensures religious freedom and prevents religious instruction in state-funded institutions.</p>
     </div>
 
     <button class="collapsible">Cultural & Educational Rights (Articles 29-30)</button>
     <div class="content">
-        <p>Protects rights of minorities to preserve culture, language, and education.</p>
+        <p>Preserves culture, language, and education rights of minorities.</p>
     </div>
 
     <button class="collapsible">Right to Constitutional Remedies (Article 32)</button>
     <div class="content">
-        <p>Allows citizens to approach the Supreme Court or High Court for enforcement of fundamental rights.</p>
+        <p>Allows citizens to move the Supreme Court or High Courts for enforcement of fundamental rights.</p>
     </div>
 </section>
 
-<section>
+<!-- Duties Section -->
+<section id="duties">
     <h2 class="section-title">Fundamental Duties</h2>
-    <button class="collapsible">Respect Constitution & Laws</button>
+    <button class="collapsible">Respect the Constitution</button>
     <div class="content">
-        <p>Abide by the Constitution and respect national symbols.</p>
+        <p>Abide by the Constitution and respect its ideals and institutions.</p>
     </div>
-
-    <button class="collapsible">Cherish Noble Ideals</button>
+    <button class="collapsible">Promote Harmony</button>
     <div class="content">
-        <p>Promote spirit of patriotism and uphold unity.</p>
+        <p>Promote harmony and spirit of common brotherhood amongst all people of India.</p>
     </div>
-
-    <button class="collapsible">Protect Environment</button>
+    <button class="collapsible">Protect Heritage</button>
     <div class="content">
-        <p>Safeguard forests, lakes, rivers, wildlife, and public property.</p>
+        <p>Preserve the rich heritage of India’s composite culture.</p>
     </div>
-
-    <button class="collapsible">Promote Scientific Knowledge</button>
+    <button class="collapsible">Safeguard Environment</button>
     <div class="content">
-        <p>Strive for scientific temper and knowledge advancement.</p>
+        <p>Protect natural environment, forests, lakes, rivers, and wildlife.</p>
     </div>
 </section>
 
-<section>
+<!-- Anti-Corruption Section -->
+<section id="anticorruption">
     <h2 class="section-title">Anti-Corruption Laws</h2>
     <button class="collapsible">Prevention of Corruption Act, 1988</button>
     <div class="content">
-        <p>Establishes penalties for bribery of public officials and misuse of authority.</p>
+        <p>Defines offenses of bribery and corruption, and prescribes punishments.</p>
     </div>
-
-    <button class="collapsible">Lokpal & Lokayuktas Act, 2013</button>
+    <button class="collapsible">Lokpal and Lokayuktas Act, 2013</button>
     <div class="content">
-        <p>Institutes anti-corruption ombudsmen at central and state levels.</p>
+        <p>Establishes institutions to investigate corruption cases against public officials.</p>
     </div>
-
     <button class="collapsible">Whistleblower Protection Act, 2014</button>
     <div class="content">
-        <p>Provides protection for individuals reporting corruption or misconduct.</p>
+        <p>Protects individuals exposing corruption in government institutions.</p>
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Official Reference</h2>
-    <table>
-        <tr><th>Article</th><th>Topic</th><th>Link</th></tr>
-        <tr><td>14-18</td><td>Right to Equality</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-        <tr><td>19-22</td><td>Right to Freedom</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-        <tr><td>23-24</td><td>Right Against Exploitation</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-        <tr><td>25-28</td><td>Right to Freedom of Religion</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-        <tr><td>29-30</td><td>Cultural & Educational Rights</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-        <tr><td>32</td><td>Right to Constitutional Remedies</td><td><a href="https://legislative.gov.in/sites/default/files/const.pdf" target="_blank">PDF</a></td></tr>
-    </table>
-</section>
-
-<section>
-    <h2 class="section-title">Audio Narration</h2>
-    <div id="audio-container">
-        <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-        <button onclick="toggleAudio()">Play / Pause Narration</button>
-        <span id="audio-text">Audio narration explaining Rights & Duties...</span>
-    </div>
+<!-- Contact Section -->
+<section id="contact">
+    <h2 class="section-title">Secure & Confidential Report</h2>
+    <form id="reportForm">
+        <input type="text" name="name" placeholder="Full Name (Optional)">
+        <input type="email" name="email" placeholder="Secure Email (Optional)">
+        <textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
+        <button type="submit">Submit Securely</button>
+    </form>
 </section>
 
 <footer>
-    © THE REALITY SHOW | Developed by TARUN KUMAR<br>
-    Promoting lawful investigative reporting and citizen awareness.
+    © THE REALITY SHOW | Developed by Tarun Kumar
 </footer>
 
 <script>
-// COLLAPSIBLE
+// Audio Toggle
+var audio = document.getElementById("audio");
+function toggleAudio(){
+    if(audio.paused){ audio.play(); } else { audio.pause(); }
+}
+
+// Collapsible Sections
 var coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++){
+for(var i=0;i<coll.length;i++){
     coll[i].addEventListener("click", function(){
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        if(content.style.maxHeight){
-            content.style.maxHeight = null;
-        }else{
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
+        if(content.style.display === "block"){content.style.display="none";}
+        else{content.style.display="block";}
     });
 }
 
-// SEARCH FUNCTION
-function searchSections(){
-    var input, filter, sections, i, txtValue;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    sections = document.querySelectorAll(".collapsible");
-    for(i=0;i<sections.length;i++){
-        txtValue = sections[i].textContent || sections[i].innerText;
-        if(txtValue.toUpperCase().indexOf(filter) > -1){
-            sections[i].style.display="";
-            sections[i].nextElementSibling.style.display="";
-        }else{
-            sections[i].style.display="none";
-            sections[i].nextElementSibling.style.display="none";
-        }
-    }
-}
-
-// AUDIO TOGGLE
-var audio = document.getElementById("audio");
-function toggleAudio(){
-    if(audio.paused){
-        audio.play();
-    }else{
-        audio.pause();
-    }
-}
+// Secure Form (replace with your Google Script URL)
+const form = document.getElementById("reportForm");
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+  try {
+      await fetch(scriptURL,{method:"POST",body:formData});
+      alert("Report Submitted Securely ✅");
+      form.reset();
+  } catch (error) {
+      alert("Submission failed. Please try again.");
+  }
+});
 </script>
-
 </body>
 </html>
