@@ -2,226 +2,297 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Citizen Awareness | TARUN KUMAR</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Citizen Awareness Campaign | The Reality Show</title>
-<meta name="description" content="Empowering citizens through governance education and civic awareness.">
-<link rel="stylesheet" href="style.css">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{background:#06060a;color:#e6e6e6;font-family:'Poppins',sans-serif;padding-top:80px;}
-header{position:fixed;top:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,6,10,0.95);border-bottom:1px solid #111;z-index:1000;}
-.logo{font-family:'Oswald',sans-serif;font-size:24px;letter-spacing:3px;color:#ff1a1a;text-shadow:0 0 10px rgba(255,26,26,0.6);}
-nav a{text-decoration:none;color:#aaa;margin-left:25px;transition:0.3s;font-weight:500;position:relative;}
-nav a::after{content:'';position:absolute;bottom:-5px;left:0;width:0%;height:2px;background:#ff1a1a;transition:0.3s;}
-nav a:hover{color:#ff1a1a;}
-nav a:hover::after{width:100%;}
+/* ===== GLOBAL ===== */
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:black;
+    color:white;
+    scroll-behavior:smooth;
+}
 
-.page-hero{
-    height:70vh;
-    background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
-    url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Constitution_of_India.jpg');
+/* ===== HERO SECTION ===== */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Constitution_of_India.jpg");
     background-size:cover;
     background-position:center;
     display:flex;
-    align-items:center;
-    justify-content:center;
     flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:0 40px;
 }
-.hero-content h1{font-family:'Oswald',sans-serif;font-size:55px;text-transform:uppercase;color:#fff;animation:fadeUp 1s ease forwards;}
-.hero-content span{color:#ff1a1a;text-shadow:0 0 20px #ff1a1a;}
-.hero-content p{margin-top:15px;max-width:700px;color:#bbb;line-height:1.6;animation:fadeUp 1.3s ease forwards;}
-.hero-author{margin-top:10px;font-size:18px;color:#ff1a1a;font-weight:600;animation:shiningText 2s infinite;}
 
-section{padding:80px 40px;}
-.section-title{font-family:'Oswald',sans-serif;font-size:32px;margin-bottom:30px;border-left:4px solid #ff1a1a;padding-left:10px;text-transform:uppercase;color:#ff1a1a;animation:fadeUp 1s ease forwards;}
-p{margin-bottom:20px;line-height:1.7;color:#ccc;}
+.hero h1{
+    font-size:60px;
+    color:red;
+    text-shadow:0 0 20px red;
+    animation:glow 2s infinite alternate;
+}
 
-.stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;}
-.stat{flex:1;min-width:200px;background:linear-gradient(135deg,#1a1a22 0%,#0f0f15 100%);padding:20px;border-left:4px solid #ff1a1a;text-align:center;border-radius:5px;transition:0.3s;}
-.stat:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(255,26,26,0.2);}
-.stat h2{font-size:36px;color:#ff1a1a;margin-bottom:8px;font-family:'Oswald',sans-serif;}
-.stat p{font-size:14px;color:#aaa;}
+@keyframes glow{
+    from{ text-shadow:0 0 10px red;}
+    to{ text-shadow:0 0 40px crimson;}
+}
 
-.card-container{display:flex;flex-wrap:wrap;gap:20px;margin-top:30px;}
-.card-link{flex:1;min-width:250px;text-decoration:none;color:inherit;}
-.card{background:linear-gradient(135deg,#1a1a22 0%,#0f0f15 100%);padding:30px;border-left:4px solid #ff1a1a;border-radius:5px;transition:all 0.3s;cursor:pointer;}
-.card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(255,26,26,0.3);}
-.card h3{font-family:'Oswald',sans-serif;font-size:22px;margin-bottom:10px;color:#ff1a1a;text-transform:uppercase;}
-.card p{color:#aaa;line-height:1.5;font-size:14px;}
+.hero p{
+    font-size:22px;
+    max-width:800px;
+}
 
-.collapsible{background:#1a1a22;color:#ff1a1a;cursor:pointer;padding:15px;width:100%;border:none;text-align:left;outline:none;font-size:16px;font-family:'Oswald',sans-serif;border-radius:5px;margin-bottom:5px;transition:0.3s;}
-.collapsible:hover{background:#ff1a1a;color:#06060a;}
-.active, .collapsible:after{content:'▼';float:right;}
-.active:after{content:'▲';}
-.content{padding:0 15px;display:none;overflow:hidden;background:#0f0f15;border-left:4px solid #ff1a1a;margin-bottom:10px;border-radius:0 5px 5px 0;color:#ccc;}
+.author{
+    font-size:28px;
+    color:white;
+    margin-top:20px;
+}
 
-#audio-container{background:#1a1a22;padding:15px;margin:20px 0;border-left:4px solid #ff1a1a;border-radius:5px;display:flex;align-items:center;gap:15px;}
-#audio-container button{background:#ff1a1a;color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
-#audio-container button:hover{background:#b30000;box-shadow:0 0 10px #ff1a1a;}
-#audio-text{color:#ccc;flex:1;}
+/* ===== AUDIO SECTION ===== */
+#audioBox{
+    background:#111;
+    padding:30px;
+    text-align:center;
+    border-top:2px solid red;
+    border-bottom:2px solid red;
+}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-@keyframes shiningText{0%{text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a;}50%{text-shadow:0 0 20px #ff1a1a,0 0 30px #ff1a1a;}100%{text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a;}}
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    margin:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
 
-footer{background:#000;color:#666;text-align:center;padding:20px;border-top:1px solid #1a1a1a;margin-top:40px;font-size:14px;}
-@media(max-width:768px){.card-container,.stats{flex-direction:column;}.hero-content h1{font-size:35px;}}
+button:hover{
+    background:white;
+    color:red;
+}
+
+.visualizer{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:5px;
+}
+
+.bar{
+    width:5px;
+    height:20px;
+    background:red;
+    animation:wave 1s infinite ease-in-out;
+}
+
+.bar:nth-child(2){animation-delay:0.2s;}
+.bar:nth-child(3){animation-delay:0.4s;}
+.bar:nth-child(4){animation-delay:0.6s;}
+
+@keyframes wave{
+    0%,100%{height:20px;}
+    50%{height:60px;}
+}
+
+/* ===== SECTIONS ===== */
+section{
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+h2{
+    color:red;
+    border-bottom:2px solid red;
+    padding-bottom:10px;
+}
+
+details{
+    margin:20px 0;
+    background:#111;
+    padding:15px;
+    border-left:4px solid red;
+    cursor:pointer;
+}
+
+summary{
+    font-weight:bold;
+    font-size:18px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    border:1px solid red;
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:red;
+}
+
+/* ===== SEARCH ===== */
+#search{
+    width:100%;
+    padding:12px;
+    margin:20px 0;
+    background:#222;
+    color:white;
+    border:1px solid red;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    border-top:2px solid red;
+}
+
 </style>
 </head>
+
 <body>
 
-<header>
-    <div class="logo">THE TARUN KUMAR STUDIO</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#initiative">Initiative</a>
-        <a href="#rights">Rights</a>
-        <a href="#duties">Duties</a>
-        <a href="#anticorruption">Anti-Corruption</a>
-        <a href="#contact">Report</a>
-    </nav>
-</header>
+<!-- HERO -->
+<div class="hero">
+    <h1>CITIZEN AWARENESS</h1>
+    <p>Complete guide to Fundamental Rights, Duties, Constitution Articles and Anti-Corruption Laws of India.</p>
+    <div class="author">Provided Free by TARUN KUMAR</div>
+</div>
 
-<section class="page-hero">
-    <div class="hero-content">
-        <h1>CITIZEN <span>AWARENESS</span></h1>
-        <p>Educating communities about rights, duties, and governance systems.</p>
-        <p class="hero-author">Presented by <span class="shining-text">TARUN KUMAR</span></p>
+<!-- AUDIO NARRATION -->
+<div id="audioBox">
+    <h2>AI Voice Narration</h2>
+    <button onclick="startSpeech()">Start Narration</button>
+    <button onclick="stopSpeech()">Stop</button>
+    <div class="visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
-</section>
+    <p id="spokenText"></p>
+</div>
 
-<!-- Audio Narration -->
-<section id="audio-narration">
-    <h2 class="section-title">Audio Narration</h2>
-    <div id="audio-container">
-        <audio id="audio" src="citizen_awareness_narration.mp3"></audio>
-        <button onclick="toggleAudio()">Play / Pause Narration</button>
-        <span id="audio-text">Audio narration explaining Rights & Duties of Indian Citizens...</span>
-    </div>
-</section>
+<section>
 
-<!-- Rights Section -->
-<section id="rights">
-    <h2 class="section-title">Fundamental Rights</h2>
-    <button class="collapsible">Right to Equality (Articles 14-18)</button>
-    <div class="content">
-        <p>All citizens are equal before the law and prohibited from discrimination based on religion, caste, sex, or place of birth. Abolition of untouchability and titles are ensured.</p>
-    </div>
+<input type="text" id="search" placeholder="Search Articles, Rights, Duties..." onkeyup="searchContent()">
 
-    <button class="collapsible">Right to Freedom (Articles 19-22)</button>
-    <div class="content">
-        <p>Includes freedom of speech, assembly, association, movement, and right to practice any profession. Protection in case of arrest or preventive detention.</p>
-    </div>
+<h2>Fundamental Rights (Articles 12–35)</h2>
 
-    <button class="collapsible">Right against Exploitation (Articles 23-24)</button>
-    <div class="content">
-        <p>Prohibits human trafficking, forced labor, and child labor under 14 years.</p>
-    </div>
+<details>
+<summary>Right to Equality (Articles 14-18)</summary>
+<p>Ensures equality before law and prohibits discrimination on religion, race, caste, sex or place of birth.</p>
+</details>
 
-    <button class="collapsible">Right to Freedom of Religion (Articles 25-28)</button>
-    <div class="content">
-        <p>Ensures religious freedom and prevents religious instruction in state-funded institutions.</p>
-    </div>
+<details>
+<summary>Right to Freedom (Articles 19-22)</summary>
+<p>Includes freedom of speech, expression, movement, association, residence and profession.</p>
+</details>
 
-    <button class="collapsible">Cultural & Educational Rights (Articles 29-30)</button>
-    <div class="content">
-        <p>Preserves culture, language, and education rights of minorities.</p>
-    </div>
+<details>
+<summary>Right Against Exploitation (Articles 23-24)</summary>
+<p>Prohibits human trafficking, forced labour and child labour.</p>
+</details>
 
-    <button class="collapsible">Right to Constitutional Remedies (Article 32)</button>
-    <div class="content">
-        <p>Allows citizens to move the Supreme Court or High Courts for enforcement of fundamental rights.</p>
-    </div>
-</section>
+<details>
+<summary>Right to Freedom of Religion (Articles 25-28)</summary>
+<p>Ensures religious freedom and secularism.</p>
+</details>
 
-<!-- Duties Section -->
-<section id="duties">
-    <h2 class="section-title">Fundamental Duties</h2>
-    <button class="collapsible">Respect the Constitution</button>
-    <div class="content">
-        <p>Abide by the Constitution and respect its ideals and institutions.</p>
-    </div>
-    <button class="collapsible">Promote Harmony</button>
-    <div class="content">
-        <p>Promote harmony and spirit of common brotherhood amongst all people of India.</p>
-    </div>
-    <button class="collapsible">Protect Heritage</button>
-    <div class="content">
-        <p>Preserve the rich heritage of India’s composite culture.</p>
-    </div>
-    <button class="collapsible">Safeguard Environment</button>
-    <div class="content">
-        <p>Protect natural environment, forests, lakes, rivers, and wildlife.</p>
-    </div>
-</section>
+<details>
+<summary>Cultural and Educational Rights (Articles 29-30)</summary>
+<p>Protects rights of minorities to conserve culture and establish institutions.</p>
+</details>
 
-<!-- Anti-Corruption Section -->
-<section id="anticorruption">
-    <h2 class="section-title">Anti-Corruption Laws</h2>
-    <button class="collapsible">Prevention of Corruption Act, 1988</button>
-    <div class="content">
-        <p>Defines offenses of bribery and corruption, and prescribes punishments.</p>
-    </div>
-    <button class="collapsible">Lokpal and Lokayuktas Act, 2013</button>
-    <div class="content">
-        <p>Establishes institutions to investigate corruption cases against public officials.</p>
-    </div>
-    <button class="collapsible">Whistleblower Protection Act, 2014</button>
-    <div class="content">
-        <p>Protects individuals exposing corruption in government institutions.</p>
-    </div>
-</section>
+<details>
+<summary>Right to Constitutional Remedies (Article 32)</summary>
+<p>Citizens can approach Supreme Court if rights are violated.</p>
+</details>
 
-<!-- Contact Section -->
-<section id="contact">
-    <h2 class="section-title">Secure & Confidential Report</h2>
-    <form id="reportForm">
-        <input type="text" name="name" placeholder="Full Name (Optional)">
-        <input type="email" name="email" placeholder="Secure Email (Optional)">
-        <textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
-        <button type="submit">Submit Securely</button>
-    </form>
+<h2>Fundamental Duties (Article 51A)</h2>
+
+<p>Every citizen must respect the Constitution, National Flag, National Anthem, protect environment, promote harmony and safeguard public property.</p>
+
+<h2>Important Constitutional Articles</h2>
+
+<table>
+<tr><th>Article</th><th>Description</th></tr>
+<tr><td>Article 14</td><td>Equality before law</td></tr>
+<tr><td>Article 19</td><td>Freedom of Speech</td></tr>
+<tr><td>Article 21</td><td>Right to Life</td></tr>
+<tr><td>Article 32</td><td>Right to Constitutional Remedies</td></tr>
+<tr><td>Article 51A</td><td>Fundamental Duties</td></tr>
+</table>
+
+<h2>Anti-Corruption Laws</h2>
+
+<p>
+Prevention of Corruption Act 1988 criminalizes bribery and corruption.
+Lokpal and Lokayuktas Act 2013 ensures investigation of corruption cases.
+Right to Information Act 2005 empowers citizens to access government records.
+</p>
+
+<h2>Official Constitution PDF</h2>
+
+<p>
+Download official Constitution of India:
+<a href="https://legislative.gov.in/sites/default/files/COI-updated.pdf" target="_blank" style="color:red;">Click Here</a>
+</p>
+
 </section>
 
 <footer>
-    © THE REALITY SHOW | Developed by Tarun Kumar
+© THE REALITY SHOW | Developed by TARUN KUMAR
 </footer>
 
 <script>
-// Audio Toggle
-var audio = document.getElementById("audio");
-function toggleAudio(){
-    if(audio.paused){ audio.play(); } else { audio.pause(); }
+
+/* ===== AI SPEECH ===== */
+let speech;
+
+function startSpeech(){
+    let text = "Welcome to Citizen Awareness platform by Tarun Kumar. This website explains fundamental rights, duties, constitutional articles and anti corruption laws of India.";
+    speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-IN";
+    speech.rate = 1;
+    speech.pitch = 1;
+    window.speechSynthesis.speak(speech);
+    document.getElementById("spokenText").innerText = text;
 }
 
-// Collapsible Sections
-var coll = document.getElementsByClassName("collapsible");
-for(var i=0;i<coll.length;i++){
-    coll[i].addEventListener("click", function(){
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if(content.style.display === "block"){content.style.display="none";}
-        else{content.style.display="block";}
+function stopSpeech(){
+    window.speechSynthesis.cancel();
+}
+
+/* ===== SEARCH FUNCTION ===== */
+function searchContent(){
+    let input = document.getElementById("search").value.toLowerCase();
+    let sections = document.querySelectorAll("section, details");
+    sections.forEach(sec=>{
+        if(sec.innerText.toLowerCase().includes(input)){
+            sec.style.display="block";
+        }else{
+            sec.style.display="none";
+        }
     });
 }
 
-// Secure Form (replace with your Google Script URL)
-const form = document.getElementById("reportForm");
-form.addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
-  try {
-      await fetch(scriptURL,{method:"POST",body:formData});
-      alert("Report Submitted Securely ✅");
-      form.reset();
-  } catch (error) {
-      alert("Submission failed. Please try again.");
-  }
-});
 </script>
+
 </body>
 </html>
