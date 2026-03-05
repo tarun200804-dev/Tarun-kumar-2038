@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="tk.css">
 
 <style>
-/* ONLY globe positioning added – theme unchanged */
 .hero{
     position: relative;
     overflow: hidden;
@@ -49,10 +48,8 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero" id="home">
 
-    <!-- 3D Globe -->
     <div id="globe-container"></div>
 
     <div class="hero-content">
@@ -65,7 +62,6 @@
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <h2 class="section-title">About Tarun Kumar</h2>
     <p>
@@ -90,7 +86,6 @@
     </div>
 </section>
 
-<!-- INITIATIVE -->
 <section id="initiative">
     <h2 class="section-title">The National Initiative</h2>
 
@@ -125,7 +120,6 @@
     </div>
 </section>
 
-<!-- TIMELINE -->
 <section id="timeline">
     <h2 class="section-title">Investigation Framework</h2>
 
@@ -152,7 +146,6 @@
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Secure & Confidential Report</h2>
 
@@ -170,14 +163,16 @@
     Promoting lawful investigative reporting and transparency.
 </footer>
 
-<!-- ===== 3D GLOBE SCRIPT ===== -->
+<!-- ===== VIRTUAL 3D GLOBE SCRIPT ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
 const container = document.getElementById("globe-container");
 
 if(container){
+
 const scene = new THREE.Scene();
+
 const camera = new THREE.PerspectiveCamera(
 45,
 container.clientWidth / container.clientHeight,
@@ -185,41 +180,61 @@ container.clientWidth / container.clientHeight,
 1000
 );
 
-const renderer = new THREE.WebGLRenderer({alpha:true});
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
-const geometry = new THREE.SphereGeometry(5,64,64);
+/* DIGITAL WIRE GLOBE */
+const geometry = new THREE.SphereGeometry(5, 64, 64);
 
-const texture = new THREE.TextureLoader().load(
-"https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg"
-);
+const material = new THREE.MeshBasicMaterial({
+    color: 0xff1a1a,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.7
+});
 
-const material = new THREE.MeshStandardMaterial({map:texture});
 const globe = new THREE.Mesh(geometry, material);
 scene.add(globe);
 
-const light = new THREE.PointLight(0xffffff,1);
-light.position.set(10,10,10);
-scene.add(light);
+/* OUTER ROTATING RING */
+const ringGeometry = new THREE.TorusGeometry(7, 0.05, 16, 100);
+const ringMaterial = new THREE.MeshBasicMaterial({
+    color: 0xff0000,
+    transparent: true,
+    opacity: 0.4
+});
 
-const ambient = new THREE.AmbientLight(0xffffff,0.3);
-scene.add(ambient);
+const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+ring.rotation.x = Math.PI / 2;
+scene.add(ring);
 
-camera.position.z = 10;
+camera.position.z = 12;
 
 function animate(){
-requestAnimationFrame(animate);
-globe.rotation.y += 0.002;
-renderer.render(scene,camera);
+    requestAnimationFrame(animate);
+
+    globe.rotation.y += 0.003;
+    globe.rotation.x += 0.0008;
+    ring.rotation.z += 0.002;
+
+    renderer.render(scene, camera);
 }
+
 animate();
+
+window.addEventListener("resize", () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
 }
 </script>
 
-<!-- ===== YOUR ORIGINAL SCRIPT (UNCHANGED) ===== -->
+<!-- ORIGINAL SITE SCRIPT -->
 <script>
-/* COUNTER ANIMATION */
 const counters = document.querySelectorAll('.counter');
 let counterStarted = false;
 
@@ -254,7 +269,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-/* FORM SUBMISSION */
 const form = document.getElementById("reportForm");
 
 form.addEventListener("submit", async function(e) {
