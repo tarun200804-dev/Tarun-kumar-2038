@@ -23,7 +23,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.12;
+    opacity: 0.15;
     z-index: 0;
     pointer-events: none;
 }
@@ -49,14 +49,13 @@
 </header>
 
 <section class="hero" id="home">
-
     <div id="globe-container"></div>
 
     <div class="hero-content">
         <h1>THE <span>REALITY SHOW</span></h1>
         <p>
-            A platform committed to investigative transparency, evidence-based reporting,
-            and responsible public disclosure.
+            A platform committed to investigative transparency,
+            evidence-based reporting, and responsible public disclosure.
         </p>
         <a href="#initiative" class="btn">Enter Investigation</a>
     </div>
@@ -128,17 +127,14 @@
             <h4>Phase 1 – Data Collection</h4>
             <p>Authentic accounts and verified documentation.</p>
         </div>
-
         <div class="timeline-item">
             <h4>Phase 2 – Verification & Legal Review</h4>
             <p>Cross-checking evidence with experts.</p>
         </div>
-
         <div class="timeline-item">
             <h4>Phase 3 – Documentary Reconstruction</h4>
             <p>Structuring findings with clarity.</p>
         </div>
-
         <div class="timeline-item">
             <h4>Phase 4 – Public Disclosure</h4>
             <p>Responsible publishing in public interest.</p>
@@ -163,7 +159,7 @@
     Promoting lawful investigative reporting and transparency.
 </footer>
 
-<!-- ===== VIRTUAL 3D GLOBE SCRIPT ===== -->
+<!-- ===== PREMIUM VIRTUAL GLOBE ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
@@ -180,115 +176,135 @@ container.clientWidth / container.clientHeight,
 1000
 );
 
-const renderer = new THREE.WebGLRenderer({ alpha: true });
+const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
-/* DIGITAL WIRE GLOBE */
-const geometry = new THREE.SphereGeometry(5, 64, 64);
-
-const material = new THREE.MeshBasicMaterial({
-    color: 0xff1a1a,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.7
+/* MAIN DIGITAL GLOBE */
+const globeGeometry = new THREE.SphereGeometry(5,128,128);
+const globeMaterial = new THREE.MeshBasicMaterial({
+    color:0xff1a1a,
+    wireframe:true,
+    transparent:true,
+    opacity:0.9
 });
-
-const globe = new THREE.Mesh(geometry, material);
+const globe = new THREE.Mesh(globeGeometry, globeMaterial);
 scene.add(globe);
 
-/* OUTER ROTATING RING */
-const ringGeometry = new THREE.TorusGeometry(7, 0.05, 16, 100);
-const ringMaterial = new THREE.MeshBasicMaterial({
-    color: 0xff0000,
-    transparent: true,
-    opacity: 0.4
+/* INNER GLOW CORE */
+const coreGeometry = new THREE.SphereGeometry(4.6,64,64);
+const coreMaterial = new THREE.MeshBasicMaterial({
+    color:0xff0000,
+    transparent:true,
+    opacity:0.18
 });
+const core = new THREE.Mesh(coreGeometry, coreMaterial);
+scene.add(core);
 
+/* OUTER RING */
+const ringGeometry = new THREE.TorusGeometry(7,0.08,16,200);
+const ringMaterial = new THREE.MeshBasicMaterial({
+    color:0xff0000,
+    transparent:true,
+    opacity:0.5
+});
 const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-ring.rotation.x = Math.PI / 2;
+ring.rotation.x = Math.PI/2;
 scene.add(ring);
 
-camera.position.z = 12;
+/* FLOATING PARTICLES */
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 1200;
+const posArray = new Float32Array(particlesCount * 3);
 
+for(let i=0;i<particlesCount*3;i++){
+    posArray[i] = (Math.random()-0.5)*50;
+}
+
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray,3));
+
+const particlesMaterial = new THREE.PointsMaterial({
+    size:0.1,
+    color:0xff0000,
+    transparent:true,
+    opacity:0.6
+});
+
+const particlesMesh = new THREE.Points(particlesGeometry,particlesMaterial);
+scene.add(particlesMesh);
+
+camera.position.z = 14;
+
+/* ANIMATION */
 function animate(){
     requestAnimationFrame(animate);
 
-    globe.rotation.y += 0.003;
-    globe.rotation.x += 0.0008;
-    ring.rotation.z += 0.002;
+    globe.rotation.y += 0.0035;
+    globe.rotation.x += 0.001;
 
-    renderer.render(scene, camera);
+    ring.rotation.z += 0.004;
+
+    particlesMesh.rotation.y += 0.0008;
+
+    renderer.render(scene,camera);
 }
-
 animate();
 
-window.addEventListener("resize", () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
+window.addEventListener("resize",()=>{
+    camera.aspect = container.clientWidth/container.clientHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(container.clientWidth,container.clientHeight);
 });
-
 }
 </script>
 
 <!-- ORIGINAL SITE SCRIPT -->
 <script>
-const counters = document.querySelectorAll('.counter');
-let counterStarted = false;
+const counters=document.querySelectorAll('.counter');
+let counterStarted=false;
 
-function startCounters() {
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const speed = 200;
-            const increment = target / speed;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 15);
-            } else {
-                counter.innerText = target + "+";
-            }
-        };
-        updateCount();
-    });
+function startCounters(){
+counters.forEach(counter=>{
+const updateCount=()=>{
+const target=+counter.getAttribute('data-target');
+const count=+counter.innerText;
+const speed=200;
+const increment=target/speed;
+if(count<target){
+counter.innerText=Math.ceil(count+increment);
+setTimeout(updateCount,15);
+}else{
+counter.innerText=target+"+";
+}
+};
+updateCount();
+});
 }
 
-window.addEventListener('scroll', () => {
-    const aboutSection = document.getElementById('about');
-    const sectionTop = aboutSection.offsetTop;
-    const sectionHeight = aboutSection.offsetHeight;
-    const scrollPosition = window.scrollY + window.innerHeight;
-
-    if (scrollPosition > sectionTop + sectionHeight / 4 && !counterStarted) {
-        startCounters();
-        counterStarted = true;
-    }
+window.addEventListener('scroll',()=>{
+const aboutSection=document.getElementById('about');
+const sectionTop=aboutSection.offsetTop;
+const sectionHeight=aboutSection.offsetHeight;
+const scrollPosition=window.scrollY+window.innerHeight;
+if(scrollPosition>sectionTop+sectionHeight/4&&!counterStarted){
+startCounters();
+counterStarted=true;
+}
 });
 
-const form = document.getElementById("reportForm");
-
-form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
-
-    try {
-        await fetch(scriptURL, {
-            method: "POST",
-            body: formData
-        });
-
-        alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
-        form.reset();
-
-    } catch (error) {
-        alert("Submission failed. Please try again.");
-    }
+const form=document.getElementById("reportForm");
+form.addEventListener("submit",async function(e){
+e.preventDefault();
+const formData=new FormData(form);
+const scriptURL="YOUR_GOOGLE_SCRIPT_URL_HERE";
+try{
+await fetch(scriptURL,{method:"POST",body:formData});
+alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
+form.reset();
+}catch(error){
+alert("Submission failed. Please try again.");
+}
 });
 </script>
 
