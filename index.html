@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4"/>
@@ -14,7 +13,6 @@
 <link rel="stylesheet" href="tk.css">
 
 <style>
-
 /* GLOBAL */
 body{
   margin:0;
@@ -185,9 +183,7 @@ footer{
   padding:40px;
   opacity:.7;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -307,9 +303,9 @@ document.addEventListener("DOMContentLoaded", function(){
     constructor(x, y) {
       this.x = x;
       this.y = y;
-      this.vx = (Math.random() - 0.5) * 20;
-      this.vy = (Math.random() - 0.5) * 20;
-      this.size = Math.random() * 6 + 3;
+      this.vx = (Math.random() - 0.5) * 25;
+      this.vy = (Math.random() - 0.5) * 25;
+      this.size = Math.random() * 8 + 3;
       this.alpha = 1;
     }
     update() {
@@ -318,21 +314,21 @@ document.addEventListener("DOMContentLoaded", function(){
       this.alpha -= 0.03;
     }
     draw() {
-      ctx.fillStyle = "rgba(255,0,0," + this.alpha + ")";
+      ctx.fillStyle = `rgba(255,0,0,${this.alpha})`;
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
       ctx.fill();
     }
   }
 
   function explode() {
-    for (let i = 0; i < 400; i++) {
-      particles.push(new Particle(canvas.width / 2, canvas.height / 2));
+    for(let i=0; i<500; i++){
+      particles.push(new Particle(canvas.width/2, canvas.height/2));
     }
   }
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     particles.forEach((p,index)=>{
       p.update();
       p.draw();
@@ -340,17 +336,17 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     requestAnimationFrame(animateParticles);
   }
-
   animateParticles();
 
   btn.addEventListener("click", function(){
     sound.currentTime = 0;
     sound.play();
     explode();
-    entry.style.transition = "opacity 2s ease";
+    entry.style.transition = "opacity 2s ease, visibility 2s ease";
     entry.style.opacity = 0;
-    setTimeout(() => { entry.style.display = "none"; }, 2000);
+    setTimeout(()=>{ entry.style.display="none"; }, 2000);
   });
+
 });
 </script>
 
