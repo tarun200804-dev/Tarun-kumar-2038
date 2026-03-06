@@ -1,82 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4" />
+
+<meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4"/>
+
 <meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
+
 <meta name="author" content="Tarun Kumar">
+
 <title>The Reality Show - Tarun Kumar</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="tk.css">
 
 <style>
+
 .hero{
-    position: relative;
-    overflow: hidden;
+position:relative;
+overflow:hidden;
 }
 
 #globe-container{
-    position: absolute;
-    width: 750px;
-    height: 750px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.15;
-    z-index: 0;
-    pointer-events: none;
+position:absolute;
+width:750px;
+height:750px;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+opacity:0.15;
+z-index:0;
+pointer-events:none;
 }
 
 .hero-content{
-    position: relative;
-    z-index: 2;
+position:relative;
+z-index:2;
 }
+
+/* ENTRY SCREEN */
+
+#cinematic-entry{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.entry-text{
+font-size:42px;
+color:white;
+margin-bottom:30px;
+}
+
+.entry-button{
+padding:15px 40px;
+background:red;
+color:white;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+#blast-canvas{
+position:absolute;
+top:0;
+left:0;
+}
+
 </style>
+
 </head>
- <script>
 
-const entry = document.getElementById("cinematic-entry");
-const btn = document.querySelector(".entry-button");
-const canvas = document.getElementById("blast-canvas");
-const ctx = canvas.getContext("2d");
-const sound = document.getElementById("blastSound");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<body>
 
-let particles = [];
+<!-- ENTRY SCREEN -->
 
-/* PARTICLE CLASS */
+<div id="cinematic-entry">
+
+<div class="entry-text">ENTER THE REALITY</div>
+
+<div class="entry-button">CLICK TO BEGIN</div>
+
+<canvas id="blast-canvas"></canvas>
+
+<audio id="blastSound">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3">
+</audio>
+
+</div>
+
+
+<header></header>
+
+
+<section class="hero" id="home">
+
+<div id="globe-container"></div>
+
+<div class="hero-content">
+
+<h1>THE <span>REALITY SHOW</span></h1>
+
+<p>
+A platform committed to investigative transparency,
+evidence-based reporting, and responsible public disclosure.
+</p>
+
+<a href="#initiative" class="btn">Enter Investigation</a>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<h2 class="section-title">About Tarun Kumar</h2>
+
+<p>
+The Reality Show is an independent initiative focused on civic awareness,
+ethical investigation, and accountability in governance.
+Guided by the principles of truth, law, and public responsibility.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h2 class="counter" data-target="100">0</h2>
+<p>Investigations Planned</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="50">0</h2>
+<p>Research Analysts</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Secure Reporting</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="initiative">
+
+<h2 class="section-title">The National Initiative</h2>
+
+<div class="card-container">
+
+<a href="political-transparency.html" class="card-link">
+<div class="card">
+<h3>Political Transparency</h3>
+<p>Direct dialogue and accountability discussions.</p>
+</div>
+</a>
+
+<a href="whistleblower.html" class="card-link">
+<div class="card">
+<h3>Whistleblower Shield</h3>
+<p>Confidential investigation of misconduct.</p>
+</div>
+</a>
+
+<a href="evidence-reporting.html" class="card-link">
+<div class="card">
+<h3>Evidence-Based Reporting</h3>
+<p>Verified documentation and analysis.</p>
+</div>
+</a>
+
+<a href="citizen-awareness.html" class="card-link">
+<div class="card">
+<h3>Citizen Awareness Campaigns</h3>
+<p>Educating communities on rights and governance.</p>
+</div>
+</a>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2 class="section-title">Secure & Confidential Report</h2>
+
+<form id="reportForm">
+
+<input type="text" name="name" placeholder="Full Name (Optional)">
+
+<input type="email" name="email" placeholder="Secure Email (Optional)">
+
+<textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
+
+<button type="submit">Submit Securely</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+© THE REALITY SHOW | Developed by Tarun Kumar
+<br>
+Promoting lawful investigative reporting and transparency.
+
+</footer>
+
+
+<!-- THREE JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+
+const container=document.getElementById("globe-container");
+
+const scene=new THREE.Scene();
+
+const camera=new THREE.PerspectiveCamera(45,1,0.1,1000);
+
+const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
+
+renderer.setSize(750,750);
+
+container.appendChild(renderer.domElement);
+
+const globeGeometry=new THREE.SphereGeometry(5,128,128);
+
+const globeMaterial=new THREE.MeshBasicMaterial({
+color:0xff1a1a,
+wireframe:true
+});
+
+const globe=new THREE.Mesh(globeGeometry,globeMaterial);
+
+scene.add(globe);
+
+camera.position.z=14;
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+globe.rotation.y+=0.003;
+
+renderer.render(scene,camera);
+
+}
+
+animate();
+
+</script>
+
+
+<!-- BLAST ENTRY SCRIPT -->
+
+<script>
+
+window.onload=function(){
+
+const entry=document.getElementById("cinematic-entry");
+
+const btn=document.querySelector(".entry-button");
+
+const canvas=document.getElementById("blast-canvas");
+
+const ctx=canvas.getContext("2d");
+
+const sound=document.getElementById("blastSound");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
 
 class Particle{
 
 constructor(x,y){
 
-this.x = x;
-this.y = y;
+this.x=x;
+this.y=y;
 
-this.vx = (Math.random()-0.5)*12;
-this.vy = (Math.random()-0.5)*12;
+this.vx=(Math.random()-0.5)*12;
+this.vy=(Math.random()-0.5)*12;
 
-this.size = Math.random()*4+2;
+this.size=Math.random()*4+2;
 
-this.alpha = 1;
+this.alpha=1;
 
 }
 
 update(){
 
-this.x += this.vx;
-this.y += this.vy;
+this.x+=this.vx;
+this.y+=this.vy;
 
-this.alpha -= 0.02;
+this.alpha-=0.02;
 
 }
 
 draw(){
 
-ctx.fillStyle = "rgba(255,0,0,"+this.alpha+")";
+ctx.fillStyle="rgba(255,0,0,"+this.alpha+")";
 
 ctx.beginPath();
 ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
@@ -86,21 +326,15 @@ ctx.fill();
 
 }
 
-/* CREATE EXPLOSION */
-
 function explode(){
 
 for(let i=0;i<250;i++){
 
-particles.push(
-new Particle(canvas.width/2,canvas.height/2)
-);
+particles.push(new Particle(canvas.width/2,canvas.height/2));
 
 }
 
 }
-
-/* PARTICLE LOOP */
 
 function animate(){
 
@@ -112,9 +346,7 @@ p.update();
 p.draw();
 
 if(p.alpha<=0){
-
 particles.splice(index,1);
-
 }
 
 });
@@ -125,27 +357,11 @@ requestAnimationFrame(animate);
 
 animate();
 
-/* CLICK EVENT */
-
 btn.addEventListener("click",()=>{
 
 sound.play();
 
 explode();
-
-/* glass crack */
-
-const crack = document.createElement("div");
-
-crack.classList.add("crack","show");
-
-entry.appendChild(crack);
-
-/* zoom cinematic */
-
-entry.classList.add("zoom-out");
-
-/* remove intro */
 
 setTimeout(()=>{
 
@@ -155,296 +371,110 @@ entry.style.display="none";
 
 });
 
-</script>
-<body>
-<!-- CINEMATIC ENTRY -->
-<div id="cinematic-entry">
-
-<div class="entry-center">
-
-<div class="entry-text">
-ENTER THE REALITY
-</div>
-
-<div class="entry-button">
-CLICK TO BEGIN
-</div>
-
-</div>
-
-<canvas id="blast-canvas"></canvas>
-
-<audio id="blastSound">
-<source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3">
-</audio>
-
-</div>
-</header>
-
-<section class="hero" id="home">
-    <div id="globe-container"></div>
-
-    <div class="hero-content">
-        <h1>THE <span>REALITY SHOW</span></h1>
-        <p>
-            A platform committed to investigative transparency,
-            evidence-based reporting, and responsible public disclosure.
-        </p>
-        <a href="#initiative" class="btn">Enter Investigation</a>
-    </div>
-</section>
-
-<section id="about">
-    <h2 class="section-title">About Tarun Kumar</h2>
-    <p>
-        The Reality Show is an independent initiative focused on civic awareness,
-        ethical investigation, and accountability in governance.
-        Guided by the principles of truth, law, and public responsibility.
-    </p>
-
-    <div class="stats">
-        <div class="stat">
-            <h2 class="counter" data-target="100">0</h2>
-            <p>Investigations Planned</p>
-        </div>
-        <div class="stat">
-            <h2 class="counter" data-target="50">0</h2>
-            <p>Research Analysts</p>
-        </div>
-        <div class="stat">
-            <h2>24/7</h2>
-            <p>Secure Reporting</p>
-        </div>
-    </div>
-</section>
-
-<section id="initiative">
-    <h2 class="section-title">The National Initiative</h2>
-
-    <div class="card-container">
-        <a href="political-transparency.html" class="card-link">
-            <div class="card">
-                <h3>Political Transparency</h3>
-                <p>Direct dialogue and accountability discussions.</p>
-            </div>
-        </a>
-
-        <a href="whistleblower.html" class="card-link">
-            <div class="card">
-                <h3>Whistleblower Shield</h3>
-                <p>Confidential investigation of misconduct.</p>
-            </div>
-        </a>
-
-        <a href="evidence-reporting.html" class="card-link">
-            <div class="card">
-                <h3>Evidence-Based Reporting</h3>
-                <p>Verified documentation and analysis.</p>
-            </div>
-        </a>
-
-        <a href="citizen-awareness.html" class="card-link">
-            <div class="card">
-                <h3>Citizen Awareness Campaigns</h3>
-                <p>Educating communities on rights and governance.</p>
-            </div>
-        </a>
-    </div>
-</section>
-
-<section id="timeline">
-    <h2 class="section-title">Investigation Framework</h2>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <h4>Phase 1 – Data Collection</h4>
-            <p>Authentic accounts and verified documentation.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Phase 2 – Verification & Legal Review</h4>
-            <p>Cross-checking evidence with experts.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Phase 3 – Documentary Reconstruction</h4>
-            <p>Structuring findings with clarity.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Phase 4 – Public Disclosure</h4>
-            <p>Responsible publishing in public interest.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2 class="section-title">Secure & Confidential Report</h2>
-
-  <form action="submit.php" method="POST">
-
-<input type="text" name="name" placeholder="Full Name (Optional)">
-
-<input type="email" name="email" placeholder="Secure Email (Optional)">
-
-<textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
-
-<button type="submit">Submit Securely</button>
-
-</form>
-</section>
-
-<footer>
-    © THE REALITY SHOW | Developed by Tarun Kumar
-    <br>
-    Promoting lawful investigative reporting and transparency.
-</footer>
-
-<!-- ===== PREMIUM VIRTUAL GLOBE ===== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script>
-const container = document.getElementById("globe-container");
-
-if(container){
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-45,
-container.clientWidth / container.clientHeight,
-0.1,
-1000
-);
-
-const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
-renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
-container.appendChild(renderer.domElement);
-
-/* MAIN DIGITAL GLOBE */
-const globeGeometry = new THREE.SphereGeometry(5,128,128);
-const globeMaterial = new THREE.MeshBasicMaterial({
-    color:0xff1a1a,
-    wireframe:true,
-    transparent:true,
-    opacity:0.9
-});
-const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-scene.add(globe);
-
-/* INNER GLOW CORE */
-const coreGeometry = new THREE.SphereGeometry(4.6,64,64);
-const coreMaterial = new THREE.MeshBasicMaterial({
-    color:0xff0000,
-    transparent:true,
-    opacity:0.18
-});
-const core = new THREE.Mesh(coreGeometry, coreMaterial);
-scene.add(core);
-
-/* OUTER RING */
-const ringGeometry = new THREE.TorusGeometry(7,0.08,16,200);
-const ringMaterial = new THREE.MeshBasicMaterial({
-    color:0xff0000,
-    transparent:true,
-    opacity:0.5
-});
-const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-ring.rotation.x = Math.PI/2;
-scene.add(ring);
-
-/* FLOATING PARTICLES */
-const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = 1200;
-const posArray = new Float32Array(particlesCount * 3);
-
-for(let i=0;i<particlesCount*3;i++){
-    posArray[i] = (Math.random()-0.5)*50;
 }
 
-particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray,3));
-
-const particlesMaterial = new THREE.PointsMaterial({
-    size:0.1,
-    color:0xff0000,
-    transparent:true,
-    opacity:0.6
-});
-
-const particlesMesh = new THREE.Points(particlesGeometry,particlesMaterial);
-scene.add(particlesMesh);
-
-camera.position.z = 14;
-
-/* ANIMATION */
-function animate(){
-    requestAnimationFrame(animate);
-
-    globe.rotation.y += 0.0035;
-    globe.rotation.x += 0.001;
-
-    ring.rotation.z += 0.004;
-
-    particlesMesh.rotation.y += 0.0008;
-
-    renderer.render(scene,camera);
-}
-animate();
-
-window.addEventListener("resize",()=>{
-    camera.aspect = container.clientWidth/container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth,container.clientHeight);
-});
-}
 </script>
 
-<!-- ORIGINAL SITE SCRIPT -->
+
+<!-- COUNTER SCRIPT -->
+
 <script>
+
 const counters=document.querySelectorAll('.counter');
+
 let counterStarted=false;
 
 function startCounters(){
+
 counters.forEach(counter=>{
+
 const updateCount=()=>{
+
 const target=+counter.getAttribute('data-target');
+
 const count=+counter.innerText;
-const speed=200;
-const increment=target/speed;
+
+const increment=target/200;
+
 if(count<target){
+
 counter.innerText=Math.ceil(count+increment);
+
 setTimeout(updateCount,15);
-}else{
-counter.innerText=target+"+";
+
 }
+
+else{
+
+counter.innerText=target+"+";
+
+}
+
 };
+
 updateCount();
+
 });
+
 }
 
 window.addEventListener('scroll',()=>{
-const aboutSection=document.getElementById('about');
-const sectionTop=aboutSection.offsetTop;
-const sectionHeight=aboutSection.offsetHeight;
+
+const about=document.getElementById('about');
+
 const scrollPosition=window.scrollY+window.innerHeight;
-if(scrollPosition>sectionTop+sectionHeight/4&&!counterStarted){
+
+if(scrollPosition>about.offsetTop && !counterStarted){
+
 startCounters();
+
 counterStarted=true;
+
 }
+
 });
 
-const form=document.getElementById("reportForm");
-form.addEventListener("submit",async function(e){
-e.preventDefault();
-const formData=new FormData(form);
-const scriptURL="YOUR_GOOGLE_SCRIPT_URL_HERE";
-try{
-await fetch(scriptURL,{method:"POST",body:formData});
-alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
-form.reset();
-}catch(error){
-alert("Submission failed. Please try again.");
-}
-});
 </script>
 
+
+<!-- FORM SUBMISSION -->
+
+<script>
+
+const form=document.getElementById("reportForm");
+
+form.addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const formData=new FormData(form);
+
+const scriptURL="YOUR_GOOGLE_SCRIPT_URL_HERE";
+
+try{
+
+await fetch(scriptURL,{
+method:"POST",
+body:formData
+});
+
+alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
+
+form.reset();
+
+}
+
+catch(error){
+
+alert("Submission failed. Please try again.");
+
+}
+
+});
+
+</script>
+
+
 </body>
+
 </html>
