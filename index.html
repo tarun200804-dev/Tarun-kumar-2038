@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4"/>
 <meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
 <meta name="author" content="Tarun Kumar">
-
 <title>The Reality Show - Tarun Kumar</title>
 
 <link rel="stylesheet" href="style.css">
@@ -37,39 +35,44 @@ body{
 }
 
 .trailer-text{
-  font-size:40px;
-  letter-spacing:3px;
+  font-size:50px;
+  letter-spacing:4px;
   opacity:0;
   animation:fadeText 2s forwards;
 }
 
 @keyframes fadeText{
-  0%{opacity:0; transform:translateY(30px)}
-  100%{opacity:1}
+  0%{opacity:0; transform:translateY(30px);}
+  100%{opacity:1;}
 }
 
 .trailer-sub{
   margin-top:20px;
-  font-size:18px;
-  opacity:.7;
+  font-size:20px;
+  opacity:0;
   animation:fadeSub 2s 2s forwards;
 }
 
 @keyframes fadeSub{
-  0%{opacity:0; transform:translateY(20px)}
-  100%{opacity:0.7; transform:translateY(0)}
+  0%{opacity:0; transform:translateY(20px);}
+  100%{opacity:0.8; transform:translateY(0);}
 }
 
 .entry-button{
   margin-top:50px;
-  padding:18px 50px;
+  padding:20px 60px;
   background:linear-gradient(45deg,#ff0000,#990000);
   border:none;
-  font-size:18px;
+  font-size:20px;
   color:white;
   cursor:pointer;
   border-radius:8px;
   box-shadow:0 0 20px red;
+  transition:0.3s;
+}
+.entry-button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px red;
 }
 
 canvas{
@@ -261,7 +264,7 @@ footer{
 © THE REALITY SHOW | Developed by Tarun Kumar
 </footer>
 
-<!-- THREE JS -->
+<!-- THREE JS GLOBE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const container=document.getElementById("globe-container");
@@ -285,7 +288,7 @@ function animateGlobe(){
 animateGlobe();
 </script>
 
-<!-- CINEMATIC ENTRY & PARTICLES -->
+<!-- CINEMATIC ENTRY PARTICLES & BUTTON -->
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   const entry = document.getElementById("cinematic-entry");
@@ -342,11 +345,10 @@ document.addEventListener("DOMContentLoaded", function(){
     sound.currentTime = 0;
     sound.play();
     explode();
-    entry.style.transition = "opacity 2s ease, visibility 2s ease";
+    entry.style.transition = "opacity 2s ease";
     entry.style.opacity = 0;
     setTimeout(()=>{ entry.style.display="none"; }, 2000);
   });
-
 });
 </script>
 
