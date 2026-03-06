@@ -1,327 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-
-<meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4"/>
+<meta name="google-site-verification" content="hzt82v-V1XCgra8vZiNmrFf5Wu3qnYxGzBpjRnPSZj4" />
 <meta name="description" content="The Reality Show - A platform dedicated to transparency and accountability.">
 <meta name="author" content="Tarun Kumar">
-
 <title>The Reality Show - Tarun Kumar</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="tk.css">
 
 <style>
-
 .hero{
-position:relative;
-overflow:hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 #globe-container{
-position:absolute;
-width:750px;
-height:750px;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-opacity:0.15;
-z-index:0;
-pointer-events:none;
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.26;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-content{
-position:relative;
-z-index:2;
+    position: relative;
+    z-index: 2;
 }
-
-/* ENTRY SCREEN */
-
-#cinematic-entry{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-z-index:9999;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-transition: opacity 1s ease;
-}
-
-.entry-text{
-font-size:42px;
-color:white;
-margin-bottom:30px;
-}
-
-.entry-button{
-padding:15px 40px;
-background:red;
-color:white;
-cursor:pointer;
-font-weight:bold;
-border-radius:5px;
-}
-
-#blast-canvas{
-position:absolute;
-top:0;
-left:0;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<!-- ENTRY SCREEN -->
-<div id="cinematic-entry">
-  <div class="entry-text">ENTER THE REALITY</div>
-  <div class="entry-button">CLICK TO BEGIN</div>
-  <canvas id="blast-canvas"></canvas>
-  <audio id="blastSound">
-    <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3">
-  </audio>
-</div>
-
-<header></header>
+<header>
+    <div class="logo">THE TARUN KUMAR STUDIO</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#initiative">Initiative</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Secure Report</a>
+    </nav>
+</header>
 
 <section class="hero" id="home">
-<div id="globe-container"></div>
-<div class="hero-content">
-<h1>THE <span>REALITY SHOW</span></h1>
-<p>
-A platform committed to investigative transparency,
-evidence-based reporting, and responsible public disclosure.
-</p>
-<a href="#initiative" class="btn">Enter Investigation</a>
-</div>
+    <div id="globe-container"></div>
+
+    <div class="hero-content">
+        <h1>THE <span>REALITY SHOW</span></h1>
+        <p>
+            A platform committed to investigative transparency,
+            evidence-based reporting, and responsible public disclosure.
+        </p>
+        <a href="#initiative" class="btn">Enter Investigation</a>
+    </div>
 </section>
 
 <section id="about">
-<h2 class="section-title">About Tarun Kumar</h2>
-<p>
-The Reality Show is an independent initiative focused on civic awareness,
-ethical investigation, and accountability in governance.
-Guided by the principles of truth, law, and public responsibility.
-</p>
+    <h2 class="section-title">About Tarun Kumar</h2>
+    <p>
+        The Reality Show is an independent initiative focused on civic awareness,
+        ethical investigation, and accountability in governance.
+        Guided by the principles of truth, law, and public responsibility.
+    </p>
 
-<div class="stats">
-<div class="stat">
-<h2 class="counter" data-target="100">0</h2>
-<p>Investigations Planned</p>
-</div>
-<div class="stat">
-<h2 class="counter" data-target="50">0</h2>
-<p>Research Analysts</p>
-</div>
-<div class="stat">
-<h2>24/7</h2>
-<p>Secure Reporting</p>
-</div>
-</div>
+    <div class="stats">
+        <div class="stat">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Investigations Planned</p>
+        </div>
+        <div class="stat">
+            <h2 class="counter" data-target="50">0</h2>
+            <p>Research Analysts</p>
+        </div>
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Secure Reporting</p>
+        </div>
+    </div>
 </section>
 
 <section id="initiative">
-<h2 class="section-title">The National Initiative</h2>
-<div class="card-container">
-<a href="political-transparency.html" class="card-link">
-<div class="card">
-<h3>Political Transparency</h3>
-<p>Direct dialogue and accountability discussions.</p>
-</div>
-</a>
+    <h2 class="section-title">The National Initiative</h2>
+    <div class="card-container">
+        <a href="political-transparency.html" class="card-link">
+            <div class="card">
+                <h3>Political Transparency</h3>
+                <p>Direct dialogue and accountability discussions.</p>
+            </div>
+        </a>
+        <a href="whistleblower.html" class="card-link">
+            <div class="card">
+                <h3>Whistleblower Shield</h3>
+                <p>Confidential investigation of misconduct.</p>
+            </div>
+        </a>
+        <a href="evidence-reporting.html" class="card-link">
+            <div class="card">
+                <h3>Evidence-Based Reporting</h3>
+                <p>Verified documentation and analysis.</p>
+            </div>
+        </a>
+        <a href="citizen-awareness.html" class="card-link">
+            <div class="card">
+                <h3>Citizen Awareness Campaigns</h3>
+                <p>Educating communities on rights and governance.</p>
+            </div>
+        </a>
+    </div>
+</section>
 
-<a href="whistleblower.html" class="card-link">
-<div class="card">
-<h3>Whistleblower Shield</h3>
-<p>Confidential investigation of misconduct.</p>
-</div>
-</a>
-
-<a href="evidence-reporting.html" class="card-link">
-<div class="card">
-<h3>Evidence-Based Reporting</h3>
-<p>Verified documentation and analysis.</p>
-</div>
-</a>
-
-<a href="citizen-awareness.html" class="card-link">
-<div class="card">
-<h3>Citizen Awareness Campaigns</h3>
-<p>Educating communities on rights and governance.</p>
-</div>
-</a>
-</div>
+<section id="timeline">
+    <h2 class="section-title">Investigation Framework</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>Phase 1 – Data Collection</h4>
+            <p>Authentic accounts and verified documentation.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Phase 2 – Verification & Legal Review</h4>
+            <p>Cross-checking evidence with experts.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Phase 3 – Documentary Reconstruction</h4>
+            <p>Structuring findings with clarity.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Phase 4 – Public Disclosure</h4>
+            <p>Responsible publishing in public interest.</p>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
-<h2 class="section-title">Secure & Confidential Report</h2>
-<form id="reportForm">
-<input type="text" name="name" placeholder="Full Name (Optional)">
-<input type="email" name="email" placeholder="Secure Email (Optional)">
-<textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
-<button type="submit">Submit Securely</button>
-</form>
+    <h2 class="section-title">Secure & Confidential Report</h2>
+    <form id="reportForm">
+        <input type="text" name="name" placeholder="Full Name (Optional)">
+        <input type="email" name="email" placeholder="Secure Email (Optional)">
+        <textarea name="message" rows="6" placeholder="Describe the issue or provide evidence..."></textarea>
+        <button type="submit">Submit Securely</button>
+    </form>
 </section>
 
 <footer>
-© THE REALITY SHOW | Developed by Tarun Kumar
-<br>
-Promoting lawful investigative reporting and transparency.
+    © THE REALITY SHOW | Developed by Tarun Kumar
+    <br>
+    Promoting lawful investigative reporting and transparency.
 </footer>
 
-<!-- THREE JS -->
+<!-- ===== ULTRA CINEMATIC GLASS GLOBE ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
-const container=document.getElementById("globe-container");
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(45,1,0.1,1000);
-const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
-renderer.setSize(750,750);
+const container = document.getElementById("globe-container");
+
+if(container){
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+45,
+container.clientWidth/container.clientHeight,
+0.1,
+1000
+);
+
+const renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+renderer.setSize(container.clientWidth,container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.physicallyCorrectLights = true;
 container.appendChild(renderer.domElement);
 
-const globeGeometry=new THREE.SphereGeometry(5,128,128);
-const globeMaterial=new THREE.MeshBasicMaterial({
-color:0xff1a1a,
-wireframe:true
-});
-const globe=new THREE.Mesh(globeGeometry,globeMaterial);
+/* LIGHTING */
+const ambient = new THREE.AmbientLight(0xffffff,0.35);
+scene.add(ambient);
+
+const movingLight = new THREE.PointLight(0xff0000,2.5,100);
+scene.add(movingLight);
+
+const rimLight = new THREE.PointLight(0xffffff,1.2,100);
+rimLight.position.set(-15,-5,20);
+scene.add(rimLight);
+
+/* GLASS GLOBE */
+const globe = new THREE.Mesh(
+new THREE.SphereGeometry(5,128,128),
+new THREE.MeshPhysicalMaterial({
+color:0xffffff,
+metalness:0,
+roughness:0,
+transmission:1,
+thickness:2,
+clearcoat:1,
+clearcoatRoughness:0,
+reflectivity:1,
+transparent:true,
+opacity:0.95
+})
+);
 scene.add(globe);
 
-camera.position.z=14;
+/* INNER CORE */
+const core = new THREE.Mesh(
+new THREE.SphereGeometry(4.4,64,64),
+new THREE.MeshBasicMaterial({
+color:0xff0000,
+transparent:true,
+opacity:0.18
+})
+);
+scene.add(core);
+
+/* RINGS */
+const ring1 = new THREE.Mesh(
+new THREE.TorusGeometry(6.5,0.05,16,200),
+new THREE.MeshBasicMaterial({color:0xff0000,transparent:true,opacity:0.5})
+);
+ring1.rotation.x = Math.PI/2;
+scene.add(ring1);
+
+const ring2 = new THREE.Mesh(
+new THREE.TorusGeometry(7.5,0.04,16,200),
+new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.3})
+);
+ring2.rotation.y = Math.PI/3;
+scene.add(ring2);
+
+/* PARTICLES */
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 1200;
+const posArray = new Float32Array(particlesCount * 3);
+
+for(let i=0;i<particlesCount*3;i++){
+posArray[i] = (Math.random()-0.5)*60;
+}
+
+particlesGeometry.setAttribute(
+'position',
+new THREE.BufferAttribute(posArray,3)
+);
+
+const particlesMaterial = new THREE.PointsMaterial({
+size:0.12,
+color:0xff0000,
+transparent:true,
+opacity:0.4
+});
+
+const particles = new THREE.Points(particlesGeometry,particlesMaterial);
+scene.add(particles);
+
+camera.position.z = 14;
+
+let sweep = 0;
 
 function animate(){
 requestAnimationFrame(animate);
-globe.rotation.y+=0.003;
+
+globe.rotation.y += 0.002;
+ring1.rotation.z += 0.003;
+ring2.rotation.x += 0.002;
+particles.rotation.y += 0.0006;
+
+/* Breathing glow */
+core.material.opacity = 0.18 + Math.sin(Date.now()*0.002)*0.05;
+
+/* Light sweep */
+sweep += 0.01;
+movingLight.position.x = Math.sin(sweep)*15;
+movingLight.position.z = Math.cos(sweep)*15;
+
 renderer.render(scene,camera);
 }
+
 animate();
-</script>
 
-<!-- BLAST ENTRY SCRIPT (CORRECTED) -->
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  const entry = document.getElementById("cinematic-entry");
-  const btn = document.querySelector(".entry-button");
-  const canvas = document.getElementById("blast-canvas");
-  const ctx = canvas.getContext("2d");
-  const sound = document.getElementById("blastSound");
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let particles = [];
-
-  class Particle{
-    constructor(x,y){
-      this.x = x;
-      this.y = y;
-      this.vx = (Math.random()-0.5)*15;
-      this.vy = (Math.random()-0.5)*15;
-      this.size = Math.random()*5 + 2;
-      this.alpha = 1;
-    }
-    update(){
-      this.x += this.vx;
-      this.y += this.vy;
-      this.alpha -= 0.02;
-    }
-    draw(){
-      ctx.fillStyle = "rgba(255,0,0," + this.alpha + ")";
-      ctx.beginPath();
-      ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-      ctx.fill();
-    }
-  }
-
-  function explode(){
-    for(let i=0;i<300;i++){
-      particles.push(new Particle(canvas.width/2,canvas.height/2));
-    }
-  }
-
-  function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach((p,index)=>{
-      p.update();
-      p.draw();
-      if(p.alpha <= 0) particles.splice(index,1);
-    });
-    requestAnimationFrame(animateParticles);
-  }
-  animateParticles();
-
-  btn.addEventListener("click", function(){
-    sound.currentTime = 0;
-    sound.play();
-    explode();
-    setTimeout(function(){
-      entry.style.display = "none";
-    },2000);
-  });
-
+window.addEventListener("resize",()=>{
+camera.aspect = container.clientWidth/container.clientHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(container.clientWidth,container.clientHeight);
 });
-</script>
 
-<!-- COUNTER SCRIPT -->
-<script>
-const counters=document.querySelectorAll('.counter');
-let counterStarted=false;
-
-function startCounters(){
-counters.forEach(counter=>{
-const updateCount=()=>{
-const target=+counter.getAttribute('data-target');
-const count=+counter.innerText;
-const increment=target/200;
-if(count<target){
-counter.innerText=Math.ceil(count+increment);
-setTimeout(updateCount,15);
-} else {
-counter.innerText=target+"+";
 }
-};
-updateCount();
-});
-}
-
-window.addEventListener('scroll',()=>{
-const about=document.getElementById('about');
-const scrollPosition=window.scrollY+window.innerHeight;
-if(scrollPosition>about.offsetTop && !counterStarted){
-startCounters();
-counterStarted=true;
-}
-});
-</script>
-
-<!-- FORM SUBMISSION -->
-<script>
-const form=document.getElementById("reportForm");
-form.addEventListener("submit",async function(e){
-e.preventDefault();
-const formData=new FormData(form);
-const scriptURL="YOUR_GOOGLE_SCRIPT_URL_HERE";
-try{
-await fetch(scriptURL,{
-method:"POST",
-body:formData
-});
-alert("Report Submitted Securely ✅ to the server developed by TARUN KUMAR");
-form.reset();
-} catch(error){
-alert("Submission failed. Please try again.");
-}
-});
 </script>
 
 </body>
