@@ -33,22 +33,152 @@
     z-index: 2;
 }
 </style>
-
 </head>
+ <script>
+
+const entry = document.getElementById("cinematic-entry");
+const btn = document.querySelector(".entry-button");
+const canvas = document.getElementById("blast-canvas");
+const ctx = canvas.getContext("2d");
+const sound = document.getElementById("blastSound");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+/* PARTICLE CLASS */
+
+class Particle{
+
+constructor(x,y){
+
+this.x = x;
+this.y = y;
+
+this.vx = (Math.random()-0.5)*12;
+this.vy = (Math.random()-0.5)*12;
+
+this.size = Math.random()*4+2;
+
+this.alpha = 1;
+
+}
+
+update(){
+
+this.x += this.vx;
+this.y += this.vy;
+
+this.alpha -= 0.02;
+
+}
+
+draw(){
+
+ctx.fillStyle = "rgba(255,0,0,"+this.alpha+")";
+
+ctx.beginPath();
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+ctx.fill();
+
+}
+
+}
+
+/* CREATE EXPLOSION */
+
+function explode(){
+
+for(let i=0;i<250;i++){
+
+particles.push(
+new Particle(canvas.width/2,canvas.height/2)
+);
+
+}
+
+}
+
+/* PARTICLE LOOP */
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((p,index)=>{
+
+p.update();
+p.draw();
+
+if(p.alpha<=0){
+
+particles.splice(index,1);
+
+}
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+/* CLICK EVENT */
+
+btn.addEventListener("click",()=>{
+
+sound.play();
+
+explode();
+
+/* glass crack */
+
+const crack = document.createElement("div");
+
+crack.classList.add("crack","show");
+
+entry.appendChild(crack);
+
+/* zoom cinematic */
+
+entry.classList.add("zoom-out");
+
+/* remove intro */
+
+setTimeout(()=>{
+
+entry.style.display="none";
+
+},2000);
+
+});
+
+</script>
 <body>
-<!-- BLAST ENTRY EFFECT -->
-<div id="entry-blast">
-    <div class="gift-box">🎁</div>
+<!-- CINEMATIC ENTRY -->
+<div id="cinematic-entry">
+
+<div class="entry-center">
+
+<div class="entry-text">
+ENTER THE REALITY
 </div>
-<header>
-    <div class="logo">THE TARUN KUMAR STUDIO</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#initiative">Initiative</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#contact">Secure Report</a>
-    </nav>
+
+<div class="entry-button">
+CLICK TO BEGIN
+</div>
+
+</div>
+
+<canvas id="blast-canvas"></canvas>
+
+<audio id="blastSound">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3">
+</audio>
+
+</div>
 </header>
 
 <section class="hero" id="home">
