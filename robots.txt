@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tarun200804-dev.github.io/Tarun-kumar-2038/sitemap.xml
