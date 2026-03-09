@@ -462,3 +462,40 @@ flex-direction:column;
 }
 
 }
+/* TARUN KUMAR STUDIO LOGO STYLE */
+
+.logo{
+font-size:28px;
+font-weight:900;
+letter-spacing:3px;
+color:#ffffff;
+font-family: 'Segoe UI', Arial, sans-serif;
+
+/* glow effect */
+text-shadow:
+0 0 5px #ff0000,
+0 0 10px #ff0000,
+0 0 20px #ff0000,
+0 0 40px rgba(255,0,0,0.8);
+
+/* smooth animation */
+animation: glowPulse 2s infinite alternate;
+}
+
+/* glow animation */
+@keyframes glowPulse{
+from{
+text-shadow:
+0 0 5px #ff0000,
+0 0 10px #ff0000,
+0 0 20px #ff0000;
+}
+
+to{
+text-shadow:
+0 0 10px #ff0000,
+0 0 20px #ff0000,
+0 0 40px #ff0000,
+0 0 60px rgba(255,0,0,0.9);
+}
+}
