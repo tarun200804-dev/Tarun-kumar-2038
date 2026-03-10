@@ -471,11 +471,6 @@ letter-spacing:3px;
 color:#ffffff;
 font-family: 'Segoe UI', Arial, sans-serif;
 
-/* glow effect */
-text-shadow:
-0 0 5px #ff0000,
-0 0 10px #ff0000,
-0 0 20px #ff0000,
-0 0 40px rgba(255,0,0,0.8);
+
 
 
