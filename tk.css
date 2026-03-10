@@ -470,6 +470,61 @@ font-weight:900;
 letter-spacing:3px;
 color:#ffffff;
 font-family: 'Segoe UI', Arial, sans-serif;
+/* LOGIN PAGE */
+
+.login-container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:80vh;
+}
+
+.login-box{
+
+background:rgba(0,0,0,0.85);
+padding:40px;
+border-radius:8px;
+width:350px;
+text-align:center;
+
+box-shadow:0 0 30px rgba(255,0,0,0.4);
+}
+
+.login-box h2{
+color:white;
+margin-bottom:20px;
+}
+
+.login-box input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:4px;
+background:#111;
+color:white;
+
+}
+
+.login-btn{
+
+background:red;
+color:white;
+padding:12px;
+width:100%;
+border:none;
+cursor:pointer;
+font-weight:bold;
+border-radius:4px;
+
+}
+
+.login-btn:hover{
+
+background:#ff3333;
+
+}
 
 
 
