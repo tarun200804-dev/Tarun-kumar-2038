@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+</head>
+
+<body>
+
+<h2>Create Account</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signup()">Signup</button>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import { createUserWithEmailAndPassword }
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+import { doc, setDoc }
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+function signup(){
+
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+createUserWithEmailAndPassword(auth,email,password)
+
+.then(async(userCredential)=>{
+
+await setDoc(doc(db,"users",userCredential.user.uid),{
+
+email:email,
+created:new Date()
+
+});
+
+alert("Account created");
+
+window.location="login.html";
+
+})
+
+.catch(error=>{
+
+alert(error.message);
+
+});
+
+}
+
+window.signup=signup;
+
+</script>
+
+</body>
+</html>
