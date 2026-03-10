@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - The Reality Show</title>
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p>No account?</p>
+
+<a href="signup.html">Create Account</a>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword }
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+function login(){
+
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+window.location="dashboard.html";
+
+})
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+}
+
+window.login=login;
+
+</script>
+
+</body>
+</html>
