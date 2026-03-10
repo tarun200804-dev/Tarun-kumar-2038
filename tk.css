@@ -478,24 +478,4 @@ text-shadow:
 0 0 20px #ff0000,
 0 0 40px rgba(255,0,0,0.8);
 
-/* smooth animation */
-animation: glowPulse 2s infinite alternate;
-}
 
-/* glow animation */
-@keyframes glowPulse{
-from{
-text-shadow:
-0 0 5px #ff0000,
-0 0 10px #ff0000,
-0 0 20px #ff0000;
-}
-
-to{
-text-shadow:
-0 0 10px #ff0000,
-0 0 20px #ff0000,
-0 0 40px #ff0000,
-0 0 60px rgba(255,0,0,0.9);
-}
-}
