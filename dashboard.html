@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
+
+<body>
+
+<h1>Welcome to The Reality Show Dashboard</h1>
+
+<button onclick="logout()">Logout</button>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import { onAuthStateChanged, signOut }
+
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+onAuthStateChanged(auth,(user)=>{
+
+if(!user){
+
+window.location="login.html";
+
+}
+
+});
+
+function logout(){
+
+signOut(auth).then(()=>{
+
+window.location="index.html";
+
+});
+
+}
+
+window.logout=logout;
+
+</script>
+
+</body>
+</html>
