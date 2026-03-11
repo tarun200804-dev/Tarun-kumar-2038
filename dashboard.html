@@ -1,14 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Dashboard</title>
+
+<meta charset="UTF-8">
+<title>Dashboard - Reality Show</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.dashboard{
+
+text-align:center;
+margin-top:120px;
+color:white;
+
+}
+
+.logout-btn{
+
+padding:12px 25px;
+background:red;
+border:none;
+color:white;
+cursor:pointer;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Welcome to The Reality Show Dashboard</h1>
+<header>
 
-<button onclick="logout()">Logout</button>
+<div class="logo">THE TARUN KUMAR STUDIO</div>
+
+</header>
+
+<div class="dashboard">
+
+<h1>Investigator Dashboard</h1>
+
+<p id="userEmail"></p>
+
+<button onclick="logout()" class="logout-btn">
+Logout
+</button>
+
+</div>
+
 
 <script type="module">
 
@@ -20,7 +63,14 @@ from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 onAuthStateChanged(auth,(user)=>{
 
-if(!user){
+if(user){
+
+document.getElementById("userEmail").innerText =
+"Logged in as: " + user.email;
+
+}
+
+else{
 
 window.location="login.html";
 
@@ -38,7 +88,7 @@ window.location="index.html";
 
 }
 
-window.logout=logout;
+window.logout = logout;
 
 </script>
 
