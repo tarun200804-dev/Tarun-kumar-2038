@@ -1,189 +1,163 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Gym</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAR-ROOM | Commercial Gym Equipment</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: #ff3c00; /* Industrial Alert Red */
+            --steel-dark: #1a1a1a;
+            --iron-black: #0d0d0d;
+            --plate-gray: #e0e0e0;
+            --border: #333;
+        }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--iron-black); color: white; }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 30px;
-  background: black;
-  position: sticky;
-  top: 0;
-}
+        /* --- Authentic Gym Header --- */
+        header {
+            background: var(--iron-black); border-bottom: 2px solid var(--brand-red);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-family: 'Bebas Neue', cursive; font-size: 2.8rem; letter-spacing: 2px; }
+        .logo span { color: var(--brand-red); }
+        
+        .cat-nav a { 
+            color: white; text-decoration: none; margin-left: 25px; 
+            font-family: 'Bebas Neue'; font-size: 1.4rem; transition: 0.3s;
+        }
+        .cat-nav a:hover { color: var(--brand-red); }
 
-nav h2 { color: #00ff88; }
+        /* --- Hero: Gritty Industrial Look --- */
+        .hero {
+            height: 80vh; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent),
+            url('https://unsplash.com') center/cover;
+            display: flex; align-items: center; padding: 0 8%;
+        }
+        .hero-inner { max-width: 600px; border-left: 5px solid var(--brand-red); padding-left: 30px; }
+        .hero h1 { font-family: 'Bebas Neue'; font-size: 6rem; line-height: 0.9; margin-bottom: 15px; }
+        .hero p { text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 700; }
 
-/* HERO */
-.hero {
-  height: 90vh;
-  background: url('images/gym-bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+        /* --- Gym Category Strips --- */
+        .categories { display: grid; grid-template-columns: repeat(3, 1fr); height: 200px; }
+        .cat-box { 
+            position: relative; overflow: hidden; display: flex; 
+            align-items: center; justify-content: center; border: 1px solid #222;
+        }
+        .cat-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.5s; }
+        .cat-box h2 { position: absolute; font-family: 'Bebas Neue'; font-size: 2.5rem; pointer-events: none; }
+        .cat-box:hover img { opacity: 0.8; transform: scale(1.1); }
+        .cat-box:hover { border-bottom: 5px solid var(--brand-red); }
 
-.hero h1 {
-  font-size: 50px;
-  background: rgba(0,0,0,0.6);
-  padding: 20px;
-  border-radius: 10px;
-}
+        /* --- Product Grid: Rugged & Functional --- */
+        .inventory { padding: 80px 8%; }
+        .label { font-family: 'Bebas Neue'; font-size: 3rem; margin-bottom: 40px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        
+        .item-card { 
+            background: var(--steel-dark); border: 1px solid var(--border); 
+            padding-bottom: 20px; transition: 0.3s;
+        }
+        .item-card:hover { border-color: var(--brand-red); background: #222; }
+        
+        .item-img { width: 100%; height: 300px; object-fit: cover; background: #000; }
+        
+        .item-meta { padding: 20px; }
+        .item-title { font-family: 'Bebas Neue'; font-size: 1.8rem; margin-bottom: 5px; }
+        .item-specs { color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; }
+        .item-price { font-size: 2rem; font-weight: 900; color: var(--brand-red); margin-bottom: 20px; }
 
-/* SECTION */
-.section {
-  padding: 50px 20px;
-  text-align: center;
-}
+        .btn-action {
+            display: block; text-align: center; background: white; color: black;
+            text-decoration: none; font-weight: 900; padding: 12px;
+            text-transform: uppercase; font-size: 0.9rem; transition: 0.3s;
+        }
+        .btn-action:hover { background: var(--brand-red); color: white; }
 
-.section h2 {
-  margin-bottom: 30px;
-  color: #00ff88;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* CARD */
-.card {
-  background: #1c1c1c;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.info {
-  padding: 15px;
-}
-
-.price {
-  color: #00ff88;
-  font-weight: bold;
-}
-
-/* GALLERY */
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* CONTACT */
-.contact {
-  background: black;
-  padding: 40px;
-}
-
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
-</style>
+        footer { padding: 50px; background: #000; text-align: center; border-top: 1px solid #222; color: #444; }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <h2>Elite Gym</h2>
-  <p>Transform Yourself</p>
-</nav>
+    <header>
+        <div class="logo">WAR<span>ROOM</span></div>
+        <nav class="cat-nav">
+            <a href="#">RACKS</a>
+            <a href="#">PLATES</a>
+            <a href="#">CARDIO</a>
+            <a href="#">WAREHOUSE</a>
+        </nav>
+    </header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Build Your Dream Body</h1>
-</div>
+    <section class="hero">
+        <div class="hero-inner">
+            <p>Commercial Grade Equipment</p>
+            <h1>FORGED IN <br>COLD STEEL</h1>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<div class="section">
-  <h2>About Us</h2>
-  <p>We provide world-class gym equipment and training environment to help you achieve your fitness goals.</p>
-</div>
+    <section class="categories">
+        <div class="cat-box">
+            <img src="https://unsplash.com">
+            <h2>STRENGTH</h2>
+        </div>
+        <div class="cat-box">
+            <img src="https://unsplash.com">
+            <h2>ENDURANCE</h2>
+        </div>
+        <div class="cat-box">
+            <img src="https://unsplash.com">
+            <h2>RECOVERY</h2>
+        </div>
+    </section>
 
-<!-- PRODUCTS -->
-<div class="section">
-  <h2>Our Equipment</h2>
-  <div class="grid">
+    <main class="inventory">
+        <h2 class="label">EQUIPMENT MANIFEST</h2>
+        
+        <div class="grid">
+            <!-- Product: Barbell -->
+            <article class="item-card">
+                <img src="https://unsplash.com" class="item-img">
+                <div class="item-meta">
+                    <h3 class="item-title">Olympic Chrome Barbell</h3>
+                    <p class="item-specs">20KG / 2200LB RATING / 28MM GRIP</p>
+                    <p class="item-price">$315.00</p>
+                    <a href="#" class="btn-action">Add to Manifest</a>
+                </div>
+            </article>
 
-    <div class="card">
-      <img src="images/product1.jpg">
-      <div class="info">
-        <h3>Dumbbells Set</h3>
-        <p class="price">₹2,999</p>
-      </div>
-    </div>
+            <!-- Product: Rack -->
+            <article class="item-card">
+                <img src="https://unsplash.com" class="item-img">
+                <div class="item-meta">
+                    <h3 class="item-title">Industrial Power Rack 3.0</h3>
+                    <h4 class="item-specs">3x3" STEEL / BOLT-DOWN READY</h4>
+                    <p class="item-price">$899.00</p>
+                    <a href="#" class="btn-action">Add to Manifest</a>
+                </div>
+            </article>
 
-    <div class="card">
-      <img src="images/product2.jpg">
-      <div class="info">
-        <h3>Bench Press</h3>
-        <p class="price">₹5,999</p>
-      </div>
-    </div>
+            <!-- Product: Plates -->
+            <article class="item-card">
+                <img src="https://unsplash.com" class="item-img">
+                <div class="item-meta">
+                    <h3 class="item-title">Competition Bumper Plates</h3>
+                    <h4 class="item-specs">URETHANE / IWF STANDARD</h4>
+                    <p class="item-price">$540.00</p>
+                    <a href="#" class="btn-action">Add to Manifest</a>
+                </div>
+            </article>
+        </div>
+    </main>
 
-    <div class="card">
-      <img src="images/product3.jpg">
-      <div class="info">
-        <h3>Treadmill</h3>
-        <p class="price">₹25,000</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- GALLERY -->
-<div class="section">
-  <h2>Gallery</h2>
-  <div class="grid gallery">
-    <img src="images/gym1.jpg">
-    <img src="images/gym2.jpg">
-    <img src="images/gym3.jpg">
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact">
-  <h2>Contact Us</h2>
-  <p>📍 Your City</p>
-  <p>📞 +91 9876543210</p>
-</div>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/919876543210" class="whatsapp">💬</a>
+    <footer>
+        <p>WAR-ROOM EQUIPMENT CO. | LOCAL WAREHOUSE PICKUP ONLY</p>
+    </footer>
 
 </body>
 </html>
